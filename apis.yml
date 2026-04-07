@@ -1,7 +1,12 @@
 aid: activision-blizzard
-url: https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/apis.yml
 modified: '2026-03-23'
 apis: []
 common:
   - type: Website
     url: https://www.activision-blizzard.com
+description: >-
+  Activision Blizzard is a global video game developer and publisher producing franchises
+  including Call of Duty, World of Warcraft, Diablo, Overwatch, and Candy Crush across
+  console, PC, and mobile platforms.
