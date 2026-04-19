@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-schema/activision-blizzard-wo-w-realm-schema.json",
+  "title": "WoWRealm",
+  "description": "A World of Warcraft realm",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Realm ID",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "Realm name",
+      "example": "Area 52"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Realm slug",
+      "example": "area-52"
+    },
+    "region": {
+      "type": "object",
+      "description": "Region reference"
+    },
+    "category": {
+      "type": "string",
+      "description": "Realm category",
+      "example": "United States"
+    },
+    "locale": {
+      "type": "string",
+      "description": "Realm locale",
+      "example": "en_US"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Realm timezone",
+      "example": "America/New_York"
+    },
+    "type": {
+      "type": "object",
+      "description": "Realm type (Normal, RP, etc.)"
+    },
+    "is_tournament": {
+      "type": "boolean",
+      "description": "Whether this is a tournament realm"
+    }
+  }
+}

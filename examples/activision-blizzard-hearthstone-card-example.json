@@ -1,0 +1,22 @@
+{
+  "id": 1234,
+  "collectible": 1,
+  "slug": "ragnaros-the-firelord",
+  "classId": 1,
+  "multiClassIds": [
+    42
+  ],
+  "cardTypeId": 4,
+  "cardSetId": 2,
+  "rarityId": 5,
+  "artistName": "Alex Horley",
+  "health": 8,
+  "attack": 8,
+  "manaCost": 8,
+  "name": "Ragnaros the Firelord",
+  "text": "example-value",
+  "image": "https://example.com",
+  "imageGold": "https://example.com",
+  "flavorText": "example-value",
+  "cropImage": "https://example.com"
+}

@@ -1,0 +1,158 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Activision Blizzard Game Data"
+  description: "Unified game data workflow for accessing World of Warcraft characters, realms, guilds, items, Hearthstone cards, Diablo III profiles, and StarCraft II ladder data. Used by game developers, community app builders, and gaming analytics teams."
+  tags:
+    - Activision Blizzard
+    - Battle.net
+    - Gaming
+    - World of Warcraft
+    - Hearthstone
+    - Diablo
+    - StarCraft
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      BATTLENET_CLIENT_ID: BATTLENET_CLIENT_ID
+      BATTLENET_CLIENT_SECRET: BATTLENET_CLIENT_SECRET
+      BATTLENET_ACCESS_TOKEN: BATTLENET_ACCESS_TOKEN
+
+capability:
+  consumes:
+    - import: battle-net
+      location: ./shared/battle-net.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: game-data-api
+      description: "Unified REST API for Activision Blizzard game data."
+      resources:
+        - path: /v1/wow/characters/{realmSlug}/{characterName}
+          name: wow-characters
+          description: "World of Warcraft character data"
+          operations:
+            - method: GET
+              name: get-wow-character
+              description: "Get a WoW character profile"
+              call: "battle-net.get-character"
+              with:
+                realmSlug: "rest.realmSlug"
+                characterName: "rest.characterName"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/wow/realms
+          name: wow-realms
+          description: "World of Warcraft realms"
+          operations:
+            - method: GET
+              name: get-wow-realms
+              description: "Get WoW realm list"
+              call: "battle-net.get-realms-index"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/hearthstone/cards
+          name: hearthstone-cards
+          description: "Hearthstone card data"
+          operations:
+            - method: GET
+              name: search-hearthstone-cards
+              description: "Search Hearthstone cards"
+              call: "battle-net.search-cards"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/diablo/profiles/{battletag}
+          name: diablo-profiles
+          description: "Diablo III profiles"
+          operations:
+            - method: GET
+              name: get-diablo-profile
+              description: "Get Diablo III career profile"
+              call: "battle-net.get-career-profile"
+              with:
+                battletag: "rest.battletag"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: game-data-mcp
+      transport: http
+      description: "MCP server for AI-assisted access to Activision Blizzard game data."
+      tools:
+        - name: get-wow-character
+          description: "Get a World of Warcraft character profile including level, class, race, guild, and achievement points"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "battle-net.get-character"
+          with:
+            realmSlug: "tools.realmSlug"
+            characterName: "tools.characterName"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-wow-character-achievements
+          description: "Get the achievements completed by a World of Warcraft character"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "battle-net.get-character-achievements"
+          with:
+            realmSlug: "tools.realmSlug"
+            characterName: "tools.characterName"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-wow-realms
+          description: "Get the list of World of Warcraft realms"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "battle-net.get-realms-index"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: search-hearthstone-cards
+          description: "Search Hearthstone cards by class, set, mana cost, or other criteria"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "battle-net.search-cards"
+          with:
+            class: "tools.class"
+            set: "tools.set"
+            manaCost: "tools.manaCost"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-hearthstone-card
+          description: "Get a specific Hearthstone card by ID or slug"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "battle-net.get-card"
+          with:
+            idOrSlug: "tools.idOrSlug"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-diablo-career-profile
+          description: "Get a Diablo III career profile for a BattleTag account"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "battle-net.get-career-profile"
+          with:
+            battletag: "tools.battletag"
+          outputParameters:
+            - type: object
+              mapping: "$."

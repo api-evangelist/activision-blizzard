@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-structure/activision-blizzard-wo-w-character-achievements-structure.json",
+  "name": "WoWCharacterAchievements",
+  "description": "Character achievements summary",
+  "type": "object",
+  "properties": {
+    "total_quantity": {
+      "type": "int32",
+      "description": "Total achievements completed",
+      "example": 2500
+    },
+    "total_points": {
+      "type": "int32",
+      "description": "Total achievement points",
+      "example": 15000
+    },
+    "achievements": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "List of completed achievements"
+    }
+  }
+}

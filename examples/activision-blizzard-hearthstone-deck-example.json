@@ -1,0 +1,12 @@
+{
+  "deckCode": "AAECAQcG0LQDubQD3rUD57UDibYDvbYDDI...",
+  "version": 1,
+  "format": {},
+  "hero": "example-value",
+  "heroPower": "example-value",
+  "class": {},
+  "cards": [
+    "example-value"
+  ],
+  "cardCount": 30
+}

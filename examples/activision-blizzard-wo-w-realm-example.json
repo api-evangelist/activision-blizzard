@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "name": "Area 52",
+  "slug": "area-52",
+  "region": {},
+  "category": "United States",
+  "locale": "en_US",
+  "timezone": "America/New_York",
+  "type": {},
+  "is_tournament": true
+}

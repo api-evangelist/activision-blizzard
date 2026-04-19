@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-structure/activision-blizzard-wo-w-guild-structure.json",
+  "name": "WoWGuild",
+  "description": "A World of Warcraft guild",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "description": "Guild ID",
+      "example": 789012
+    },
+    "name": {
+      "type": "string",
+      "description": "Guild name",
+      "example": "The Exodar"
+    },
+    "faction": {
+      "type": "object",
+      "description": "Guild faction"
+    },
+    "realm": {
+      "$ref": "#/components/schemas/WoWRealm"
+    },
+    "member_count": {
+      "type": "int32",
+      "description": "Number of guild members",
+      "example": 150
+    },
+    "achievement_points": {
+      "type": "int32",
+      "description": "Guild achievement points",
+      "example": 5000
+    }
+  }
+}

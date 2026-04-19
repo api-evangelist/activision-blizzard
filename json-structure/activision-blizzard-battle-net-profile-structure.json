@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-structure/activision-blizzard-battle-net-profile-structure.json",
+  "name": "BattleNetProfile",
+  "description": "Battle.net account profile",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "description": "Account ID",
+      "example": 12345678
+    },
+    "battletag": {
+      "type": "string",
+      "description": "Battle.net BattleTag",
+      "example": "Player#1234"
+    },
+    "sub": {
+      "type": "string",
+      "description": "OAuth2 subject identifier"
+    }
+  }
+}

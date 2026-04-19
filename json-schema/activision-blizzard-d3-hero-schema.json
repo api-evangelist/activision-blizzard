@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-schema/activision-blizzard-d3-hero-schema.json",
+  "title": "D3Hero",
+  "description": "A Diablo III hero",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Hero ID",
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "description": "Hero name",
+      "example": "Zul'jin"
+    },
+    "class": {
+      "type": "string",
+      "description": "Hero class",
+      "example": "barbarian"
+    },
+    "gender": {
+      "type": "integer",
+      "description": "Hero gender (0=male, 1=female)",
+      "example": 0
+    },
+    "level": {
+      "type": "integer",
+      "description": "Hero level",
+      "example": 70
+    },
+    "paragonLevel": {
+      "type": "integer",
+      "description": "Paragon level",
+      "example": 1500
+    },
+    "hardcore": {
+      "type": "boolean",
+      "description": "Whether this is a hardcore hero"
+    },
+    "seasonal": {
+      "type": "boolean",
+      "description": "Whether this is a seasonal hero"
+    },
+    "dead": {
+      "type": "boolean",
+      "description": "Whether this hero is dead"
+    },
+    "kills": {
+      "type": "object",
+      "description": "Kill statistics"
+    },
+    "skills": {
+      "type": "object",
+      "description": "Hero skills and runes"
+    },
+    "items": {
+      "type": "object",
+      "description": "Equipped items"
+    },
+    "stats": {
+      "type": "object",
+      "description": "Character stats"
+    }
+  }
+}

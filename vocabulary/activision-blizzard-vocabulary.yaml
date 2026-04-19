@@ -1,0 +1,226 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Activision Blizzard"
+  description: "Unified taxonomy mapping operational (OpenAPI) and capability (Naftiko) dimensions for Activision Blizzard's Battle.net game data APIs."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: Battle.net API
+      namespace: battle-net
+      version: "1.0.0"
+      baseUrl: "https://{region}.api.blizzard.com"
+      status: active
+
+  resources:
+    - name: wow-character
+      api: battle-net
+      description: "World of Warcraft player character with stats, achievements, and equipment"
+      actions: [get, get-achievements, get-equipment]
+    - name: wow-realm
+      api: battle-net
+      description: "World of Warcraft server realms"
+      actions: [list, get]
+    - name: wow-guild
+      api: battle-net
+      description: "World of Warcraft player guilds"
+      actions: [get]
+    - name: wow-item
+      api: battle-net
+      description: "World of Warcraft in-game items"
+      actions: [get]
+    - name: hearthstone-card
+      api: battle-net
+      description: "Hearthstone collectible card game cards"
+      actions: [search, get]
+    - name: hearthstone-deck
+      api: battle-net
+      description: "Hearthstone deck built from cards"
+      actions: [get]
+    - name: diablo-profile
+      api: battle-net
+      description: "Diablo III account career profile with heroes"
+      actions: [get]
+    - name: diablo-hero
+      api: battle-net
+      description: "Diablo III playable hero character"
+      actions: [get]
+    - name: sc2-profile
+      api: battle-net
+      description: "StarCraft II player profile"
+      actions: [get]
+    - name: battle-net-account
+      api: battle-net
+      description: "Battle.net account identity and linked game profiles"
+      actions: [get]
+
+  actions:
+    - name: get
+      httpMethod: GET
+      pattern: read
+      description: "Retrieve a single resource"
+    - name: search
+      httpMethod: GET
+      pattern: read
+      description: "Search or filter resources with query parameters"
+    - name: list
+      httpMethod: GET
+      pattern: read
+      description: "Retrieve an index or list of resources"
+
+  schemas:
+    wow:
+      - name: WoWCharacter
+        properties: [id, name, level, faction, race, character_class, active_spec, realm, guild, achievement_points]
+        description: "World of Warcraft character profile"
+      - name: WoWRealm
+        properties: [id, name, slug, region, category, locale, timezone, type, is_tournament]
+        description: "World of Warcraft realm (server)"
+      - name: WoWGuild
+        properties: [id, name, faction, realm, member_count, achievement_points]
+        description: "World of Warcraft guild"
+      - name: WoWItem
+        properties: [id, name, quality, level, item_class, item_subclass, inventory_type]
+        description: "World of Warcraft item"
+    hearthstone:
+      - name: HearthstoneCard
+        properties: [id, slug, name, classId, rarityId, cardSetId, cardTypeId, attack, health, manaCost, text]
+        description: "Hearthstone collectible card"
+      - name: HearthstoneDeck
+        properties: [deckCode, hero, class, cards, cardCount, format]
+        description: "Hearthstone deck"
+    diablo:
+      - name: D3CareerProfile
+        properties: [battletag, paragonLevel, heroes, kills, timePlayed, lastHeroPlayed]
+        description: "Diablo III career profile"
+      - name: D3Hero
+        properties: [id, name, class, level, paragonLevel, hardcore, seasonal, dead, stats, items]
+        description: "Diablo III hero character"
+
+  parameters:
+    identifiers:
+      - name: realmSlug
+        type: string
+        description: "URL-safe realm name for WoW API"
+      - name: characterName
+        type: string
+        description: "Lowercase character name for WoW profile API"
+      - name: battletag
+        type: string
+        description: "Player BattleTag identifier (Name#XXXX)"
+    filters:
+      - name: namespace
+        type: string
+        description: "API namespace specifying game version and region (e.g. profile-us, dynamic-eu)"
+      - name: locale
+        type: string
+        description: "Localization for response text (e.g. en_US, de_DE)"
+      - name: region
+        type: string
+        description: "Battle.net region (us, eu, kr, tw, cn)"
+
+  enums:
+    regions:
+      - us
+      - eu
+      - kr
+      - tw
+      - cn
+    hearthstone-rarities:
+      - Common
+      - Rare
+      - Epic
+      - Legendary
+    wow-factions:
+      - Alliance
+      - Horde
+
+  authentication:
+    schemes:
+      - name: OAuth2ClientCredentials
+        type: oauth2
+        flow: clientCredentials
+        tokenUrl: "https://oauth.battle.net/token"
+        description: "Client credentials for game data access (no user account required)"
+        apis: [battle-net]
+      - name: OAuth2AuthorizationCode
+        type: oauth2
+        flow: authorizationCode
+        authorizationUrl: "https://oauth.battle.net/authorize"
+        tokenUrl: "https://oauth.battle.net/token"
+        scopes: [wow.profile, sc2.profile, openid]
+        description: "Authorization code for profile access (requires user login)"
+        apis: [battle-net]
+
+capability:
+  workflows:
+    - name: Game Data
+      file: capabilities/game-data.yaml
+      description: "Access WoW characters/realms, Hearthstone cards, Diablo III profiles, and StarCraft II ladder data"
+      apis: [battle-net]
+      tools: 6
+      personas: [Community Developer, Game Analyst, Fan App Builder]
+      domains: [Gaming, Game Data]
+
+  personas:
+    - id: community-developer
+      name: Community Developer
+      description: "Builds community tools, addons, and apps using Battle.net game data"
+      workflows: [Game Data]
+    - id: game-analyst
+      name: Game Analyst
+      description: "Analyzes game statistics, leaderboards, and player performance data"
+      workflows: [Game Data]
+    - id: fan-app-builder
+      name: Fan App Builder
+      description: "Creates fan websites, discord bots, and companion apps using game data"
+      workflows: [Game Data]
+
+  domains:
+    - name: Gaming
+      description: "Video game data and player profiles across Blizzard franchises"
+      resources: [wow-character, wow-realm, wow-guild, wow-item, hearthstone-card, diablo-profile, sc2-profile]
+    - name: Game Data
+      description: "Static and dynamic game data APIs for community development"
+      resources: [wow-realm, wow-item, hearthstone-card, hearthstone-deck]
+
+  namespaces:
+    - name: battle-net
+      type: consumed
+    - name: game-data-api
+      type: rest-exposed
+      port: 8080
+    - name: game-data-mcp
+      type: mcp-exposed
+      port: 9090
+
+  binds:
+    - name: BATTLENET_CLIENT_ID
+      description: "OAuth2 client ID from develop.battle.net"
+      workflows: [Game Data]
+    - name: BATTLENET_CLIENT_SECRET
+      description: "OAuth2 client secret from develop.battle.net"
+      workflows: [Game Data]
+    - name: BATTLENET_ACCESS_TOKEN
+      description: "OAuth2 access token obtained from oauth.battle.net"
+      workflows: [Game Data]
+
+crossReference:
+  - resource: wow-character
+    operations: [get-character, get-character-achievements]
+    workflows: [Game Data]
+    personas: [Community Developer, Fan App Builder]
+  - resource: hearthstone-card
+    operations: [search-cards, get-card]
+    workflows: [Game Data]
+    personas: [Community Developer, Game Analyst]
+  - resource: diablo-profile
+    operations: [get-career-profile]
+    workflows: [Game Data]
+    personas: [Community Developer, Game Analyst]
+  - resource: wow-realm
+    operations: [get-realms-index]
+    workflows: [Game Data]
+    personas: [Community Developer]

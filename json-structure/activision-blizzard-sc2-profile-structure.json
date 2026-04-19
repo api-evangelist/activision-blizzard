@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-structure/activision-blizzard-sc2-profile-structure.json",
+  "name": "SC2Profile",
+  "description": "A StarCraft II profile",
+  "type": "object",
+  "properties": {
+    "summary": {
+      "type": "object",
+      "description": "Profile summary"
+    },
+    "snapshot": {
+      "type": "object",
+      "description": "Profile snapshot data"
+    }
+  }
+}

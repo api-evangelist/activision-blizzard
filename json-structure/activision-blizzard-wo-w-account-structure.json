@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-structure/activision-blizzard-wo-w-account-structure.json",
+  "name": "WoWAccount",
+  "description": "A World of Warcraft account",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "description": "Account ID",
+      "example": 1
+    },
+    "characters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/WoWCharacterSummary"
+      },
+      "description": "List of characters on this account"
+    }
+  }
+}

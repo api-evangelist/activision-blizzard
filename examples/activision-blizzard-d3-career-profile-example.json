@@ -1,0 +1,12 @@
+{
+  "battletag": "Player#1234",
+  "paragonLevel": 1500,
+  "paragonLevelHardcore": 200,
+  "guildName": "Example Name",
+  "heroes": [
+    "example-value"
+  ],
+  "lastHeroPlayed": 12345,
+  "kills": {},
+  "timePlayed": {}
+}

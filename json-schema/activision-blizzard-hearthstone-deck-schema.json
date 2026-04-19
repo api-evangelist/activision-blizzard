@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-schema/activision-blizzard-hearthstone-deck-schema.json",
+  "title": "HearthstoneDeck",
+  "description": "A Hearthstone deck",
+  "type": "object",
+  "properties": {
+    "deckCode": {
+      "type": "string",
+      "description": "The deck code",
+      "example": "AAECAQcG0LQDubQD3rUD57UDibYDvbYDDI..."
+    },
+    "version": {
+      "type": "integer",
+      "description": "Deck format version",
+      "example": 1
+    },
+    "format": {
+      "type": "object",
+      "description": "Deck format"
+    },
+    "hero": {
+      "$ref": "#/components/schemas/HearthstoneCard"
+    },
+    "heroPower": {
+      "$ref": "#/components/schemas/HearthstoneCard"
+    },
+    "class": {
+      "type": "object",
+      "description": "Deck class"
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/HearthstoneCard"
+      },
+      "description": "Cards in the deck"
+    },
+    "cardCount": {
+      "type": "integer",
+      "description": "Number of cards in the deck",
+      "example": 30
+    }
+  }
+}

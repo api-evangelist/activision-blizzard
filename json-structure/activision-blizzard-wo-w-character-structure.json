@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-structure/activision-blizzard-wo-w-character-structure.json",
+  "name": "WoWCharacter",
+  "description": "Full World of Warcraft character profile",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "description": "Character ID",
+      "example": 123456
+    },
+    "name": {
+      "type": "string",
+      "description": "Character name",
+      "example": "Thrall"
+    },
+    "gender": {
+      "type": "object",
+      "description": "Character gender"
+    },
+    "faction": {
+      "type": "object",
+      "description": "Character faction"
+    },
+    "race": {
+      "type": "object",
+      "description": "Character race"
+    },
+    "character_class": {
+      "type": "object",
+      "description": "Character class"
+    },
+    "active_spec": {
+      "type": "object",
+      "description": "Active specialization"
+    },
+    "realm": {
+      "$ref": "#/components/schemas/WoWRealm"
+    },
+    "guild": {
+      "$ref": "#/components/schemas/WoWGuild"
+    },
+    "level": {
+      "type": "int32",
+      "description": "Character level",
+      "example": 70
+    },
+    "experience": {
+      "type": "int32",
+      "description": "Character experience points"
+    },
+    "achievement_points": {
+      "type": "int32",
+      "description": "Total achievement points",
+      "example": 15000
+    },
+    "last_login_timestamp": {
+      "type": "int32",
+      "description": "Unix timestamp of last login",
+      "example": 1718153645993
+    }
+  }
+}

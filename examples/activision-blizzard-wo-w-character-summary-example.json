@@ -1,0 +1,12 @@
+{
+  "character": {},
+  "protected_character": {},
+  "name": "Thrall",
+  "id": 123456,
+  "realm": "example-value",
+  "playable_class": {},
+  "playable_race": {},
+  "gender": {},
+  "faction": {},
+  "level": 70
+}

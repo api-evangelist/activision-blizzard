@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-structure/activision-blizzard-d3-career-profile-structure.json",
+  "name": "D3CareerProfile",
+  "description": "Diablo III career profile",
+  "type": "object",
+  "properties": {
+    "battletag": {
+      "type": "string",
+      "description": "Player BattleTag",
+      "example": "Player#1234"
+    },
+    "paragonLevel": {
+      "type": "int32",
+      "description": "Paragon level",
+      "example": 1500
+    },
+    "paragonLevelHardcore": {
+      "type": "int32",
+      "description": "Hardcore paragon level",
+      "example": 200
+    },
+    "guildName": {
+      "type": "string",
+      "description": "Guild name"
+    },
+    "heroes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/D3HeroSummary"
+      },
+      "description": "List of heroes"
+    },
+    "lastHeroPlayed": {
+      "type": "int32",
+      "description": "ID of last hero played",
+      "example": 12345
+    },
+    "kills": {
+      "type": "object",
+      "description": "Kill statistics"
+    },
+    "timePlayed": {
+      "type": "object",
+      "description": "Time played by class"
+    }
+  }
+}

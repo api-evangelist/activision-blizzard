@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-structure/activision-blizzard-hearthstone-card-structure.json",
+  "name": "HearthstoneCard",
+  "description": "A Hearthstone card",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "description": "Card ID",
+      "example": 1234
+    },
+    "collectible": {
+      "type": "int32",
+      "description": "Whether the card is collectible (1=yes)",
+      "example": 1
+    },
+    "slug": {
+      "type": "string",
+      "description": "Card slug",
+      "example": "ragnaros-the-firelord"
+    },
+    "classId": {
+      "type": "int32",
+      "description": "Class ID",
+      "example": 1
+    },
+    "multiClassIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "Multi-class IDs"
+    },
+    "cardTypeId": {
+      "type": "int32",
+      "description": "Card type ID",
+      "example": 4
+    },
+    "cardSetId": {
+      "type": "int32",
+      "description": "Card set ID",
+      "example": 2
+    },
+    "rarityId": {
+      "type": "int32",
+      "description": "Rarity ID",
+      "example": 5
+    },
+    "artistName": {
+      "type": "string",
+      "description": "Artist name",
+      "example": "Alex Horley"
+    },
+    "health": {
+      "type": "int32",
+      "description": "Card health",
+      "example": 8
+    },
+    "attack": {
+      "type": "int32",
+      "description": "Card attack",
+      "example": 8
+    },
+    "manaCost": {
+      "type": "int32",
+      "description": "Mana cost",
+      "example": 8
+    },
+    "name": {
+      "type": "string",
+      "description": "Card name",
+      "example": "Ragnaros the Firelord"
+    },
+    "text": {
+      "type": "string",
+      "description": "Card text"
+    },
+    "image": {
+      "type": "uri",
+      "description": "Card image URL"
+    },
+    "imageGold": {
+      "type": "uri",
+      "description": "Gold card image URL"
+    },
+    "flavorText": {
+      "type": "string",
+      "description": "Card flavor text"
+    },
+    "cropImage": {
+      "type": "uri",
+      "description": "Cropped card image URL"
+    }
+  }
+}

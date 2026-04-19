@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-schema/activision-blizzard-wo-w-profile-summary-schema.json",
+  "title": "WoWProfileSummary",
+  "description": "World of Warcraft account profile summary",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Account ID",
+      "example": 12345678
+    },
+    "wow_accounts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/WoWAccount"
+      },
+      "description": "WoW accounts linked to the Battle.net account"
+    }
+  }
+}

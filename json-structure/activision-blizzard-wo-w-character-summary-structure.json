@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-structure/activision-blizzard-wo-w-character-summary-structure.json",
+  "name": "WoWCharacterSummary",
+  "description": "Summary of a WoW character",
+  "type": "object",
+  "properties": {
+    "character": {
+      "type": "object",
+      "description": "Character reference with href"
+    },
+    "protected_character": {
+      "type": "object",
+      "description": "Protected character reference"
+    },
+    "name": {
+      "type": "string",
+      "description": "Character name",
+      "example": "Thrall"
+    },
+    "id": {
+      "type": "int32",
+      "description": "Character ID",
+      "example": 123456
+    },
+    "realm": {
+      "$ref": "#/components/schemas/WoWRealm"
+    },
+    "playable_class": {
+      "type": "object",
+      "description": "Playable class reference"
+    },
+    "playable_race": {
+      "type": "object",
+      "description": "Playable race reference"
+    },
+    "gender": {
+      "type": "object",
+      "description": "Character gender"
+    },
+    "faction": {
+      "type": "object",
+      "description": "Character faction (Alliance or Horde)"
+    },
+    "level": {
+      "type": "int32",
+      "description": "Character level",
+      "example": 70
+    }
+  }
+}

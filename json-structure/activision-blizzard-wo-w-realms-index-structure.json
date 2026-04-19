@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-structure/activision-blizzard-wo-w-realms-index-structure.json",
+  "name": "WoWRealmsIndex",
+  "description": "Index of WoW realms",
+  "type": "object",
+  "properties": {
+    "realms": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/WoWRealm"
+      },
+      "description": "List of realms"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-structure/activision-blizzard-wo-w-realm-structure.json",
+  "name": "WoWRealm",
+  "description": "A World of Warcraft realm",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "description": "Realm ID",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "Realm name",
+      "example": "Area 52"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Realm slug",
+      "example": "area-52"
+    },
+    "region": {
+      "type": "object",
+      "description": "Region reference"
+    },
+    "category": {
+      "type": "string",
+      "description": "Realm category",
+      "example": "United States"
+    },
+    "locale": {
+      "type": "string",
+      "description": "Realm locale",
+      "example": "en_US"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Realm timezone",
+      "example": "America/New_York"
+    },
+    "type": {
+      "type": "object",
+      "description": "Realm type (Normal, RP, etc.)"
+    },
+    "is_tournament": {
+      "type": "boolean",
+      "description": "Whether this is a tournament realm"
+    }
+  }
+}

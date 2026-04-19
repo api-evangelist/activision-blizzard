@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-schema/activision-blizzard-hearthstone-cards-response-schema.json",
+  "title": "HearthstoneCardsResponse",
+  "description": "Paginated Hearthstone cards response",
+  "type": "object",
+  "properties": {
+    "cards": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/HearthstoneCard"
+      },
+      "description": "List of cards"
+    },
+    "cardCount": {
+      "type": "integer",
+      "description": "Total card count",
+      "example": 2847
+    },
+    "pageCount": {
+      "type": "integer",
+      "description": "Total page count",
+      "example": 143
+    },
+    "page": {
+      "type": "integer",
+      "description": "Current page",
+      "example": 1
+    }
+  }
+}

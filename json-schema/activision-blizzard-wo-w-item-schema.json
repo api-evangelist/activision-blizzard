@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-schema/activision-blizzard-wo-w-item-schema.json",
+  "title": "WoWItem",
+  "description": "A World of Warcraft item",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Item ID",
+      "example": 19019
+    },
+    "name": {
+      "type": "string",
+      "description": "Item name",
+      "example": "Thunderfury, Blessed Blade of the Windseeker"
+    },
+    "quality": {
+      "type": "object",
+      "description": "Item quality (Common, Rare, Epic, etc.)"
+    },
+    "level": {
+      "type": "integer",
+      "description": "Item level",
+      "example": 80
+    },
+    "item_class": {
+      "type": "object",
+      "description": "Item class"
+    },
+    "item_subclass": {
+      "type": "object",
+      "description": "Item subclass"
+    },
+    "inventory_type": {
+      "type": "object",
+      "description": "Inventory type"
+    },
+    "purchase_price": {
+      "type": "integer",
+      "description": "Purchase price in copper"
+    },
+    "sell_price": {
+      "type": "integer",
+      "description": "Sell price in copper"
+    }
+  }
+}

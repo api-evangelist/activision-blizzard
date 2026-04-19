@@ -1,0 +1,9 @@
+{
+  "id": 12345,
+  "name": "Zul'jin",
+  "class": "barbarian",
+  "level": 70,
+  "hardcore": true,
+  "seasonal": true,
+  "dead": true
+}

@@ -1,0 +1,15 @@
+{
+  "id": 123456,
+  "name": "Thrall",
+  "gender": {},
+  "faction": {},
+  "race": {},
+  "character_class": {},
+  "active_spec": {},
+  "realm": "example-value",
+  "guild": "example-value",
+  "level": 70,
+  "experience": 42,
+  "achievement_points": 15000,
+  "last_login_timestamp": 1718153645993
+}

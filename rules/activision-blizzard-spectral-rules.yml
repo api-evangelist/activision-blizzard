@@ -1,0 +1,214 @@
+rules:
+
+  # INFO / METADATA
+  info-title-format:
+    description: API title should start with "Activision Blizzard" or "Battle.net"
+    severity: warn
+    given: $.info.title
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(Activision Blizzard|Battle\\.net)"
+
+  info-description-required:
+    description: Info object must have a description
+    severity: error
+    given: $.info
+    then:
+      field: description
+      function: truthy
+
+  info-version-required:
+    description: Info object must include a version
+    severity: error
+    given: $.info
+    then:
+      field: version
+      function: truthy
+
+  # OPENAPI VERSION
+  openapi-version:
+    description: Should use OpenAPI 3.x
+    severity: warn
+    given: $.openapi
+    then:
+      function: pattern
+      functionOptions:
+        match: "^3\\."
+
+  # SERVERS
+  servers-defined:
+    description: At least one server must be defined
+    severity: error
+    given: $
+    then:
+      field: servers
+      function: truthy
+
+  servers-https:
+    description: All servers should use HTTPS
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  # PATHS
+  paths-no-trailing-slash:
+    description: Paths must not have trailing slashes
+    severity: warn
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "[^/]/$"
+
+  # OPERATIONS
+  operation-summary-required:
+    description: Every operation must have a summary
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: summary
+      function: truthy
+
+  operation-summary-prefix:
+    description: Operation summary should start with "Activision Blizzard"
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: "^Activision Blizzard "
+
+  operation-description-required:
+    description: Every operation should have a description
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: description
+      function: truthy
+
+  operation-operationId-required:
+    description: Every operation must have an operationId
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: operationId
+      function: truthy
+
+  operation-operationId-camelCase:
+    description: OperationId should use camelCase
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    then:
+      function: casing
+      functionOptions:
+        type: camel
+
+  operation-tags-required:
+    description: Every operation must have at least one tag
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: tags
+      function: truthy
+
+  # PARAMETERS
+  parameter-description-required:
+    description: Every parameter must have a description
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].parameters[*]
+    then:
+      field: description
+      function: truthy
+
+  parameter-namespace-required:
+    description: Battle.net data endpoints require namespace parameter
+    severity: info
+    given: $.paths[/data/**][get].parameters
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            type: object
+            properties:
+              name:
+                enum: ['namespace']
+
+  # RESPONSES
+  response-success-required:
+    description: Every operation must have a 2xx response
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          anyOf:
+            - required: ['200']
+            - required: ['201']
+            - required: ['204']
+
+  response-401-defined:
+    description: Operations should document 401 Unauthorized
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '401'
+      function: truthy
+
+  response-description-required:
+    description: Every response must have a description
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete].responses[*]
+    then:
+      field: description
+      function: truthy
+
+  # SECURITY
+  security-schemes-defined:
+    description: Security schemes must be defined in components
+    severity: error
+    given: $.components
+    then:
+      field: securitySchemes
+      function: truthy
+
+  security-oauth2:
+    description: Battle.net API should use OAuth2 authentication
+    severity: warn
+    given: $.components.securitySchemes[*].type
+    then:
+      function: enumeration
+      functionOptions:
+        values: ['oauth2']
+
+  # HTTP METHODS
+  http-get-no-request-body:
+    description: GET operations should not have a request body
+    severity: error
+    given: $.paths[*].get
+    then:
+      field: requestBody
+      function: falsy
+
+  # SCHEMAS
+  schema-description-required:
+    description: Component schemas should have descriptions
+    severity: warn
+    given: $.components.schemas[*]
+    then:
+      field: description
+      function: truthy
+
+  schema-property-examples:
+    description: Schema properties should have example values
+    severity: info
+    given: $.components.schemas[*].properties[*]
+    then:
+      field: example
+      function: truthy

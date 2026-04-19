@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/json-schema/activision-blizzard-d3-hero-summary-schema.json",
+  "title": "D3HeroSummary",
+  "description": "Summary of a Diablo III hero",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Hero ID",
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "description": "Hero name",
+      "example": "Zul'jin"
+    },
+    "class": {
+      "type": "string",
+      "description": "Hero class",
+      "example": "barbarian"
+    },
+    "level": {
+      "type": "integer",
+      "description": "Hero level",
+      "example": 70
+    },
+    "hardcore": {
+      "type": "boolean",
+      "description": "Whether this is a hardcore hero"
+    },
+    "seasonal": {
+      "type": "boolean",
+      "description": "Whether this is a seasonal hero"
+    },
+    "dead": {
+      "type": "boolean",
+      "description": "Whether this hero is dead"
+    }
+  }
+}

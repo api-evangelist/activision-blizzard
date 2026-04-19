@@ -1,0 +1,349 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "blizzard": "https://develop.battle.net/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "WoWItem": "blizzard:WoWItem",
+    "HearthstoneDeck": "blizzard:HearthstoneDeck",
+    "WoWCharacter": "blizzard:WoWCharacter",
+    "D3HeroSummary": "blizzard:D3HeroSummary",
+    "WoWCharacterSummary": "blizzard:WoWCharacterSummary",
+    "WoWRealmsIndex": "blizzard:WoWRealmsIndex",
+    "BattleNetProfile": "blizzard:BattleNetProfile",
+    "WoWProfileSummary": "blizzard:WoWProfileSummary",
+    "WoWAccount": "blizzard:WoWAccount",
+    "D3CareerProfile": "blizzard:D3CareerProfile",
+    "WoWGuild": "blizzard:WoWGuild",
+    "WoWCharacterAchievements": "blizzard:WoWCharacterAchievements",
+    "WoWRealm": "blizzard:WoWRealm",
+    "HearthstoneCardsResponse": "blizzard:HearthstoneCardsResponse",
+    "SC2Profile": "blizzard:SC2Profile",
+    "D3Hero": "blizzard:D3Hero",
+    "HearthstoneCard": "blizzard:HearthstoneCard",
+    "id": {
+      "@id": "dcterms:identifier",
+      "@type": "xsd:integer"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "quality": {
+      "@id": "blizzard:quality",
+      "@type": "xsd:string"
+    },
+    "level": {
+      "@id": "blizzard:level",
+      "@type": "xsd:integer"
+    },
+    "itemClass": {
+      "@id": "blizzard:item_class",
+      "@type": "xsd:string"
+    },
+    "itemSubclass": {
+      "@id": "blizzard:item_subclass",
+      "@type": "xsd:string"
+    },
+    "inventoryType": {
+      "@id": "blizzard:inventory_type",
+      "@type": "xsd:string"
+    },
+    "purchasePrice": {
+      "@id": "blizzard:purchase_price",
+      "@type": "xsd:integer"
+    },
+    "sellPrice": {
+      "@id": "blizzard:sell_price",
+      "@type": "xsd:integer"
+    },
+    "deckCode": {
+      "@id": "blizzard:deckCode",
+      "@type": "xsd:string"
+    },
+    "version": {
+      "@id": "blizzard:version",
+      "@type": "xsd:integer"
+    },
+    "format": {
+      "@id": "blizzard:format",
+      "@type": "xsd:string"
+    },
+    "hero": {
+      "@id": "blizzard:hero",
+      "@type": "xsd:string"
+    },
+    "heroPower": {
+      "@id": "blizzard:heroPower",
+      "@type": "xsd:string"
+    },
+    "class": {
+      "@id": "blizzard:class",
+      "@type": "xsd:string"
+    },
+    "cards": {
+      "@id": "blizzard:cards",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "cardCount": {
+      "@id": "blizzard:cardCount",
+      "@type": "xsd:integer"
+    },
+    "gender": {
+      "@id": "blizzard:gender",
+      "@type": "xsd:string"
+    },
+    "faction": {
+      "@id": "blizzard:faction",
+      "@type": "xsd:string"
+    },
+    "race": {
+      "@id": "blizzard:race",
+      "@type": "xsd:string"
+    },
+    "characterClass": {
+      "@id": "blizzard:character_class",
+      "@type": "xsd:string"
+    },
+    "activeSpec": {
+      "@id": "blizzard:active_spec",
+      "@type": "xsd:string"
+    },
+    "realm": {
+      "@id": "blizzard:realm",
+      "@type": "xsd:string"
+    },
+    "guild": {
+      "@id": "blizzard:guild",
+      "@type": "xsd:string"
+    },
+    "experience": {
+      "@id": "blizzard:experience",
+      "@type": "xsd:integer"
+    },
+    "achievementPoints": {
+      "@id": "blizzard:achievement_points",
+      "@type": "xsd:integer"
+    },
+    "lastLoginTimestamp": {
+      "@id": "blizzard:last_login_timestamp",
+      "@type": "xsd:integer"
+    },
+    "hardcore": {
+      "@id": "blizzard:hardcore",
+      "@type": "xsd:boolean"
+    },
+    "seasonal": {
+      "@id": "blizzard:seasonal",
+      "@type": "xsd:boolean"
+    },
+    "dead": {
+      "@id": "blizzard:dead",
+      "@type": "xsd:boolean"
+    },
+    "character": {
+      "@id": "blizzard:character",
+      "@type": "xsd:string"
+    },
+    "protectedCharacter": {
+      "@id": "blizzard:protected_character",
+      "@type": "xsd:string"
+    },
+    "playableClass": {
+      "@id": "blizzard:playable_class",
+      "@type": "xsd:string"
+    },
+    "playableRace": {
+      "@id": "blizzard:playable_race",
+      "@type": "xsd:string"
+    },
+    "realms": {
+      "@id": "blizzard:realms",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "battletag": {
+      "@id": "blizzard:battletag",
+      "@type": "xsd:string"
+    },
+    "sub": {
+      "@id": "blizzard:sub",
+      "@type": "xsd:string"
+    },
+    "wowAccounts": {
+      "@id": "blizzard:wow_accounts",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "characters": {
+      "@id": "blizzard:characters",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "paragonLevel": {
+      "@id": "blizzard:paragonLevel",
+      "@type": "xsd:integer"
+    },
+    "paragonLevelHardcore": {
+      "@id": "blizzard:paragonLevelHardcore",
+      "@type": "xsd:integer"
+    },
+    "guildName": {
+      "@id": "blizzard:guildName",
+      "@type": "xsd:string"
+    },
+    "heroes": {
+      "@id": "blizzard:heroes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "lastHeroPlayed": {
+      "@id": "blizzard:lastHeroPlayed",
+      "@type": "xsd:integer"
+    },
+    "kills": {
+      "@id": "blizzard:kills",
+      "@type": "xsd:string"
+    },
+    "timePlayed": {
+      "@id": "blizzard:timePlayed",
+      "@type": "xsd:string"
+    },
+    "memberCount": {
+      "@id": "blizzard:member_count",
+      "@type": "xsd:integer"
+    },
+    "totalQuantity": {
+      "@id": "blizzard:total_quantity",
+      "@type": "xsd:integer"
+    },
+    "totalPoints": {
+      "@id": "blizzard:total_points",
+      "@type": "xsd:integer"
+    },
+    "achievements": {
+      "@id": "blizzard:achievements",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "slug": {
+      "@id": "blizzard:slug",
+      "@type": "xsd:string"
+    },
+    "region": {
+      "@id": "blizzard:region",
+      "@type": "xsd:string"
+    },
+    "category": {
+      "@id": "blizzard:category",
+      "@type": "xsd:string"
+    },
+    "locale": {
+      "@id": "blizzard:locale",
+      "@type": "xsd:string"
+    },
+    "timezone": {
+      "@id": "blizzard:timezone",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "blizzard:type",
+      "@type": "xsd:string"
+    },
+    "isTournament": {
+      "@id": "blizzard:is_tournament",
+      "@type": "xsd:boolean"
+    },
+    "pageCount": {
+      "@id": "blizzard:pageCount",
+      "@type": "xsd:integer"
+    },
+    "page": {
+      "@id": "blizzard:page",
+      "@type": "xsd:integer"
+    },
+    "summary": {
+      "@id": "blizzard:summary",
+      "@type": "xsd:string"
+    },
+    "snapshot": {
+      "@id": "blizzard:snapshot",
+      "@type": "xsd:string"
+    },
+    "skills": {
+      "@id": "blizzard:skills",
+      "@type": "xsd:string"
+    },
+    "items": {
+      "@id": "blizzard:items",
+      "@type": "xsd:string"
+    },
+    "stats": {
+      "@id": "blizzard:stats",
+      "@type": "xsd:string"
+    },
+    "collectible": {
+      "@id": "blizzard:collectible",
+      "@type": "xsd:integer"
+    },
+    "classId": {
+      "@id": "blizzard:classId",
+      "@type": "xsd:integer"
+    },
+    "multiClassIds": {
+      "@id": "blizzard:multiClassIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "cardTypeId": {
+      "@id": "blizzard:cardTypeId",
+      "@type": "xsd:integer"
+    },
+    "cardSetId": {
+      "@id": "blizzard:cardSetId",
+      "@type": "xsd:integer"
+    },
+    "rarityId": {
+      "@id": "blizzard:rarityId",
+      "@type": "xsd:integer"
+    },
+    "artistName": {
+      "@id": "blizzard:artistName",
+      "@type": "xsd:string"
+    },
+    "health": {
+      "@id": "blizzard:health",
+      "@type": "xsd:integer"
+    },
+    "attack": {
+      "@id": "blizzard:attack",
+      "@type": "xsd:integer"
+    },
+    "manaCost": {
+      "@id": "blizzard:manaCost",
+      "@type": "xsd:integer"
+    },
+    "text": {
+      "@id": "blizzard:text",
+      "@type": "xsd:string"
+    },
+    "image": {
+      "@id": "blizzard:image",
+      "@type": "@id"
+    },
+    "imageGold": {
+      "@id": "blizzard:imageGold",
+      "@type": "@id"
+    },
+    "flavorText": {
+      "@id": "blizzard:flavorText",
+      "@type": "xsd:string"
+    },
+    "cropImage": {
+      "@id": "blizzard:cropImage",
+      "@type": "@id"
+    }
+  }
+}
