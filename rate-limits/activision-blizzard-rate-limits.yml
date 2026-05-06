@@ -1,82 +1,56 @@
 specification: API Commons Rate Limits
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
-provider: activision-blizzard
+provider: Activision Blizzard
 providerId: activision-blizzard
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
+  - Gaming
+  - Battle.net
+  - World Of Warcraft
+  - Hearthstone
+  - Diablo
+  - Starcraft
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the activision-blizzard API surface. Captures
-  per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values
-  to be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+description: Battle.net API limits are bound to the OAuth2 client (registered at develop.battle.net).
+  Numerical limits are documented in the Battle.net Community Developer Portal's API guidelines; the
+  default per-client allowance is widely cited as 100 requests per second / 36,000 requests per hour.
+  Higher limits are granted on application via the developer portal forums.
+sources:
+  - https://develop.battle.net/
+  - https://community.developer.battle.net/documentation
+notes: Numerical defaults reflect the long-standing public Battle.net developer guidelines but the live
+  documentation site is JavaScript-rendered and exact values can change; reconciled flag is false until
+  the documentation is verified directly against the live guidelines page.
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Battle.net API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Battle.net API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
+  - name: Battle.net API per-second
+    scope: oauth-client
+    metric: requests_per_second
     limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Battle.net API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Battle.net API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Battle.net API
+    timeFrame: second
+    notes: Default per-client cap historically published in the Battle.net developer guidelines.
+  - name: Battle.net API per-hour
+    scope: oauth-client
+    metric: requests_per_hour
+    limit: 36000
+    timeFrame: hour
+    notes: Default per-client cap historically published in the Battle.net developer guidelines.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
-maintainers: []
+  - name: OAuth2 Client-Scoped
+    description: Limits are tracked per OAuth2 client registered through develop.battle.net; multiple
+      tokens issued to the same client share the allowance.
+  - name: Backoff
+    description: On 429 responses, back off and retry; respect any Retry-After header returned.
+  - name: Limit Increase
+    description: Higher limits can be requested through the developer portal forums; commercial usage
+      typically requires a direct agreement with Blizzard.
+  - name: Region Endpoints
+    description: Use the regional API host that matches your client (us, eu, kr, tw); cross-region calls
+      do not pool quota.
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
