@@ -1,0 +1,142 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Activision Blizzard Battle.net API — StarCraft II
+  description: 'Activision Blizzard Battle.net API — StarCraft II. 2 operations. Lead operation: Activision Blizzard Get StarCraft
+    II Grandmaster Leaderboard. Self-contained Naftiko capability covering one Activision Blizzard business surface.'
+  tags:
+  - Activision Blizzard
+  - StarCraft II
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ACTIVISION_BLIZZARD_API_KEY: ACTIVISION_BLIZZARD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: battle-net-starcraft-ii
+    baseUri: https://{region}.api.blizzard.com
+    description: Activision Blizzard Battle.net API — StarCraft II business capability. Self-contained, no shared references.
+    resources:
+    - name: sc2-ladder-grandmaster-regionId
+      path: /sc2/ladder/grandmaster/{regionId}
+      operations:
+      - name: getsc2grandmasterleaderboard
+        method: GET
+        description: Activision Blizzard Get StarCraft II Grandmaster Leaderboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: regionId
+          in: path
+          type: integer
+          description: The region for the ladder
+          required: true
+    - name: sc2-profile-regionId-realmId-profileId
+      path: /sc2/profile/{regionId}/{realmId}/{profileId}
+      operations:
+      - name: getsc2profile
+        method: GET
+        description: Activision Blizzard Get StarCraft II Profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: regionId
+          in: path
+          type: integer
+          description: The region for the profile
+          required: true
+        - name: realmId
+          in: path
+          type: integer
+          description: The realm for the profile
+          required: true
+        - name: profileId
+          in: path
+          type: integer
+          description: The profile ID
+          required: true
+        - name: locale
+          in: query
+          type: string
+          description: Response locale
+    authentication:
+      type: bearer
+      token: '{{env.ACTIVISION_BLIZZARD_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: battle-net-starcraft-ii-rest
+    port: 8080
+    description: REST adapter for Activision Blizzard Battle.net API — StarCraft II. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/sc2/ladder/grandmaster/{regionid}
+      name: sc2-ladder-grandmaster-regionid
+      description: REST surface for sc2-ladder-grandmaster-regionId.
+      operations:
+      - method: GET
+        name: getsc2grandmasterleaderboard
+        description: Activision Blizzard Get StarCraft II Grandmaster Leaderboard
+        call: battle-net-starcraft-ii.getsc2grandmasterleaderboard
+        with:
+          regionId: rest.regionId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sc2/profile/{regionid}/{realmid}/{profileid}
+      name: sc2-profile-regionid-realmid-profileid
+      description: REST surface for sc2-profile-regionId-realmId-profileId.
+      operations:
+      - method: GET
+        name: getsc2profile
+        description: Activision Blizzard Get StarCraft II Profile
+        call: battle-net-starcraft-ii.getsc2profile
+        with:
+          regionId: rest.regionId
+          realmId: rest.realmId
+          profileId: rest.profileId
+          locale: rest.locale
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: battle-net-starcraft-ii-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Activision Blizzard Battle.net API — StarCraft II. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: activision-blizzard-get-starcraft-ii
+      description: Activision Blizzard Get StarCraft II Grandmaster Leaderboard
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: battle-net-starcraft-ii.getsc2grandmasterleaderboard
+      with:
+        regionId: tools.regionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: activision-blizzard-get-starcraft-ii-2
+      description: Activision Blizzard Get StarCraft II Profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: battle-net-starcraft-ii.getsc2profile
+      with:
+        regionId: tools.regionId
+        realmId: tools.realmId
+        profileId: tools.profileId
+        locale: tools.locale
+      outputParameters:
+      - type: object
+        mapping: $.

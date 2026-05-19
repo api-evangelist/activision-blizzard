@@ -1,0 +1,462 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Activision Blizzard Battle.net API — World of Warcraft
+  description: 'Activision Blizzard Battle.net API — World of Warcraft. 8 operations. Lead operation: Activision Blizzard
+    Get WoW Guild. Self-contained Naftiko capability covering one Activision Blizzard business surface.'
+  tags:
+  - Activision Blizzard
+  - World of Warcraft
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ACTIVISION_BLIZZARD_API_KEY: ACTIVISION_BLIZZARD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: battle-net-world-of-warcraft
+    baseUri: https://{region}.api.blizzard.com
+    description: Activision Blizzard Battle.net API — World of Warcraft business capability. Self-contained, no shared references.
+    resources:
+    - name: data-wow-guild-realmSlug-nameSlug
+      path: /data/wow/guild/{realmSlug}/{nameSlug}
+      operations:
+      - name: getwowguild
+        method: GET
+        description: Activision Blizzard Get WoW Guild
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: realmSlug
+          in: path
+          type: string
+          description: The realm slug
+          required: true
+        - name: nameSlug
+          in: path
+          type: string
+          description: The guild name slug
+          required: true
+        - name: namespace
+          in: query
+          type: string
+          description: The namespace for the data
+          required: true
+    - name: data-wow-item-itemId
+      path: /data/wow/item/{itemId}
+      operations:
+      - name: getwowitem
+        method: GET
+        description: Activision Blizzard Get WoW Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: itemId
+          in: path
+          type: integer
+          description: The item ID
+          required: true
+        - name: namespace
+          in: query
+          type: string
+          description: The namespace for the data
+          required: true
+    - name: data-wow-realm-index
+      path: /data/wow/realm/index
+      operations:
+      - name: getwowrealmsindex
+        method: GET
+        description: Activision Blizzard Get WoW Realms Index
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: namespace
+          in: query
+          type: string
+          description: The namespace for the data
+          required: true
+        - name: locale
+          in: query
+          type: string
+          description: Response locale
+    - name: data-wow-realm-realmSlug
+      path: /data/wow/realm/{realmSlug}
+      operations:
+      - name: getwowrealm
+        method: GET
+        description: Activision Blizzard Get WoW Realm
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: realmSlug
+          in: path
+          type: string
+          description: The realm slug
+          required: true
+        - name: namespace
+          in: query
+          type: string
+          description: The namespace for the data
+          required: true
+    - name: profile-user-wow
+      path: /profile/user/wow
+      operations:
+      - name: getwowprofilesummary
+        method: GET
+        description: Activision Blizzard Get WoW Profile Summary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: namespace
+          in: query
+          type: string
+          description: Namespace for the data
+          required: true
+        - name: locale
+          in: query
+          type: string
+          description: Response locale
+    - name: profile-wow-character-realmSlug-characterName
+      path: /profile/wow/character/{realmSlug}/{characterName}
+      operations:
+      - name: getwowcharacterprofile
+        method: GET
+        description: Activision Blizzard Get WoW Character Profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: realmSlug
+          in: path
+          type: string
+          description: The realm slug
+          required: true
+        - name: characterName
+          in: path
+          type: string
+          description: The lowercase character name
+          required: true
+        - name: namespace
+          in: query
+          type: string
+          description: The namespace for the data
+          required: true
+        - name: locale
+          in: query
+          type: string
+          description: Response locale
+    - name: profile-wow-character-realmSlug-characterName-achievements
+      path: /profile/wow/character/{realmSlug}/{characterName}/achievements
+      operations:
+      - name: getwowcharacterachievements
+        method: GET
+        description: Activision Blizzard Get WoW Character Achievements
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: realmSlug
+          in: path
+          type: string
+          description: The realm slug
+          required: true
+        - name: characterName
+          in: path
+          type: string
+          description: The character name
+          required: true
+        - name: namespace
+          in: query
+          type: string
+          description: The namespace for the data
+          required: true
+    - name: profile-wow-character-realmSlug-characterName-equipment
+      path: /profile/wow/character/{realmSlug}/{characterName}/equipment
+      operations:
+      - name: getwowcharacterequipment
+        method: GET
+        description: Activision Blizzard Get WoW Character Equipment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: realmSlug
+          in: path
+          type: string
+          description: The realm slug
+          required: true
+        - name: characterName
+          in: path
+          type: string
+          description: The character name
+          required: true
+        - name: namespace
+          in: query
+          type: string
+          description: The namespace for the data
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.ACTIVISION_BLIZZARD_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: battle-net-world-of-warcraft-rest
+    port: 8080
+    description: REST adapter for Activision Blizzard Battle.net API — World of Warcraft. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/data/wow/guild/{realmslug}/{nameslug}
+      name: data-wow-guild-realmslug-nameslug
+      description: REST surface for data-wow-guild-realmSlug-nameSlug.
+      operations:
+      - method: GET
+        name: getwowguild
+        description: Activision Blizzard Get WoW Guild
+        call: battle-net-world-of-warcraft.getwowguild
+        with:
+          realmSlug: rest.realmSlug
+          nameSlug: rest.nameSlug
+          namespace: rest.namespace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/data/wow/item/{itemid}
+      name: data-wow-item-itemid
+      description: REST surface for data-wow-item-itemId.
+      operations:
+      - method: GET
+        name: getwowitem
+        description: Activision Blizzard Get WoW Item
+        call: battle-net-world-of-warcraft.getwowitem
+        with:
+          itemId: rest.itemId
+          namespace: rest.namespace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/data/wow/realm/index
+      name: data-wow-realm-index
+      description: REST surface for data-wow-realm-index.
+      operations:
+      - method: GET
+        name: getwowrealmsindex
+        description: Activision Blizzard Get WoW Realms Index
+        call: battle-net-world-of-warcraft.getwowrealmsindex
+        with:
+          namespace: rest.namespace
+          locale: rest.locale
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/data/wow/realm/{realmslug}
+      name: data-wow-realm-realmslug
+      description: REST surface for data-wow-realm-realmSlug.
+      operations:
+      - method: GET
+        name: getwowrealm
+        description: Activision Blizzard Get WoW Realm
+        call: battle-net-world-of-warcraft.getwowrealm
+        with:
+          realmSlug: rest.realmSlug
+          namespace: rest.namespace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profile/user/wow
+      name: profile-user-wow
+      description: REST surface for profile-user-wow.
+      operations:
+      - method: GET
+        name: getwowprofilesummary
+        description: Activision Blizzard Get WoW Profile Summary
+        call: battle-net-world-of-warcraft.getwowprofilesummary
+        with:
+          namespace: rest.namespace
+          locale: rest.locale
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profile/wow/character/{realmslug}/{charactername}
+      name: profile-wow-character-realmslug-charactername
+      description: REST surface for profile-wow-character-realmSlug-characterName.
+      operations:
+      - method: GET
+        name: getwowcharacterprofile
+        description: Activision Blizzard Get WoW Character Profile
+        call: battle-net-world-of-warcraft.getwowcharacterprofile
+        with:
+          realmSlug: rest.realmSlug
+          characterName: rest.characterName
+          namespace: rest.namespace
+          locale: rest.locale
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profile/wow/character/{realmslug}/{charactername}/achievements
+      name: profile-wow-character-realmslug-charactername-achievements
+      description: REST surface for profile-wow-character-realmSlug-characterName-achievements.
+      operations:
+      - method: GET
+        name: getwowcharacterachievements
+        description: Activision Blizzard Get WoW Character Achievements
+        call: battle-net-world-of-warcraft.getwowcharacterachievements
+        with:
+          realmSlug: rest.realmSlug
+          characterName: rest.characterName
+          namespace: rest.namespace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profile/wow/character/{realmslug}/{charactername}/equipment
+      name: profile-wow-character-realmslug-charactername-equipment
+      description: REST surface for profile-wow-character-realmSlug-characterName-equipment.
+      operations:
+      - method: GET
+        name: getwowcharacterequipment
+        description: Activision Blizzard Get WoW Character Equipment
+        call: battle-net-world-of-warcraft.getwowcharacterequipment
+        with:
+          realmSlug: rest.realmSlug
+          characterName: rest.characterName
+          namespace: rest.namespace
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: battle-net-world-of-warcraft-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Activision Blizzard Battle.net API — World of Warcraft. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: activision-blizzard-get-wow-guild
+      description: Activision Blizzard Get WoW Guild
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: battle-net-world-of-warcraft.getwowguild
+      with:
+        realmSlug: tools.realmSlug
+        nameSlug: tools.nameSlug
+        namespace: tools.namespace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: activision-blizzard-get-wow-item
+      description: Activision Blizzard Get WoW Item
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: battle-net-world-of-warcraft.getwowitem
+      with:
+        itemId: tools.itemId
+        namespace: tools.namespace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: activision-blizzard-get-wow-realms
+      description: Activision Blizzard Get WoW Realms Index
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: battle-net-world-of-warcraft.getwowrealmsindex
+      with:
+        namespace: tools.namespace
+        locale: tools.locale
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: activision-blizzard-get-wow-realm
+      description: Activision Blizzard Get WoW Realm
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: battle-net-world-of-warcraft.getwowrealm
+      with:
+        realmSlug: tools.realmSlug
+        namespace: tools.namespace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: activision-blizzard-get-wow-profile
+      description: Activision Blizzard Get WoW Profile Summary
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: battle-net-world-of-warcraft.getwowprofilesummary
+      with:
+        namespace: tools.namespace
+        locale: tools.locale
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: activision-blizzard-get-wow-character
+      description: Activision Blizzard Get WoW Character Profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: battle-net-world-of-warcraft.getwowcharacterprofile
+      with:
+        realmSlug: tools.realmSlug
+        characterName: tools.characterName
+        namespace: tools.namespace
+        locale: tools.locale
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: activision-blizzard-get-wow-character-2
+      description: Activision Blizzard Get WoW Character Achievements
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: battle-net-world-of-warcraft.getwowcharacterachievements
+      with:
+        realmSlug: tools.realmSlug
+        characterName: tools.characterName
+        namespace: tools.namespace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: activision-blizzard-get-wow-character-3
+      description: Activision Blizzard Get WoW Character Equipment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: battle-net-world-of-warcraft.getwowcharacterequipment
+      with:
+        realmSlug: tools.realmSlug
+        characterName: tools.characterName
+        namespace: tools.namespace
+      outputParameters:
+      - type: object
+        mapping: $.

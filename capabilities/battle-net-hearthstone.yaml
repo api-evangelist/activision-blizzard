@@ -1,0 +1,229 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Activision Blizzard Battle.net API — Hearthstone
+  description: 'Activision Blizzard Battle.net API — Hearthstone. 3 operations. Lead operation: Activision Blizzard Get Hearthstone
+    Cards. Self-contained Naftiko capability covering one Activision Blizzard business surface.'
+  tags:
+  - Activision Blizzard
+  - Hearthstone
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ACTIVISION_BLIZZARD_API_KEY: ACTIVISION_BLIZZARD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: battle-net-hearthstone
+    baseUri: https://{region}.api.blizzard.com
+    description: Activision Blizzard Battle.net API — Hearthstone business capability. Self-contained, no shared references.
+    resources:
+    - name: hearthstone-cards
+      path: /hearthstone/cards
+      operations:
+      - name: gethearthstonecards
+        method: GET
+        description: Activision Blizzard Get Hearthstone Cards
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locale
+          in: query
+          type: string
+          description: Response locale
+        - name: set
+          in: query
+          type: string
+          description: Filter cards by set
+        - name: class
+          in: query
+          type: string
+          description: Filter cards by class
+        - name: manaCost
+          in: query
+          type: integer
+          description: Filter by mana cost
+        - name: attack
+          in: query
+          type: integer
+          description: Filter by attack
+        - name: health
+          in: query
+          type: integer
+          description: Filter by health
+        - name: rarity
+          in: query
+          type: string
+          description: Filter by rarity
+        - name: type
+          in: query
+          type: string
+          description: Filter by card type
+        - name: page
+          in: query
+          type: integer
+          description: Page number
+        - name: pageSize
+          in: query
+          type: integer
+          description: Cards per page
+    - name: hearthstone-cards-idOrSlug
+      path: /hearthstone/cards/{idOrSlug}
+      operations:
+      - name: gethearthstonecard
+        method: GET
+        description: Activision Blizzard Get Hearthstone Card
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: idOrSlug
+          in: path
+          type: string
+          description: The card ID or slug
+          required: true
+        - name: locale
+          in: query
+          type: string
+          description: Response locale
+    - name: hearthstone-decks
+      path: /hearthstone/decks
+      operations:
+      - name: gethearthstonedeck
+        method: GET
+        description: Activision Blizzard Get Hearthstone Deck
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: code
+          in: query
+          type: string
+          description: A deck code
+          required: true
+        - name: locale
+          in: query
+          type: string
+          description: Response locale
+    authentication:
+      type: bearer
+      token: '{{env.ACTIVISION_BLIZZARD_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: battle-net-hearthstone-rest
+    port: 8080
+    description: REST adapter for Activision Blizzard Battle.net API — Hearthstone. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/hearthstone/cards
+      name: hearthstone-cards
+      description: REST surface for hearthstone-cards.
+      operations:
+      - method: GET
+        name: gethearthstonecards
+        description: Activision Blizzard Get Hearthstone Cards
+        call: battle-net-hearthstone.gethearthstonecards
+        with:
+          locale: rest.locale
+          set: rest.set
+          class: rest.class
+          manaCost: rest.manaCost
+          attack: rest.attack
+          health: rest.health
+          rarity: rest.rarity
+          type: rest.type
+          page: rest.page
+          pageSize: rest.pageSize
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hearthstone/cards/{idorslug}
+      name: hearthstone-cards-idorslug
+      description: REST surface for hearthstone-cards-idOrSlug.
+      operations:
+      - method: GET
+        name: gethearthstonecard
+        description: Activision Blizzard Get Hearthstone Card
+        call: battle-net-hearthstone.gethearthstonecard
+        with:
+          idOrSlug: rest.idOrSlug
+          locale: rest.locale
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hearthstone/decks
+      name: hearthstone-decks
+      description: REST surface for hearthstone-decks.
+      operations:
+      - method: GET
+        name: gethearthstonedeck
+        description: Activision Blizzard Get Hearthstone Deck
+        call: battle-net-hearthstone.gethearthstonedeck
+        with:
+          code: rest.code
+          locale: rest.locale
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: battle-net-hearthstone-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Activision Blizzard Battle.net API — Hearthstone. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: activision-blizzard-get-hearthstone-cards
+      description: Activision Blizzard Get Hearthstone Cards
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: battle-net-hearthstone.gethearthstonecards
+      with:
+        locale: tools.locale
+        set: tools.set
+        class: tools.class
+        manaCost: tools.manaCost
+        attack: tools.attack
+        health: tools.health
+        rarity: tools.rarity
+        type: tools.type
+        page: tools.page
+        pageSize: tools.pageSize
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: activision-blizzard-get-hearthstone-card
+      description: Activision Blizzard Get Hearthstone Card
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: battle-net-hearthstone.gethearthstonecard
+      with:
+        idOrSlug: tools.idOrSlug
+        locale: tools.locale
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: activision-blizzard-get-hearthstone-deck
+      description: Activision Blizzard Get Hearthstone Deck
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: battle-net-hearthstone.gethearthstonedeck
+      with:
+        code: tools.code
+        locale: tools.locale
+      outputParameters:
+      - type: object
+        mapping: $.
