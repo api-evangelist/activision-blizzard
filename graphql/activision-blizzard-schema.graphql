@@ -1,0 +1,896 @@
+"""
+Activision Blizzard / Battle.net GraphQL Schema
+Conceptual schema derived from the Battle.net REST API (https://develop.battle.net/documentation).
+Covers World of Warcraft, Diablo III, Hearthstone, StarCraft II, Overwatch, and Call of Duty.
+Requires OAuth2 authentication via develop.battle.net.
+"""
+
+# ─────────────────────────────────────────
+# Auth / Identity
+# ─────────────────────────────────────────
+
+type APIKey {
+  id: ID!
+  clientId: String!
+  region: Region!
+  scopes: [String!]!
+  createdAt: String!
+}
+
+type OAuthToken {
+  accessToken: String!
+  tokenType: String!
+  expiresIn: Int!
+  scope: String
+  sub: String
+}
+
+type BattleNetAccount {
+  id: ID!
+  battletag: BattleTag!
+  region: Region!
+  wowAccounts: [WoWAccount!]
+  diablo: DiabloProfile
+  starcraft: SC2Profile
+  overwatch: OWProfile
+  codProfile: CoDProfile
+}
+
+type BattleTag {
+  name: String!
+  discriminator: String!
+  full: String!
+}
+
+enum Region {
+  US
+  EU
+  KR
+  TW
+  CN
+}
+
+# ─────────────────────────────────────────
+# Realms
+# ─────────────────────────────────────────
+
+type Realm {
+  id: ID!
+  name: String!
+  slug: String!
+  region: Region!
+  timezone: String!
+  type: RealmType!
+  status: RealmStatus!
+  population: String
+  connectedRealm: ConnectedRealm
+}
+
+type ConnectedRealm {
+  id: ID!
+  realms: [Realm!]!
+  status: RealmStatus!
+  population: String
+}
+
+type RealmStatus {
+  online: Boolean!
+  message: String
+}
+
+enum RealmType {
+  NORMAL
+  RP
+  PVP
+  RP_PVP
+}
+
+# ─────────────────────────────────────────
+# World of Warcraft – Account & Characters
+# ─────────────────────────────────────────
+
+type WoWAccount {
+  id: ID!
+  characters: [WoWCharacter!]!
+}
+
+type WoWCharacter {
+  id: ID!
+  name: String!
+  realm: CharacterRealm!
+  level: Int!
+  race: String!
+  class: String!
+  faction: String!
+  gender: String!
+  activeSpec: TalentSpec
+  guild: Guild
+  achievements: [CharacterAchievement!]
+  titles: [CharacterTitle!]
+  activeTitle: CharacterTitle
+  equipment: CharacterEquipment
+  stats: CharacterStats
+  pvp: PvPRecord
+  collections: Collections
+  talents: [Talent!]
+  averageItemLevel: Int
+  equippedItemLevel: Int
+  lastLoginTimestamp: String
+  totalHonorableKills: Int
+}
+
+type CharacterProfile {
+  character: WoWCharacter!
+  achievementPoints: Int!
+  experience: Int!
+  quests: [Quest!]
+  reputations: [Reputation!]
+  professions: [Profession!]
+}
+
+type CharacterRealm {
+  id: ID!
+  name: String!
+  slug: String!
+}
+
+type CharacterEquipment {
+  character: WoWCharacter!
+  equippedItems: [WoWItem!]!
+  sets: [ItemSet!]
+}
+
+type CharacterStats {
+  health: Int!
+  power: Int!
+  powerType: String!
+  strength: Int!
+  agility: Int!
+  intellect: Int!
+  stamina: Int!
+  criticalStrike: StatValue!
+  haste: StatValue!
+  versatility: StatValue!
+  mastery: StatValue!
+  leech: StatValue
+  avoidance: StatValue
+  armor: Int!
+}
+
+type StatValue {
+  base: Float!
+  effective: Float!
+  rating: Float
+  ratingBonus: Float
+}
+
+type CharacterAchievement {
+  id: ID!
+  achievement: Achievement!
+  completedTimestamp: String
+  criteria: [AchievementCriteria!]
+}
+
+type Achievement {
+  id: ID!
+  name: String!
+  description: String!
+  points: Int!
+  category: String!
+  criteria: [AchievementCriteria!]
+}
+
+type AchievementCriteria {
+  id: ID!
+  description: String!
+  amount: Int
+  isCompleted: Boolean!
+}
+
+type CharacterTitle {
+  id: ID!
+  name: String!
+  displayString: String!
+}
+
+# ─────────────────────────────────────────
+# World of Warcraft – Guilds
+# ─────────────────────────────────────────
+
+type Guild {
+  id: ID!
+  name: String!
+  realm: CharacterRealm!
+  faction: String!
+  memberCount: Int!
+  achievementPoints: Int!
+  roster: GuildRoster
+  achievements: [GuildAchievement!]
+  raidProgress: [RaidProgress!]
+  createdTimestamp: String
+}
+
+type GuildRoster {
+  guild: Guild!
+  members: [GuildMember!]!
+}
+
+type GuildMember {
+  character: WoWCharacter!
+  rank: Int!
+}
+
+type GuildAchievement {
+  id: ID!
+  achievement: Achievement!
+  completedTimestamp: String
+}
+
+# ─────────────────────────────────────────
+# World of Warcraft – Raids & Dungeons
+# ─────────────────────────────────────────
+
+type Raid {
+  id: ID!
+  name: String!
+  expansion: String!
+  encounters: [RaidEncounter!]!
+  difficulties: [RaidDifficulty!]!
+}
+
+type RaidEncounter {
+  id: ID!
+  name: String!
+  section: String
+  creatures: [RaidBoss!]!
+}
+
+type RaidBoss {
+  id: ID!
+  name: String!
+  creatureDisplayMedia: String
+}
+
+enum RaidDifficulty {
+  NORMAL
+  HEROIC
+  MYTHIC
+  LFR
+}
+
+type RaidProgress {
+  raid: Raid!
+  difficulty: RaidDifficulty!
+  totalBosses: Int!
+  bossesKilled: Int!
+  encounters: [EncounterProgress!]!
+}
+
+type EncounterProgress {
+  encounter: RaidEncounter!
+  completedCount: Int!
+  lastKillTimestamp: String
+}
+
+type Dungeon {
+  id: ID!
+  name: String!
+  map: String
+  keystoneAffix: String
+  isHoliday: Boolean
+}
+
+type DungeonRun {
+  id: ID!
+  dungeon: Dungeon!
+  completedTimestamp: String!
+  duration: Int!
+  keystoneLevel: Int
+  affixes: AffixSet
+  members: [DungeonMember!]!
+  mapRating: Float
+}
+
+type DungeonMember {
+  character: WoWCharacter!
+  specialization: TalentSpec
+  race: String
+  realm: CharacterRealm
+}
+
+type HeroicDungeon {
+  dungeon: Dungeon!
+  completedCount: Int!
+  lastRun: DungeonRun
+}
+
+type MythicKey {
+  character: WoWCharacter!
+  currentPeriodRank: Int
+  currentMythicRating: MythicRating!
+  currentKeystoneAffix: String
+  bestRuns: [DungeonRun!]!
+}
+
+type MythicRating {
+  color: String!
+  rating: Float!
+}
+
+type Keystones {
+  seasonId: ID!
+  bestRuns: [DungeonRun!]!
+  currentRating: Float
+}
+
+type AffixSet {
+  week: Int!
+  affixes: [Affix!]!
+}
+
+type Affix {
+  id: ID!
+  name: String!
+  description: String!
+  media: String
+}
+
+# ─────────────────────────────────────────
+# World of Warcraft – Items & Collections
+# ─────────────────────────────────────────
+
+type WoWItem {
+  id: ID!
+  name: String!
+  quality: String!
+  level: Int!
+  slot: String
+  itemClass: String
+  itemSubclass: String
+  transmog: Transmog
+  media: String
+  sellPrice: Int
+  purchasePrice: Int
+}
+
+type ItemSet {
+  id: ID!
+  name: String!
+  items: [WoWItem!]!
+  setBonuses: [SetBonus!]
+}
+
+type SetBonus {
+  threshold: Int!
+  description: String!
+}
+
+type Transmog {
+  item: WoWItem!
+  appearanceId: ID!
+  appearanceMedia: String
+}
+
+type Collections {
+  character: WoWCharacter!
+  mounts: [CollectionsMount!]!
+  pets: [CollectionsPet!]!
+  toys: [CollectionsToy!]!
+  heirlooms: [CollectionsHeirloom!]!
+}
+
+type CollectionsMount {
+  id: ID!
+  name: String!
+  spellId: Int
+  media: String
+  isUsable: Boolean!
+}
+
+type CollectionsPet {
+  id: ID!
+  name: String!
+  petType: String!
+  level: Int!
+  quality: String!
+  stats: PetStats
+}
+
+type PetStats {
+  health: Int!
+  power: Int!
+  speed: Int!
+}
+
+type CollectionsToy {
+  id: ID!
+  name: String!
+  itemId: Int!
+  isUsable: Boolean!
+  media: String
+}
+
+type CollectionsHeirloom {
+  id: ID!
+  name: String!
+  sourceType: String!
+  upgradeLevels: Int!
+  media: String
+}
+
+# ─────────────────────────────────────────
+# World of Warcraft – Talents & PvP
+# ─────────────────────────────────────────
+
+type Talent {
+  id: ID!
+  name: String!
+  rank: Int!
+  spell: Spell
+  column: Int
+  row: Int
+}
+
+type TalentSpec {
+  id: ID!
+  name: String!
+  description: String
+  role: String!
+  class: String!
+  talents: [Talent!]
+}
+
+type Spell {
+  id: ID!
+  name: String!
+  description: String!
+  media: String
+}
+
+type PvPRecord {
+  character: WoWCharacter!
+  brackets: [BracketRecord!]!
+  honorLevel: Int!
+  totalHonorableKills: Int
+}
+
+type BracketRecord {
+  bracket: String!
+  rating: Int!
+  seasonMatchStatistics: MatchStatistics!
+  weeklyMatchStatistics: MatchStatistics!
+}
+
+type MatchStatistics {
+  played: Int!
+  won: Int!
+  lost: Int!
+}
+
+# ─────────────────────────────────────────
+# World of Warcraft – Misc
+# ─────────────────────────────────────────
+
+type Quest {
+  id: ID!
+  name: String!
+  completed: Boolean!
+}
+
+type Reputation {
+  faction: String!
+  standing: String!
+  value: Int!
+  max: Int!
+}
+
+type Profession {
+  id: ID!
+  name: String!
+  skillPoints: Int!
+  maxSkillPoints: Int!
+  specialization: String
+}
+
+# ─────────────────────────────────────────
+# Call of Duty
+# ─────────────────────────────────────────
+
+type CoDAccount {
+  id: ID!
+  username: String!
+  platform: String!
+  activisionId: String
+}
+
+type CoDProfile {
+  account: CoDAccount!
+  stats: CoDStats!
+  recentMatches: [CoDMatch!]
+  loadouts: [CoDLoadout!]
+}
+
+type CoDStats {
+  kills: Int!
+  deaths: Int!
+  wins: Int!
+  losses: Int!
+  gamesPlayed: Int!
+  kdRatio: Float!
+  winRate: Float!
+  scorePerMinute: Float
+  timePlayed: Int
+  level: Int
+  prestige: Int
+}
+
+type CoDMatch {
+  id: ID!
+  mode: String!
+  map: String!
+  result: String!
+  kills: Int!
+  deaths: Int!
+  score: Int!
+  duration: Int!
+  timestamp: String!
+  loadout: CoDLoadout
+  isWarzone: Boolean!
+}
+
+type CoDLoadout {
+  id: ID!
+  name: String!
+  primaryWeapon: String!
+  secondaryWeapon: String
+  perks: [String!]
+  lethal: String
+  tactical: String
+}
+
+type Warzone {
+  id: ID!
+  map: String!
+  totalTeams: Int!
+  playersPerTeam: Int!
+  season: String
+}
+
+type WarzoneMatch {
+  id: ID!
+  warzone: Warzone!
+  placement: Int!
+  kills: Int!
+  deaths: Int!
+  damageDone: Int!
+  gulagKills: Int
+  gulagDeaths: Int
+  teamWiped: Boolean!
+  timestamp: String!
+  players: [CoDProfile!]
+}
+
+type WarzoneStats {
+  account: CoDAccount!
+  wins: Int!
+  topTen: Int!
+  kills: Int!
+  kdRatio: Float!
+  averagePlacement: Float
+  gamesPlayed: Int!
+  timePlayed: Int
+}
+
+# ─────────────────────────────────────────
+# Overwatch
+# ─────────────────────────────────────────
+
+type Overwatch {
+  id: ID!
+  currentSeason: String!
+  heroes: [OWHero!]!
+}
+
+type OWProfile {
+  account: BattleNetAccount!
+  platform: String!
+  careerStats: CareerStats!
+  heroStats: [HeroStats!]!
+  competitiveRank: Int
+  endorsementLevel: Int!
+  gamesPlayed: Int!
+  gamesWon: Int!
+  timePlayed: Int!
+}
+
+type OWHero {
+  id: ID!
+  name: String!
+  role: String!
+  description: String
+  abilities: [HeroAbility!]!
+  media: String
+}
+
+type HeroAbility {
+  id: ID!
+  name: String!
+  description: String!
+  type: String!
+}
+
+type OWStats {
+  eliminations: Float
+  deaths: Float
+  damageDone: Float
+  healingDone: Float
+  objectiveKills: Float
+  objectiveTime: Float
+  soloKills: Float
+  winPercentage: Float
+}
+
+type HeroStats {
+  hero: OWHero!
+  timePlayed: Int!
+  gamesPlayed: Int!
+  gamesWon: Int!
+  winRate: Float!
+  stats: OWStats!
+}
+
+type CareerStats {
+  gamesPlayed: Int!
+  gamesWon: Int!
+  winRate: Float!
+  timePlayed: Int!
+  eliminations: Int!
+  deaths: Int!
+  kdRatio: Float!
+  damageDone: Int!
+  healingDone: Int!
+}
+
+# ─────────────────────────────────────────
+# Diablo III
+# ─────────────────────────────────────────
+
+type DiabloProfile {
+  account: BattleNetAccount!
+  paragonLevel: Int!
+  paragonLevelHardcore: Int!
+  guildName: String
+  heroes: [DiabloHero!]!
+  lastHeroPlayed: DiabloHero
+  kills: DiabloKills!
+  timePlayed: DiabloTimePlayed!
+}
+
+type DiabloHero {
+  id: ID!
+  name: String!
+  class: String!
+  gender: String!
+  level: Int!
+  hardcore: Boolean!
+  seasonal: Boolean!
+  dead: Boolean!
+  paragonLevel: Int!
+  kills: DiabloKills!
+  items: DiabloItems
+  skills: DiabloSkills
+}
+
+type DiabloKills {
+  monsters: Int!
+  elites: Int!
+  hardcoreMonsters: Int
+}
+
+type DiabloTimePlayed {
+  barbarian: Float
+  crusader: Float
+  demonHunter: Float
+  monk: Float
+  necromancer: Float
+  witchDoctor: Float
+  wizard: Float
+}
+
+type DiabloItems {
+  head: DiabloItem
+  torso: DiabloItem
+  feet: DiabloItem
+  hands: DiabloItem
+  shoulders: DiabloItem
+  legs: DiabloItem
+  bracers: DiabloItem
+  mainHand: DiabloItem
+  offHand: DiabloItem
+  ring1: DiabloItem
+  ring2: DiabloItem
+  amulet: DiabloItem
+}
+
+type DiabloItem {
+  id: ID!
+  name: String!
+  displayColor: String
+  icon: String
+  tooltipParams: String
+}
+
+type DiabloSkills {
+  active: [DiabloSkill!]!
+  passive: [DiabloSkill!]!
+}
+
+type DiabloSkill {
+  slug: String!
+  name: String!
+  description: String!
+  categorySlug: String
+  rune: DiabloRune
+}
+
+type DiabloRune {
+  slug: String!
+  type: String!
+  name: String!
+  description: String!
+  level: Int!
+}
+
+# ─────────────────────────────────────────
+# StarCraft II
+# ─────────────────────────────────────────
+
+type SC2Profile {
+  id: ID!
+  name: String!
+  realm: Int!
+  region: Region!
+  profileUrl: String
+  summary: SC2Summary
+  ladders: [SC2Ladder!]
+  matches: [SC2Match!]
+}
+
+type SC2Summary {
+  id: ID!
+  totalSwarmLevel: Int
+  totalAchievementPoints: Int
+}
+
+type SC2Ladder {
+  id: ID!
+  name: String!
+  localizedGameMode: String!
+  wins: Int!
+  losses: Int!
+  ties: Int!
+  mmr: Int
+  points: Int!
+  rank: Int
+  league: String!
+}
+
+type SC2Match {
+  map: String!
+  type: String!
+  decision: String!
+  speed: String!
+  date: String!
+}
+
+# ─────────────────────────────────────────
+# Hearthstone
+# ─────────────────────────────────────────
+
+type HearthstoneCard {
+  id: ID!
+  name: String!
+  text: String
+  flavorText: String
+  cardTypeId: Int
+  cardSetId: Int
+  classId: Int
+  manaCost: Int!
+  attack: Int
+  health: Int
+  durability: Int
+  rarity: String!
+  image: String
+  imageGold: String
+  cropImage: String
+}
+
+type HearthstoneCardSet {
+  id: ID!
+  name: String!
+  slug: String!
+  type: String!
+  hyped: Boolean
+  logo: String
+}
+
+type HearthstoneDeck {
+  code: String!
+  version: Int!
+  format: String!
+  hero: HearthstoneCard
+  class: String!
+  cards: [HearthstoneCard!]!
+}
+
+# ─────────────────────────────────────────
+# Root Query & Mutations
+# ─────────────────────────────────────────
+
+type Query {
+  # Auth
+  oauthToken(clientId: String!, clientSecret: String!, region: Region!): OAuthToken
+  battleNetAccount(token: String!): BattleNetAccount
+
+  # Realms
+  realm(realmSlug: String!, region: Region!): Realm
+  realms(region: Region!): [Realm!]!
+  connectedRealm(id: ID!, region: Region!): ConnectedRealm
+
+  # WoW Characters
+  wowCharacter(realmSlug: String!, characterName: String!, region: Region!): WoWCharacter
+  characterProfile(realmSlug: String!, characterName: String!, region: Region!): CharacterProfile
+  characterEquipment(realmSlug: String!, characterName: String!, region: Region!): CharacterEquipment
+  characterStats(realmSlug: String!, characterName: String!, region: Region!): CharacterStats
+  characterAchievements(realmSlug: String!, characterName: String!, region: Region!): [CharacterAchievement!]!
+  characterTitles(realmSlug: String!, characterName: String!, region: Region!): [CharacterTitle!]!
+  characterCollections(realmSlug: String!, characterName: String!, region: Region!): Collections
+  characterPvP(realmSlug: String!, characterName: String!, region: Region!, bracket: String!): BracketRecord
+  mythicKeystoneProfile(realmSlug: String!, characterName: String!, region: Region!): MythicKey
+
+  # Guilds
+  guild(realmSlug: String!, guildSlug: String!, region: Region!): Guild
+  guildRoster(realmSlug: String!, guildSlug: String!, region: Region!): GuildRoster
+  guildAchievements(realmSlug: String!, guildSlug: String!, region: Region!): [GuildAchievement!]!
+
+  # Raids & Dungeons
+  raid(raidSlug: String!, region: Region!): Raid
+  raids(region: Region!, expansion: String): [Raid!]!
+  dungeon(dungeonId: ID!, region: Region!): Dungeon
+  dungeons(region: Region!): [Dungeon!]!
+  keystoneAffixes(region: Region!): AffixSet
+
+  # Items
+  item(itemId: ID!, region: Region!): WoWItem
+  itemSet(setId: ID!, region: Region!): ItemSet
+
+  # CoD
+  codProfile(username: String!, platform: String!): CoDProfile
+  codMatch(matchId: ID!): CoDMatch
+  warzoneStats(username: String!, platform: String!): WarzoneStats
+  warzoneMatch(matchId: ID!): WarzoneMatch
+
+  # Overwatch
+  owProfile(battletag: String!, platform: String!): OWProfile
+  owHero(heroId: ID!): OWHero
+  owHeroes: [OWHero!]!
+
+  # Diablo III
+  diabloProfile(region: Region!, battleTag: String!): DiabloProfile
+  diabloHero(region: Region!, accountId: String!, heroId: ID!): DiabloHero
+
+  # StarCraft II
+  sc2Profile(region: Region!, realmId: Int!, profileId: ID!): SC2Profile
+  sc2Ladder(region: Region!, ladderId: ID!): SC2Ladder
+
+  # Hearthstone
+  hearthstoneCard(id: ID!, region: Region!): HearthstoneCard
+  hearthstoneCards(classSlug: String, setSlug: String, manaCost: Int, rarity: String, region: Region): [HearthstoneCard!]!
+  hearthstoneDeck(code: String!, region: Region!): HearthstoneDeck
+  hearthstoneCardSets(region: Region!): [HearthstoneCardSet!]!
+}
+
+type Mutation {
+  # No public write endpoints; mutations are placeholders for potential future operations
+  refreshOAuthToken(refreshToken: String!, clientId: String!, region: Region!): OAuthToken
+}
