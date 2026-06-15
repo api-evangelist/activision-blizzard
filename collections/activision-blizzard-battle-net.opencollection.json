@@ -1,0 +1,550 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Activision Blizzard Battle.net API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://oauth.battle.net/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "World of Warcraft",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Activision Blizzard Get WoW Profile Summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/profile/user/wow",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query",
+                "description": "Namespace for the data"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Response locale"
+              }
+            ]
+          },
+          "docs": "Returns a profile summary for an account, including character list"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get WoW Character Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/profile/wow/character/:realmSlug/:characterName",
+            "params": [
+              {
+                "name": "realmSlug",
+                "value": "",
+                "type": "path",
+                "description": "The realm slug"
+              },
+              {
+                "name": "characterName",
+                "value": "",
+                "type": "path",
+                "description": "The lowercase character name"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query",
+                "description": "The namespace for the data"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Response locale"
+              }
+            ]
+          },
+          "docs": "Returns a summary of a character's profile"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get WoW Character Achievements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/profile/wow/character/:realmSlug/:characterName/achievements",
+            "params": [
+              {
+                "name": "realmSlug",
+                "value": "",
+                "type": "path",
+                "description": "The realm slug"
+              },
+              {
+                "name": "characterName",
+                "value": "",
+                "type": "path",
+                "description": "The character name"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query",
+                "description": "The namespace for the data"
+              }
+            ]
+          },
+          "docs": "Returns a summary of the achievements a character has completed"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get WoW Character Equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/profile/wow/character/:realmSlug/:characterName/equipment",
+            "params": [
+              {
+                "name": "realmSlug",
+                "value": "",
+                "type": "path",
+                "description": "The realm slug"
+              },
+              {
+                "name": "characterName",
+                "value": "",
+                "type": "path",
+                "description": "The character name"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query",
+                "description": "The namespace for the data"
+              }
+            ]
+          },
+          "docs": "Returns a summary of the items equipped by a character"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get WoW Realms Index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/data/wow/realm/index",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query",
+                "description": "The namespace for the data"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Response locale"
+              }
+            ]
+          },
+          "docs": "Returns an index of realms"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get WoW Realm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/data/wow/realm/:realmSlug",
+            "params": [
+              {
+                "name": "realmSlug",
+                "value": "",
+                "type": "path",
+                "description": "The realm slug"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query",
+                "description": "The namespace for the data"
+              }
+            ]
+          },
+          "docs": "Returns the specified realm"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get WoW Guild",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/data/wow/guild/:realmSlug/:nameSlug",
+            "params": [
+              {
+                "name": "realmSlug",
+                "value": "",
+                "type": "path",
+                "description": "The realm slug"
+              },
+              {
+                "name": "nameSlug",
+                "value": "",
+                "type": "path",
+                "description": "The guild name slug"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query",
+                "description": "The namespace for the data"
+              }
+            ]
+          },
+          "docs": "Returns a single guild by its name and realm"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get WoW Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/data/wow/item/:itemId",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "The item ID"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query",
+                "description": "The namespace for the data"
+              }
+            ]
+          },
+          "docs": "Returns an item by ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Diablo III",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Activision Blizzard Get Diablo III Career Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/d3/profile/:battletag/",
+            "params": [
+              {
+                "name": "battletag",
+                "value": "",
+                "type": "path",
+                "description": "The BattleTag for the account"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Response locale"
+              }
+            ]
+          },
+          "docs": "Returns the specified account's Diablo III career profile"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get Diablo III Hero",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/d3/profile/:battletag/hero/:heroId",
+            "params": [
+              {
+                "name": "battletag",
+                "value": "",
+                "type": "path",
+                "description": "The BattleTag for the account"
+              },
+              {
+                "name": "heroId",
+                "value": "",
+                "type": "path",
+                "description": "The hero ID"
+              }
+            ]
+          },
+          "docs": "Returns a single hero"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Hearthstone",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Activision Blizzard Get Hearthstone Cards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/hearthstone/cards",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Response locale"
+              },
+              {
+                "name": "set",
+                "value": "",
+                "type": "query",
+                "description": "Filter cards by set"
+              },
+              {
+                "name": "class",
+                "value": "",
+                "type": "query",
+                "description": "Filter cards by class"
+              },
+              {
+                "name": "manaCost",
+                "value": "",
+                "type": "query",
+                "description": "Filter by mana cost"
+              },
+              {
+                "name": "attack",
+                "value": "",
+                "type": "query",
+                "description": "Filter by attack"
+              },
+              {
+                "name": "health",
+                "value": "",
+                "type": "query",
+                "description": "Filter by health"
+              },
+              {
+                "name": "rarity",
+                "value": "",
+                "type": "query",
+                "description": "Filter by rarity"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by card type"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Cards per page"
+              }
+            ]
+          },
+          "docs": "Returns an up-to-date list of all cards matching the search criteria"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get Hearthstone Card",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/hearthstone/cards/:idOrSlug",
+            "params": [
+              {
+                "name": "idOrSlug",
+                "value": "",
+                "type": "path",
+                "description": "The card ID or slug"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Response locale"
+              }
+            ]
+          },
+          "docs": "Returns the card with an ID or slug that matches the one you specify"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get Hearthstone Deck",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/hearthstone/decks",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "A deck code"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Response locale"
+              }
+            ]
+          },
+          "docs": "Finds a deck by its deck code"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "StarCraft II",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Activision Blizzard Get StarCraft II Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/sc2/profile/:regionId/:realmId/:profileId",
+            "params": [
+              {
+                "name": "regionId",
+                "value": "",
+                "type": "path",
+                "description": "The region for the profile"
+              },
+              {
+                "name": "realmId",
+                "value": "",
+                "type": "path",
+                "description": "The realm for the profile"
+              },
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path",
+                "description": "The profile ID"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Response locale"
+              }
+            ]
+          },
+          "docs": "Returns data about an individual SC2 profile"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get StarCraft II Grandmaster Leaderboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/sc2/ladder/grandmaster/:regionId",
+            "params": [
+              {
+                "name": "regionId",
+                "value": "",
+                "type": "path",
+                "description": "The region for the ladder"
+              }
+            ]
+          },
+          "docs": "Returns the grandmaster leaderboard for the current season"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Activision Blizzard Get Battle.net Account Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/profile/user"
+          },
+          "docs": "Returns the authenticated user's Battle.net account profile"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get WoW User Characters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/wow/user/characters",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query",
+                "description": "The namespace for the data"
+              }
+            ]
+          },
+          "docs": "Returns a list of all WoW characters on the account"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
