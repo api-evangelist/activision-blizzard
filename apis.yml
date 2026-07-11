@@ -32,6 +32,8 @@ apis:
     StarCraft II, and Battle.net account information. Requires OAuth2 authentication
     via develop.battle.net.
 common:
+- type: OAuthScopes
+  url: scopes/activision-blizzard-scopes.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/activision-blizzard
 - type: Website

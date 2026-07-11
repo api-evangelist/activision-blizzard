@@ -1,0 +1,36 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/activision-blizzard-battle-net.json
+schemes:
+- name: OAuth2ClientCredentials
+  source: openapi/activision-blizzard-battle-net.json
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://oauth.battle.net/token
+  - flow: authorizationCode
+    authorizationUrl: https://oauth.battle.net/authorize
+    tokenUrl: https://oauth.battle.net/token
+  description: OAuth2 authentication. Create a client at develop.battle.net for client ID and
+    secret.
+scopes:
+- scope: openid
+  description: Access basic account information
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/activision-blizzard-battle-net.json
+- scope: sc2.profile
+  description: Access StarCraft II profile data
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/activision-blizzard-battle-net.json
+- scope: wow.profile
+  description: Access WoW character profile data
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/activision-blizzard-battle-net.json
