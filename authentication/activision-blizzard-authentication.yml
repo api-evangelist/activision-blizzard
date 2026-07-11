@@ -1,0 +1,24 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/activision-blizzard-battle-net.json
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+  - clientCredentials
+schemes:
+- name: OAuth2ClientCredentials
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://oauth.battle.net/token
+    scopes: 3
+  - flow: authorizationCode
+    authorizationUrl: https://oauth.battle.net/authorize
+    tokenUrl: https://oauth.battle.net/token
+    scopes: 3
+  description: OAuth2 authentication. Create a client at develop.battle.net for client ID and
+    secret.
+  sources:
+  - openapi/activision-blizzard-battle-net.json
