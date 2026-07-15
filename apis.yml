@@ -32,6 +32,8 @@ apis:
     StarCraft II, and Battle.net account information. Requires OAuth2 authentication
     via develop.battle.net.
 common:
+- type: AgenticAccess
+  url: agentic-access/activision-blizzard-agentic-access.yml
 - type: DomainSecurity
   url: security/activision-blizzard-domain-security.yml
 - type: Authentication
