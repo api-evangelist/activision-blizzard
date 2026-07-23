@@ -1,0 +1,220 @@
+openapi: 3.1.0
+info:
+  title: Activision Blizzard Battle.net Account Diablo III API
+  version: 1.0.0
+  description: Battle.net Game Data and Profile APIs from Activision Blizzard providing access to data from World of Warcraft, Diablo III, Hearthstone, StarCraft II, Overwatch, and account profile information. Requires OAuth2 client credentials.
+  contact:
+    name: Blizzard Developer Portal
+    url: https://develop.battle.net/
+  x-generated-from: documentation
+servers:
+- url: https://{region}.api.blizzard.com
+  description: Battle.net regional API
+  variables:
+    region:
+      enum:
+      - us
+      - eu
+      - kr
+      - tw
+      default: us
+      description: API region
+- url: https://gateway.battlenet.com.cn
+  description: Battle.net China API
+security:
+- OAuth2ClientCredentials: []
+tags:
+- name: Diablo III
+  description: Diablo III game data and profile APIs
+paths:
+  /d3/profile/{battletag}/:
+    get:
+      operationId: getD3CareerProfile
+      summary: Activision Blizzard Get Diablo III Career Profile
+      description: Returns the specified account's Diablo III career profile
+      tags:
+      - Diablo III
+      parameters:
+      - name: battletag
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The BattleTag for the account
+      - name: locale
+        in: query
+        schema:
+          type: string
+        description: Response locale
+      responses:
+        '200':
+          description: Diablo III career profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/D3CareerProfile'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /d3/profile/{battletag}/hero/{heroId}:
+    get:
+      operationId: getD3Hero
+      summary: Activision Blizzard Get Diablo III Hero
+      description: Returns a single hero
+      tags:
+      - Diablo III
+      parameters:
+      - name: battletag
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The BattleTag for the account
+      - name: heroId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The hero ID
+      responses:
+        '200':
+          description: Hero details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/D3Hero'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    D3Hero:
+      type: object
+      description: A Diablo III hero
+      properties:
+        id:
+          type: integer
+          description: Hero ID
+          example: 12345
+        name:
+          type: string
+          description: Hero name
+          example: Zul'jin
+        class:
+          type: string
+          description: Hero class
+          example: barbarian
+        gender:
+          type: integer
+          description: Hero gender (0=male, 1=female)
+          example: 0
+        level:
+          type: integer
+          description: Hero level
+          example: 70
+        paragonLevel:
+          type: integer
+          description: Paragon level
+          example: 1500
+        hardcore:
+          type: boolean
+          description: Whether this is a hardcore hero
+        seasonal:
+          type: boolean
+          description: Whether this is a seasonal hero
+        dead:
+          type: boolean
+          description: Whether this hero is dead
+        kills:
+          type: object
+          description: Kill statistics
+        skills:
+          type: object
+          description: Hero skills and runes
+        items:
+          type: object
+          description: Equipped items
+        stats:
+          type: object
+          description: Character stats
+    D3HeroSummary:
+      type: object
+      description: Summary of a Diablo III hero
+      properties:
+        id:
+          type: integer
+          description: Hero ID
+          example: 12345
+        name:
+          type: string
+          description: Hero name
+          example: Zul'jin
+        class:
+          type: string
+          description: Hero class
+          example: barbarian
+        level:
+          type: integer
+          description: Hero level
+          example: 70
+        hardcore:
+          type: boolean
+          description: Whether this is a hardcore hero
+        seasonal:
+          type: boolean
+          description: Whether this is a seasonal hero
+        dead:
+          type: boolean
+          description: Whether this hero is dead
+    D3CareerProfile:
+      type: object
+      description: Diablo III career profile
+      properties:
+        battletag:
+          type: string
+          description: Player BattleTag
+          example: Player#1234
+        paragonLevel:
+          type: integer
+          description: Paragon level
+          example: 1500
+        paragonLevelHardcore:
+          type: integer
+          description: Hardcore paragon level
+          example: 200
+        guildName:
+          type: string
+          description: Guild name
+        heroes:
+          type: array
+          items:
+            $ref: '#/components/schemas/D3HeroSummary'
+          description: List of heroes
+        lastHeroPlayed:
+          type: integer
+          description: ID of last hero played
+          example: 12345
+        kills:
+          type: object
+          description: Kill statistics
+        timePlayed:
+          type: object
+          description: Time played by class
+  securitySchemes:
+    OAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.battle.net/token
+          scopes:
+            wow.profile: Access WoW character profile data
+            sc2.profile: Access StarCraft II profile data
+            openid: Access basic account information
+        authorizationCode:
+          authorizationUrl: https://oauth.battle.net/authorize
+          tokenUrl: https://oauth.battle.net/token
+          scopes:
+            wow.profile: Access WoW character profile data
+            sc2.profile: Access StarCraft II profile data
+            openid: Access basic account information
+      description: OAuth2 authentication. Create a client at develop.battle.net for client ID and secret.

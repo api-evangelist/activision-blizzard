@@ -1,0 +1,554 @@
+openapi: 3.1.0
+info:
+  title: Activision Blizzard Battle.net Account World of Warcraft API
+  version: 1.0.0
+  description: Battle.net Game Data and Profile APIs from Activision Blizzard providing access to data from World of Warcraft, Diablo III, Hearthstone, StarCraft II, Overwatch, and account profile information. Requires OAuth2 client credentials.
+  contact:
+    name: Blizzard Developer Portal
+    url: https://develop.battle.net/
+  x-generated-from: documentation
+servers:
+- url: https://{region}.api.blizzard.com
+  description: Battle.net regional API
+  variables:
+    region:
+      enum:
+      - us
+      - eu
+      - kr
+      - tw
+      default: us
+      description: API region
+- url: https://gateway.battlenet.com.cn
+  description: Battle.net China API
+security:
+- OAuth2ClientCredentials: []
+tags:
+- name: World of Warcraft
+  description: World of Warcraft game data and profile APIs
+paths:
+  /profile/user/wow:
+    get:
+      operationId: getWoWProfileSummary
+      summary: Activision Blizzard Get WoW Profile Summary
+      description: Returns a profile summary for an account, including character list
+      tags:
+      - World of Warcraft
+      parameters:
+      - name: namespace
+        in: query
+        required: true
+        schema:
+          type: string
+          example: profile-us
+        description: Namespace for the data
+      - name: locale
+        in: query
+        schema:
+          type: string
+          example: en_US
+        description: Response locale
+      responses:
+        '200':
+          description: WoW account profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WoWProfileSummary'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /profile/wow/character/{realmSlug}/{characterName}:
+    get:
+      operationId: getWoWCharacterProfile
+      summary: Activision Blizzard Get WoW Character Profile
+      description: Returns a summary of a character's profile
+      tags:
+      - World of Warcraft
+      parameters:
+      - name: realmSlug
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The realm slug
+      - name: characterName
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The lowercase character name
+      - name: namespace
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The namespace for the data
+      - name: locale
+        in: query
+        schema:
+          type: string
+        description: Response locale
+      responses:
+        '200':
+          description: Character profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WoWCharacter'
+        '404':
+          description: Character not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /profile/wow/character/{realmSlug}/{characterName}/achievements:
+    get:
+      operationId: getWoWCharacterAchievements
+      summary: Activision Blizzard Get WoW Character Achievements
+      description: Returns a summary of the achievements a character has completed
+      tags:
+      - World of Warcraft
+      parameters:
+      - name: realmSlug
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The realm slug
+      - name: characterName
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The character name
+      - name: namespace
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The namespace for the data
+      responses:
+        '200':
+          description: Character achievements
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WoWCharacterAchievements'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /profile/wow/character/{realmSlug}/{characterName}/equipment:
+    get:
+      operationId: getWoWCharacterEquipment
+      summary: Activision Blizzard Get WoW Character Equipment
+      description: Returns a summary of the items equipped by a character
+      tags:
+      - World of Warcraft
+      parameters:
+      - name: realmSlug
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The realm slug
+      - name: characterName
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The character name
+      - name: namespace
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The namespace for the data
+      responses:
+        '200':
+          description: Character equipment
+          content:
+            application/json:
+              schema:
+                type: object
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /data/wow/realm/index:
+    get:
+      operationId: getWoWRealmsIndex
+      summary: Activision Blizzard Get WoW Realms Index
+      description: Returns an index of realms
+      tags:
+      - World of Warcraft
+      parameters:
+      - name: namespace
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The namespace for the data
+      - name: locale
+        in: query
+        schema:
+          type: string
+        description: Response locale
+      responses:
+        '200':
+          description: Realms index
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WoWRealmsIndex'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /data/wow/realm/{realmSlug}:
+    get:
+      operationId: getWoWRealm
+      summary: Activision Blizzard Get WoW Realm
+      description: Returns the specified realm
+      tags:
+      - World of Warcraft
+      parameters:
+      - name: realmSlug
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The realm slug
+      - name: namespace
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The namespace for the data
+      responses:
+        '200':
+          description: Realm details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WoWRealm'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /data/wow/guild/{realmSlug}/{nameSlug}:
+    get:
+      operationId: getWoWGuild
+      summary: Activision Blizzard Get WoW Guild
+      description: Returns a single guild by its name and realm
+      tags:
+      - World of Warcraft
+      parameters:
+      - name: realmSlug
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The realm slug
+      - name: nameSlug
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The guild name slug
+      - name: namespace
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The namespace for the data
+      responses:
+        '200':
+          description: Guild details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WoWGuild'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /data/wow/item/{itemId}:
+    get:
+      operationId: getWoWItem
+      summary: Activision Blizzard Get WoW Item
+      description: Returns an item by ID
+      tags:
+      - World of Warcraft
+      parameters:
+      - name: itemId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The item ID
+      - name: namespace
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The namespace for the data
+      responses:
+        '200':
+          description: Item details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WoWItem'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    WoWRealm:
+      type: object
+      description: A World of Warcraft realm
+      properties:
+        id:
+          type: integer
+          description: Realm ID
+          example: 1
+        name:
+          type: string
+          description: Realm name
+          example: Area 52
+        slug:
+          type: string
+          description: Realm slug
+          example: area-52
+        region:
+          type: object
+          description: Region reference
+        category:
+          type: string
+          description: Realm category
+          example: United States
+        locale:
+          type: string
+          description: Realm locale
+          example: en_US
+        timezone:
+          type: string
+          description: Realm timezone
+          example: America/New_York
+        type:
+          type: object
+          description: Realm type (Normal, RP, etc.)
+        is_tournament:
+          type: boolean
+          description: Whether this is a tournament realm
+    WoWCharacter:
+      type: object
+      description: Full World of Warcraft character profile
+      properties:
+        id:
+          type: integer
+          description: Character ID
+          example: 123456
+        name:
+          type: string
+          description: Character name
+          example: Thrall
+        gender:
+          type: object
+          description: Character gender
+        faction:
+          type: object
+          description: Character faction
+        race:
+          type: object
+          description: Character race
+        character_class:
+          type: object
+          description: Character class
+        active_spec:
+          type: object
+          description: Active specialization
+        realm:
+          $ref: '#/components/schemas/WoWRealm'
+        guild:
+          $ref: '#/components/schemas/WoWGuild'
+        level:
+          type: integer
+          description: Character level
+          example: 70
+        experience:
+          type: integer
+          description: Character experience points
+        achievement_points:
+          type: integer
+          description: Total achievement points
+          example: 15000
+        last_login_timestamp:
+          type: integer
+          description: Unix timestamp of last login
+          example: 1718153645993
+    WoWCharacterSummary:
+      type: object
+      description: Summary of a WoW character
+      properties:
+        character:
+          type: object
+          description: Character reference with href
+        protected_character:
+          type: object
+          description: Protected character reference
+        name:
+          type: string
+          description: Character name
+          example: Thrall
+        id:
+          type: integer
+          description: Character ID
+          example: 123456
+        realm:
+          $ref: '#/components/schemas/WoWRealm'
+        playable_class:
+          type: object
+          description: Playable class reference
+        playable_race:
+          type: object
+          description: Playable race reference
+        gender:
+          type: object
+          description: Character gender
+        faction:
+          type: object
+          description: Character faction (Alliance or Horde)
+        level:
+          type: integer
+          description: Character level
+          example: 70
+    WoWCharacterAchievements:
+      type: object
+      description: Character achievements summary
+      properties:
+        total_quantity:
+          type: integer
+          description: Total achievements completed
+          example: 2500
+        total_points:
+          type: integer
+          description: Total achievement points
+          example: 15000
+        achievements:
+          type: array
+          items:
+            type: object
+          description: List of completed achievements
+    WoWItem:
+      type: object
+      description: A World of Warcraft item
+      properties:
+        id:
+          type: integer
+          description: Item ID
+          example: 19019
+        name:
+          type: string
+          description: Item name
+          example: Thunderfury, Blessed Blade of the Windseeker
+        quality:
+          type: object
+          description: Item quality (Common, Rare, Epic, etc.)
+        level:
+          type: integer
+          description: Item level
+          example: 80
+        item_class:
+          type: object
+          description: Item class
+        item_subclass:
+          type: object
+          description: Item subclass
+        inventory_type:
+          type: object
+          description: Inventory type
+        purchase_price:
+          type: integer
+          description: Purchase price in copper
+        sell_price:
+          type: integer
+          description: Sell price in copper
+    WoWRealmsIndex:
+      type: object
+      description: Index of WoW realms
+      properties:
+        realms:
+          type: array
+          items:
+            $ref: '#/components/schemas/WoWRealm'
+          description: List of realms
+    WoWAccount:
+      type: object
+      description: A World of Warcraft account
+      properties:
+        id:
+          type: integer
+          description: Account ID
+          example: 1
+        characters:
+          type: array
+          items:
+            $ref: '#/components/schemas/WoWCharacterSummary'
+          description: List of characters on this account
+    WoWGuild:
+      type: object
+      description: A World of Warcraft guild
+      properties:
+        id:
+          type: integer
+          description: Guild ID
+          example: 789012
+        name:
+          type: string
+          description: Guild name
+          example: The Exodar
+        faction:
+          type: object
+          description: Guild faction
+        realm:
+          $ref: '#/components/schemas/WoWRealm'
+        member_count:
+          type: integer
+          description: Number of guild members
+          example: 150
+        achievement_points:
+          type: integer
+          description: Guild achievement points
+          example: 5000
+    WoWProfileSummary:
+      type: object
+      description: World of Warcraft account profile summary
+      properties:
+        id:
+          type: integer
+          description: Account ID
+          example: 12345678
+        wow_accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/WoWAccount'
+          description: WoW accounts linked to the Battle.net account
+  securitySchemes:
+    OAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.battle.net/token
+          scopes:
+            wow.profile: Access WoW character profile data
+            sc2.profile: Access StarCraft II profile data
+            openid: Access basic account information
+        authorizationCode:
+          authorizationUrl: https://oauth.battle.net/authorize
+          tokenUrl: https://oauth.battle.net/token
+          scopes:
+            wow.profile: Access WoW character profile data
+            sc2.profile: Access StarCraft II profile data
+            openid: Access basic account information
+      description: OAuth2 authentication. Create a client at develop.battle.net for client ID and secret.

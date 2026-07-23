@@ -1,0 +1,106 @@
+openapi: 3.1.0
+info:
+  title: Activision Blizzard Battle.net Account API
+  version: 1.0.0
+  description: Battle.net Game Data and Profile APIs from Activision Blizzard providing access to data from World of Warcraft, Diablo III, Hearthstone, StarCraft II, Overwatch, and account profile information. Requires OAuth2 client credentials.
+  contact:
+    name: Blizzard Developer Portal
+    url: https://develop.battle.net/
+  x-generated-from: documentation
+servers:
+- url: https://{region}.api.blizzard.com
+  description: Battle.net regional API
+  variables:
+    region:
+      enum:
+      - us
+      - eu
+      - kr
+      - tw
+      default: us
+      description: API region
+- url: https://gateway.battlenet.com.cn
+  description: Battle.net China API
+security:
+- OAuth2ClientCredentials: []
+tags:
+- name: Account
+  description: Battle.net account and user profile APIs
+paths:
+  /profile/user:
+    get:
+      operationId: getBattleNetProfile
+      summary: Activision Blizzard Get Battle.net Account Profile
+      description: Returns the authenticated user's Battle.net account profile
+      tags:
+      - Account
+      responses:
+        '200':
+          description: Account profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BattleNetProfile'
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /wow/user/characters:
+    get:
+      operationId: getWoWUserCharacters
+      summary: Activision Blizzard Get WoW User Characters
+      description: Returns a list of all WoW characters on the account
+      tags:
+      - Account
+      parameters:
+      - name: namespace
+        in: query
+        schema:
+          type: string
+        description: The namespace for the data
+      responses:
+        '200':
+          description: List of characters
+          content:
+            application/json:
+              schema:
+                type: object
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    BattleNetProfile:
+      type: object
+      description: Battle.net account profile
+      properties:
+        id:
+          type: integer
+          description: Account ID
+          example: 12345678
+        battletag:
+          type: string
+          description: Battle.net BattleTag
+          example: Player#1234
+        sub:
+          type: string
+          description: OAuth2 subject identifier
+  securitySchemes:
+    OAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.battle.net/token
+          scopes:
+            wow.profile: Access WoW character profile data
+            sc2.profile: Access StarCraft II profile data
+            openid: Access basic account information
+        authorizationCode:
+          authorizationUrl: https://oauth.battle.net/authorize
+          tokenUrl: https://oauth.battle.net/token
+          scopes:
+            wow.profile: Access WoW character profile data
+            sc2.profile: Access StarCraft II profile data
+            openid: Access basic account information
+      description: OAuth2 authentication. Create a client at develop.battle.net for client ID and secret.

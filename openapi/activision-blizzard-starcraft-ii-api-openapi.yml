@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: Activision Blizzard Battle.net Account StarCraft II API
+  version: 1.0.0
+  description: Battle.net Game Data and Profile APIs from Activision Blizzard providing access to data from World of Warcraft, Diablo III, Hearthstone, StarCraft II, Overwatch, and account profile information. Requires OAuth2 client credentials.
+  contact:
+    name: Blizzard Developer Portal
+    url: https://develop.battle.net/
+  x-generated-from: documentation
+servers:
+- url: https://{region}.api.blizzard.com
+  description: Battle.net regional API
+  variables:
+    region:
+      enum:
+      - us
+      - eu
+      - kr
+      - tw
+      default: us
+      description: API region
+- url: https://gateway.battlenet.com.cn
+  description: Battle.net China API
+security:
+- OAuth2ClientCredentials: []
+tags:
+- name: StarCraft II
+  description: StarCraft II game data and profile APIs
+paths:
+  /sc2/profile/{regionId}/{realmId}/{profileId}:
+    get:
+      operationId: getSC2Profile
+      summary: Activision Blizzard Get StarCraft II Profile
+      description: Returns data about an individual SC2 profile
+      tags:
+      - StarCraft II
+      parameters:
+      - name: regionId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The region for the profile
+      - name: realmId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The realm for the profile
+      - name: profileId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The profile ID
+      - name: locale
+        in: query
+        schema:
+          type: string
+        description: Response locale
+      responses:
+        '200':
+          description: SC2 profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SC2Profile'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /sc2/ladder/grandmaster/{regionId}:
+    get:
+      operationId: getSC2GrandmasterLeaderboard
+      summary: Activision Blizzard Get StarCraft II Grandmaster Leaderboard
+      description: Returns the grandmaster leaderboard for the current season
+      tags:
+      - StarCraft II
+      parameters:
+      - name: regionId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The region for the ladder
+      responses:
+        '200':
+          description: Grandmaster leaderboard
+          content:
+            application/json:
+              schema:
+                type: object
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    SC2Profile:
+      type: object
+      description: A StarCraft II profile
+      properties:
+        summary:
+          type: object
+          description: Profile summary
+        snapshot:
+          type: object
+          description: Profile snapshot data
+  securitySchemes:
+    OAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.battle.net/token
+          scopes:
+            wow.profile: Access WoW character profile data
+            sc2.profile: Access StarCraft II profile data
+            openid: Access basic account information
+        authorizationCode:
+          authorizationUrl: https://oauth.battle.net/authorize
+          tokenUrl: https://oauth.battle.net/token
+          scopes:
+            wow.profile: Access WoW character profile data
+            sc2.profile: Access StarCraft II profile data
+            openid: Access basic account information
+      description: OAuth2 authentication. Create a client at develop.battle.net for client ID and secret.

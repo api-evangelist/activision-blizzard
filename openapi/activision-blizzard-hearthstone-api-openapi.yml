@@ -1,0 +1,302 @@
+openapi: 3.1.0
+info:
+  title: Activision Blizzard Battle.net Account Hearthstone API
+  version: 1.0.0
+  description: Battle.net Game Data and Profile APIs from Activision Blizzard providing access to data from World of Warcraft, Diablo III, Hearthstone, StarCraft II, Overwatch, and account profile information. Requires OAuth2 client credentials.
+  contact:
+    name: Blizzard Developer Portal
+    url: https://develop.battle.net/
+  x-generated-from: documentation
+servers:
+- url: https://{region}.api.blizzard.com
+  description: Battle.net regional API
+  variables:
+    region:
+      enum:
+      - us
+      - eu
+      - kr
+      - tw
+      default: us
+      description: API region
+- url: https://gateway.battlenet.com.cn
+  description: Battle.net China API
+security:
+- OAuth2ClientCredentials: []
+tags:
+- name: Hearthstone
+  description: Hearthstone game data APIs
+paths:
+  /hearthstone/cards:
+    get:
+      operationId: getHearthstoneCards
+      summary: Activision Blizzard Get Hearthstone Cards
+      description: Returns an up-to-date list of all cards matching the search criteria
+      tags:
+      - Hearthstone
+      parameters:
+      - name: locale
+        in: query
+        schema:
+          type: string
+        description: Response locale
+      - name: set
+        in: query
+        schema:
+          type: string
+        description: Filter cards by set
+      - name: class
+        in: query
+        schema:
+          type: string
+        description: Filter cards by class
+      - name: manaCost
+        in: query
+        schema:
+          type: integer
+        description: Filter by mana cost
+      - name: attack
+        in: query
+        schema:
+          type: integer
+        description: Filter by attack
+      - name: health
+        in: query
+        schema:
+          type: integer
+        description: Filter by health
+      - name: rarity
+        in: query
+        schema:
+          type: string
+        description: Filter by rarity
+      - name: type
+        in: query
+        schema:
+          type: string
+        description: Filter by card type
+      - name: page
+        in: query
+        schema:
+          type: integer
+        description: Page number
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+        description: Cards per page
+      responses:
+        '200':
+          description: Hearthstone cards
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HearthstoneCardsResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /hearthstone/cards/{idOrSlug}:
+    get:
+      operationId: getHearthstoneCard
+      summary: Activision Blizzard Get Hearthstone Card
+      description: Returns the card with an ID or slug that matches the one you specify
+      tags:
+      - Hearthstone
+      parameters:
+      - name: idOrSlug
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The card ID or slug
+      - name: locale
+        in: query
+        schema:
+          type: string
+        description: Response locale
+      responses:
+        '200':
+          description: Card details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HearthstoneCard'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /hearthstone/decks:
+    get:
+      operationId: getHearthstoneDeck
+      summary: Activision Blizzard Get Hearthstone Deck
+      description: Finds a deck by its deck code
+      tags:
+      - Hearthstone
+      parameters:
+      - name: code
+        in: query
+        required: true
+        schema:
+          type: string
+        description: A deck code
+      - name: locale
+        in: query
+        schema:
+          type: string
+        description: Response locale
+      responses:
+        '200':
+          description: Deck details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HearthstoneDeck'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    HearthstoneDeck:
+      type: object
+      description: A Hearthstone deck
+      properties:
+        deckCode:
+          type: string
+          description: The deck code
+          example: AAECAQcG0LQDubQD3rUD57UDibYDvbYDDI...
+        version:
+          type: integer
+          description: Deck format version
+          example: 1
+        format:
+          type: object
+          description: Deck format
+        hero:
+          $ref: '#/components/schemas/HearthstoneCard'
+        heroPower:
+          $ref: '#/components/schemas/HearthstoneCard'
+        class:
+          type: object
+          description: Deck class
+        cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/HearthstoneCard'
+          description: Cards in the deck
+        cardCount:
+          type: integer
+          description: Number of cards in the deck
+          example: 30
+    HearthstoneCard:
+      type: object
+      description: A Hearthstone card
+      properties:
+        id:
+          type: integer
+          description: Card ID
+          example: 1234
+        collectible:
+          type: integer
+          description: Whether the card is collectible (1=yes)
+          example: 1
+        slug:
+          type: string
+          description: Card slug
+          example: ragnaros-the-firelord
+        classId:
+          type: integer
+          description: Class ID
+          example: 1
+        multiClassIds:
+          type: array
+          items:
+            type: integer
+          description: Multi-class IDs
+        cardTypeId:
+          type: integer
+          description: Card type ID
+          example: 4
+        cardSetId:
+          type: integer
+          description: Card set ID
+          example: 2
+        rarityId:
+          type: integer
+          description: Rarity ID
+          example: 5
+        artistName:
+          type: string
+          description: Artist name
+          example: Alex Horley
+        health:
+          type: integer
+          description: Card health
+          example: 8
+        attack:
+          type: integer
+          description: Card attack
+          example: 8
+        manaCost:
+          type: integer
+          description: Mana cost
+          example: 8
+        name:
+          type: string
+          description: Card name
+          example: Ragnaros the Firelord
+        text:
+          type: string
+          description: Card text
+        image:
+          type: string
+          format: uri
+          description: Card image URL
+        imageGold:
+          type: string
+          format: uri
+          description: Gold card image URL
+        flavorText:
+          type: string
+          description: Card flavor text
+        cropImage:
+          type: string
+          format: uri
+          description: Cropped card image URL
+    HearthstoneCardsResponse:
+      type: object
+      description: Paginated Hearthstone cards response
+      properties:
+        cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/HearthstoneCard'
+          description: List of cards
+        cardCount:
+          type: integer
+          description: Total card count
+          example: 2847
+        pageCount:
+          type: integer
+          description: Total page count
+          example: 143
+        page:
+          type: integer
+          description: Current page
+          example: 1
+  securitySchemes:
+    OAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.battle.net/token
+          scopes:
+            wow.profile: Access WoW character profile data
+            sc2.profile: Access StarCraft II profile data
+            openid: Access basic account information
+        authorizationCode:
+          authorizationUrl: https://oauth.battle.net/authorize
+          tokenUrl: https://oauth.battle.net/token
+          scopes:
+            wow.profile: Access WoW character profile data
+            sc2.profile: Access StarCraft II profile data
+            openid: Access basic account information
+      description: OAuth2 authentication. Create a client at develop.battle.net for client ID and secret.
