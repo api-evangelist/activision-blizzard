@@ -1,36 +1,123 @@
 aid: activision-blizzard
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/activision-blizzard.png
 tags:
 - Fortune 1000
 url: https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/apis.yml
 modified: '2026-05-19'
 apis:
-- aid: activision-blizzard:battle-net
-  name: Battle.net API
+- aid: activision-blizzard:activision-blizzard-account-api
+  name: activision-blizzard Account API
+  description: Battle.net account and user profile APIs
   tags:
-  - Gaming
-  - World Of Warcraft
-  - Hearthstone
-  - Diablo
-  - Starcraft
-  - Battle.net
+  - Account
   properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-account-api-openapi.yml
   - type: HumanURL
     url: https://develop.battle.net/
   - type: BaseURL
     url: https://us.api.blizzard.com
-  - type: OpenAPI
-    url: openapi/activision-blizzard-battle-net.json
   - type: JSONSchema
     url: json-schema/
   - type: JSONStructure
     url: json-structure/
   - type: Examples
     url: examples/
-  - url: graphql/activision-blizzard-graphql.md
-    type: GraphQL
-  description: Game data and profile APIs for World of Warcraft, Diablo III, Hearthstone,
-    StarCraft II, and Battle.net account information. Requires OAuth2 authentication
-    via develop.battle.net.
+  - type: GraphQL
+    url: graphql/activision-blizzard-graphql.md
+- aid: activision-blizzard:activision-blizzard-diablo-iii-api
+  name: activision-blizzard Diablo III API
+  description: Diablo III game data and profile APIs
+  tags:
+  - Diablo III
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-diablo-iii-api-openapi.yml
+  - type: HumanURL
+    url: https://develop.battle.net/
+  - type: BaseURL
+    url: https://us.api.blizzard.com
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+  - type: GraphQL
+    url: graphql/activision-blizzard-graphql.md
+- aid: activision-blizzard:activision-blizzard-hearthstone-api
+  name: activision-blizzard Hearthstone API
+  description: Hearthstone game data APIs
+  tags:
+  - Hearthstone
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-hearthstone-api-openapi.yml
+  - type: HumanURL
+    url: https://develop.battle.net/
+  - type: BaseURL
+    url: https://us.api.blizzard.com
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+  - type: GraphQL
+    url: graphql/activision-blizzard-graphql.md
+- aid: activision-blizzard:activision-blizzard-starcraft-ii-api
+  name: activision-blizzard StarCraft II API
+  description: StarCraft II game data and profile APIs
+  tags:
+  - StarCraft II
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-starcraft-ii-api-openapi.yml
+  - type: HumanURL
+    url: https://develop.battle.net/
+  - type: BaseURL
+    url: https://us.api.blizzard.com
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+  - type: GraphQL
+    url: graphql/activision-blizzard-graphql.md
+- aid: activision-blizzard:activision-blizzard-world-of-warcraft-api
+  name: activision-blizzard World of Warcraft API
+  description: World of Warcraft game data and profile APIs
+  tags:
+  - World of Warcraft
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-world-of-warcraft-api-openapi.yml
+  - type: HumanURL
+    url: https://develop.battle.net/
+  - type: BaseURL
+    url: https://us.api.blizzard.com
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+  - type: GraphQL
+    url: graphql/activision-blizzard-graphql.md
 common:
 - type: AgenticAccess
   url: agentic-access/activision-blizzard-agentic-access.yml
