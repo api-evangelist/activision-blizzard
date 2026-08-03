@@ -1,0 +1,22 @@
+{
+  "provider": "activision-blizzard",
+  "sources": [
+    "activision-blizzard-account-api-openapi.yml",
+    "activision-blizzard-diablo-iii-api-openapi.yml",
+    "activision-blizzard-hearthstone-api-openapi.yml",
+    "activision-blizzard-starcraft-ii-api-openapi.yml",
+    "activision-blizzard-world-of-warcraft-api-openapi.yml"
+  ],
+  "outputs": [
+    "activision-blizzard-account-api-openapi.yml",
+    "activision-blizzard-diablo-iii-api-openapi.yml",
+    "activision-blizzard-hearthstone-api-openapi.yml",
+    "activision-blizzard-starcraft-ii-api-openapi.yml",
+    "activision-blizzard-world-of-warcraft-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
