@@ -1,0 +1,492 @@
+{
+  "item": [
+    {
+      "id": "993ea2d3-b086-4e8e-a07a-35edff3e9257",
+      "name": "Hearthstone",
+      "description": {
+        "content": "Hearthstone game data APIs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d04eafe0-71da-4389-8185-0987aa0c0635",
+          "name": "Activision Blizzard Get Hearthstone Cards",
+          "request": {
+            "name": "Activision Blizzard Get Hearthstone Cards",
+            "description": {
+              "content": "Returns an up-to-date list of all cards matching the search criteria",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hearthstone",
+                "cards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "Response locale"
+                },
+                {
+                  "disabled": false,
+                  "key": "set",
+                  "value": "<string>",
+                  "description": "Filter cards by set"
+                },
+                {
+                  "disabled": false,
+                  "key": "class",
+                  "value": "<string>",
+                  "description": "Filter cards by class"
+                },
+                {
+                  "disabled": false,
+                  "key": "manaCost",
+                  "value": "<integer>",
+                  "description": "Filter by mana cost"
+                },
+                {
+                  "disabled": false,
+                  "key": "attack",
+                  "value": "<integer>",
+                  "description": "Filter by attack"
+                },
+                {
+                  "disabled": false,
+                  "key": "health",
+                  "value": "<integer>",
+                  "description": "Filter by health"
+                },
+                {
+                  "disabled": false,
+                  "key": "rarity",
+                  "value": "<string>",
+                  "description": "Filter by rarity"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter by card type"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Cards per page"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "759eb1b2-75e2-4200-ab13-d05b76ad8aea",
+              "name": "Hearthstone cards",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "cards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "set",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "manaCost",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "attack",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "health",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rarity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cards\": [\n    {\n      \"id\": 1234,\n      \"collectible\": 1,\n      \"slug\": \"ragnaros-the-firelord\",\n      \"classId\": 1,\n      \"multiClassIds\": [\n        6665,\n        9029\n      ],\n      \"cardTypeId\": 4,\n      \"cardSetId\": 2,\n      \"rarityId\": 5,\n      \"artistName\": \"Alex Horley\",\n      \"health\": 8,\n      \"attack\": 8,\n      \"manaCost\": 8,\n      \"name\": \"Ragnaros the Firelord\",\n      \"text\": \"string\",\n      \"image\": \"https://jtVygiIEMyxKQRyAH.eaWarCXnzRP4eabsR1hMF+-6XE+x-d7koxETHMe7xVu\",\n      \"imageGold\": \"http://FnpJJmKLlHJtCR.jewxVAf-DIaqIxw6Iol3dlXfLJL\",\n      \"flavorText\": \"string\",\n      \"cropImage\": \"https://dkTzhxRn.nmTa2M2KsIOK\"\n    },\n    {\n      \"id\": 1234,\n      \"collectible\": 1,\n      \"slug\": \"ragnaros-the-firelord\",\n      \"classId\": 1,\n      \"multiClassIds\": [\n        5543,\n        7032\n      ],\n      \"cardTypeId\": 4,\n      \"cardSetId\": 2,\n      \"rarityId\": 5,\n      \"artistName\": \"Alex Horley\",\n      \"health\": 8,\n      \"attack\": 8,\n      \"manaCost\": 8,\n      \"name\": \"Ragnaros the Firelord\",\n      \"text\": \"string\",\n      \"image\": \"http://fmS.umtM79jAvBSPUs,6Yp15-Ofe2CGII3JeieJd\",\n      \"imageGold\": \"http://akXAckqJIhQcBoBfERbdzqQfGchSv.ygkkl57UVuvwzhgbIdaKgR6I\",\n      \"flavorText\": \"string\",\n      \"cropImage\": \"https://PFxBo.iyI0s.iXD+\"\n    }\n  ],\n  \"cardCount\": 2847,\n  \"pageCount\": 143,\n  \"page\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc42eeab-60af-4fe9-b428-be9deb287da4",
+          "name": "Activision Blizzard Get Hearthstone Card",
+          "request": {
+            "name": "Activision Blizzard Get Hearthstone Card",
+            "description": {
+              "content": "Returns the card with an ID or slug that matches the one you specify",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hearthstone",
+                "cards",
+                ":idOrSlug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "Response locale"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "idOrSlug",
+                  "description": "(Required) The card ID or slug"
+                },
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e668b346-1549-47ea-ba47-2fc0741120c0",
+              "name": "Card details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "cards",
+                    ":idOrSlug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "idOrSlug",
+                      "description": "(Required) The card ID or slug"
+                    },
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1234,\n  \"collectible\": 1,\n  \"slug\": \"ragnaros-the-firelord\",\n  \"classId\": 1,\n  \"multiClassIds\": [\n    9423,\n    5191\n  ],\n  \"cardTypeId\": 4,\n  \"cardSetId\": 2,\n  \"rarityId\": 5,\n  \"artistName\": \"Alex Horley\",\n  \"health\": 8,\n  \"attack\": 8,\n  \"manaCost\": 8,\n  \"name\": \"Ragnaros the Firelord\",\n  \"text\": \"string\",\n  \"image\": \"http://EyHtpvIebPUIkZpXyUlvAQEdfiipCqhK.ghISlxICMyWxnAOn2gZpCSAWLkf\",\n  \"imageGold\": \"https://soGHUUOvFdZCKyVUhtBvpUIYZ.cqppU2T06BpU-.-BRW366B7454T+CjyUwcTxC+V-D8G9rEGKQvNRtewobCS\",\n  \"flavorText\": \"string\",\n  \"cropImage\": \"https://IMdZQVHKrymrLJntEVGRJlwqrtdxkJzN.ypmwK7IIhFR.bPOJEK9LDMXT-S8yCBovMmkeODIrozxeex.-ng6CQ4c7XtEjwnY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6810819-96cc-41c7-9ec5-da197d4e664d",
+          "name": "Activision Blizzard Get Hearthstone Deck",
+          "request": {
+            "name": "Activision Blizzard Get Hearthstone Deck",
+            "description": {
+              "content": "Finds a deck by its deck code",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hearthstone",
+                "decks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "(Required) A deck code"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "Response locale"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "851fa65b-1a5c-47fb-8c1e-5be7582288a9",
+              "name": "Deck details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "decks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deckCode\": \"AAECAQcG0LQDubQD3rUD57UDibYDvbYDDI...\",\n  \"version\": 1,\n  \"format\": {},\n  \"hero\": {\n    \"id\": 1234,\n    \"collectible\": 1,\n    \"slug\": \"ragnaros-the-firelord\",\n    \"classId\": 1,\n    \"multiClassIds\": [\n      6781,\n      7648\n    ],\n    \"cardTypeId\": 4,\n    \"cardSetId\": 2,\n    \"rarityId\": 5,\n    \"artistName\": \"Alex Horley\",\n    \"health\": 8,\n    \"attack\": 8,\n    \"manaCost\": 8,\n    \"name\": \"Ragnaros the Firelord\",\n    \"text\": \"string\",\n    \"image\": \"https://eMH.aiW,e.5e9C6ock+MwyEexgWryRVpA-082A9sF7Z,3uhWcAO\",\n    \"imageGold\": \"https://SvmTEjfGLLCEz.xqckz.,skpfRZGeY1.EffTmePg6OIBR3E,MhWRxr9ff4HyRU+qjKTxzneW\",\n    \"flavorText\": \"string\",\n    \"cropImage\": \"http://lQWmxapTRrzkgnFS.ldydRf7Gfn7ej5TN+AXkbOeUSlG95fbeXWhkUrATSMcFNg,wT\"\n  },\n  \"heroPower\": {\n    \"id\": 1234,\n    \"collectible\": 1,\n    \"slug\": \"ragnaros-the-firelord\",\n    \"classId\": 1,\n    \"multiClassIds\": [\n      3494,\n      177\n    ],\n    \"cardTypeId\": 4,\n    \"cardSetId\": 2,\n    \"rarityId\": 5,\n    \"artistName\": \"Alex Horley\",\n    \"health\": 8,\n    \"attack\": 8,\n    \"manaCost\": 8,\n    \"name\": \"Ragnaros the Firelord\",\n    \"text\": \"string\",\n    \"image\": \"https://QntvAPYwvhprOVa.odWL3XUVox+FMG3EkMJATj.E35meba6jk\",\n    \"imageGold\": \"http://bMrtCivHGfRuNPHRTz.rckNOA47N+0uzXT-m1DZ0zqgarg\",\n    \"flavorText\": \"string\",\n    \"cropImage\": \"http://zAPuNXQmBFWKdtmSZWKpUoavBlSShZr.hnbqOnns,C76m2aj\"\n  },\n  \"class\": {},\n  \"cards\": [\n    {\n      \"id\": 1234,\n      \"collectible\": 1,\n      \"slug\": \"ragnaros-the-firelord\",\n      \"classId\": 1,\n      \"multiClassIds\": [\n        405,\n        6771\n      ],\n      \"cardTypeId\": 4,\n      \"cardSetId\": 2,\n      \"rarityId\": 5,\n      \"artistName\": \"Alex Horley\",\n      \"health\": 8,\n      \"attack\": 8,\n      \"manaCost\": 8,\n      \"name\": \"Ragnaros the Firelord\",\n      \"text\": \"string\",\n      \"image\": \"http://FRqisQlPfPnteTxbONpzzXvz.gcdbbpN7-9gOVjEyqRoGb,9\",\n      \"imageGold\": \"http://xqj.dgwcsYQWt25yBfaZuO\",\n      \"flavorText\": \"string\",\n      \"cropImage\": \"https://QKbsrSsvrApLaCtxPxdfg.pkvz,SKxe5vnvKHzKe\"\n    },\n    {\n      \"id\": 1234,\n      \"collectible\": 1,\n      \"slug\": \"ragnaros-the-firelord\",\n      \"classId\": 1,\n      \"multiClassIds\": [\n        7785,\n        2063\n      ],\n      \"cardTypeId\": 4,\n      \"cardSetId\": 2,\n      \"rarityId\": 5,\n      \"artistName\": \"Alex Horley\",\n      \"health\": 8,\n      \"attack\": 8,\n      \"manaCost\": 8,\n      \"name\": \"Ragnaros the Firelord\",\n      \"text\": \"string\",\n      \"image\": \"https://GhsovilFOudg.wvtwapGqy,rc\",\n      \"imageGold\": \"https://TGJaHMYpDWamKAboNb.smzxQvo+fs68fh2mlsvfc36-Txae7YN3Gm2gyMk1Wg3bw\",\n      \"flavorText\": \"string\",\n      \"cropImage\": \"https://kzPDygugUqIgld.fflI6Ix+vLEXTvzH7dGQCZok+VkP-9h21rAXgMopqORGL1tuK,qSWOKjEB9.DQwe7JEG+vNiJln\"\n    }\n  ],\n  \"cardCount\": 30\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "API region (This can only be one of us,eu,kr,tw)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://{{region}}.api.blizzard.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "wow.profile sc2.profile openid"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.battle.net/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5791aede-d667-42da-9f3d-e2200d17d2dd",
+    "name": "Activision Blizzard Battle.net Account Hearthstone API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Battle.net Game Data and Profile APIs from Activision Blizzard providing access to data from World of Warcraft, Diablo III, Hearthstone, StarCraft II, Overwatch, and account profile information. Requires OAuth2 client credentials.\n\nContact Support:\n Name: Blizzard Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}

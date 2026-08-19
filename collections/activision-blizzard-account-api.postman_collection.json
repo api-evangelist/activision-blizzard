@@ -1,0 +1,307 @@
+{
+  "item": [
+    {
+      "id": "67e13204-0ef2-4a43-b7a6-2996860e9bc2",
+      "name": "Account",
+      "description": {
+        "content": "Battle.net account and user profile APIs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "29360ce0-4c4d-4974-9725-0e768b9e43bf",
+          "name": "Activision Blizzard Get Battle.net Account Profile",
+          "request": {
+            "name": "Activision Blizzard Get Battle.net Account Profile",
+            "description": {
+              "content": "Returns the authenticated user's Battle.net account profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profile",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e798e3b-0f3a-4d9d-a4e7-e016edc9f19f",
+              "name": "Account profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 12345678,\n  \"battletag\": \"Player#1234\",\n  \"sub\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "07e3b79f-3213-4b3c-a13b-6ff64711ec7d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "657803bf-4894-4c10-ac42-bc7d8aaa16a0",
+          "name": "Activision Blizzard Get WoW User Characters",
+          "request": {
+            "name": "Activision Blizzard Get WoW User Characters",
+            "description": {
+              "content": "Returns a list of all WoW characters on the account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wow",
+                "user",
+                "characters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>",
+                  "description": "The namespace for the data"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "86fb8bf3-3bfc-46bd-9fe9-f6bcc4b68cbd",
+              "name": "List of characters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wow",
+                    "user",
+                    "characters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "API region (This can only be one of us,eu,kr,tw)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://{{region}}.api.blizzard.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "wow.profile sc2.profile openid"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.battle.net/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "33972150-b48d-4c63-8334-ca9286657bcc",
+    "name": "Activision Blizzard Battle.net Account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Battle.net Game Data and Profile APIs from Activision Blizzard providing access to data from World of Warcraft, Diablo III, Hearthstone, StarCraft II, Overwatch, and account profile information. Requires OAuth2 client credentials.\n\nContact Support:\n Name: Blizzard Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}

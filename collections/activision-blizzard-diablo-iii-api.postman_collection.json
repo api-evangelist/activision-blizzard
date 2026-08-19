@@ -1,0 +1,310 @@
+{
+  "item": [
+    {
+      "id": "dc4ce6b9-4191-49ee-9118-2b0338e256f1",
+      "name": "Diablo III",
+      "description": {
+        "content": "Diablo III game data and profile APIs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ff279595-fad8-458f-a175-b8dd4f8ff3b1",
+          "name": "Activision Blizzard Get Diablo III Career Profile",
+          "request": {
+            "name": "Activision Blizzard Get Diablo III Career Profile",
+            "description": {
+              "content": "Returns the specified account's Diablo III career profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "d3",
+                "profile",
+                ":battletag",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "Response locale"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "battletag",
+                  "description": "(Required) The BattleTag for the account"
+                },
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6387e692-0747-4c6b-a9d3-20b9b405b348",
+              "name": "Diablo III career profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "d3",
+                    "profile",
+                    ":battletag",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "battletag",
+                      "description": "(Required) The BattleTag for the account"
+                    },
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"battletag\": \"Player#1234\",\n  \"paragonLevel\": 1500,\n  \"paragonLevelHardcore\": 200,\n  \"guildName\": \"string\",\n  \"heroes\": [\n    {\n      \"id\": 12345,\n      \"name\": \"Zul'jin\",\n      \"class\": \"barbarian\",\n      \"level\": 70,\n      \"hardcore\": true,\n      \"seasonal\": false,\n      \"dead\": true\n    },\n    {\n      \"id\": 12345,\n      \"name\": \"Zul'jin\",\n      \"class\": \"barbarian\",\n      \"level\": 70,\n      \"hardcore\": true,\n      \"seasonal\": true,\n      \"dead\": false\n    }\n  ],\n  \"lastHeroPlayed\": 12345,\n  \"kills\": {},\n  \"timePlayed\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60e73245-52ca-41bb-b4e8-5c0717dfa688",
+          "name": "Activision Blizzard Get Diablo III Hero",
+          "request": {
+            "name": "Activision Blizzard Get Diablo III Hero",
+            "description": {
+              "content": "Returns a single hero",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "d3",
+                "profile",
+                ":battletag",
+                "hero",
+                ":heroId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "battletag",
+                  "description": "(Required) The BattleTag for the account"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "heroId",
+                  "description": "(Required) The hero ID"
+                },
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "050d6713-0137-4cdb-b04f-af539c96c8e6",
+              "name": "Hero details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "d3",
+                    "profile",
+                    ":battletag",
+                    "hero",
+                    ":heroId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "battletag",
+                      "description": "(Required) The BattleTag for the account"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "heroId",
+                      "description": "(Required) The hero ID"
+                    },
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 12345,\n  \"name\": \"Zul'jin\",\n  \"class\": \"barbarian\",\n  \"gender\": 0,\n  \"level\": 70,\n  \"paragonLevel\": 1500,\n  \"hardcore\": false,\n  \"seasonal\": false,\n  \"dead\": false,\n  \"kills\": {},\n  \"skills\": {},\n  \"items\": {},\n  \"stats\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "API region (This can only be one of us,eu,kr,tw)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://{{region}}.api.blizzard.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "wow.profile sc2.profile openid"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.battle.net/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "52f79e77-4485-403c-8d2b-2ffd80f21827",
+    "name": "Activision Blizzard Battle.net Account Diablo III API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Battle.net Game Data and Profile APIs from Activision Blizzard providing access to data from World of Warcraft, Diablo III, Hearthstone, StarCraft II, Overwatch, and account profile information. Requires OAuth2 client credentials.\n\nContact Support:\n Name: Blizzard Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}

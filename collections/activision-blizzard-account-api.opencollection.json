@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Activision Blizzard Battle.net Account API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://oauth.battle.net/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Activision Blizzard Get Battle.net Account Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/profile/user"
+          },
+          "docs": "Returns the authenticated user's Battle.net account profile"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get WoW User Characters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/wow/user/characters",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query",
+                "description": "The namespace for the data"
+              }
+            ]
+          },
+          "docs": "Returns a list of all WoW characters on the account"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

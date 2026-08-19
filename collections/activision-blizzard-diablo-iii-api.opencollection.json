@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Activision Blizzard Battle.net Account Diablo III API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://oauth.battle.net/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Diablo III",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Activision Blizzard Get Diablo III Career Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/d3/profile/:battletag/",
+            "params": [
+              {
+                "name": "battletag",
+                "value": "",
+                "type": "path",
+                "description": "The BattleTag for the account"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Response locale"
+              }
+            ]
+          },
+          "docs": "Returns the specified account's Diablo III career profile"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get Diablo III Hero",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/d3/profile/:battletag/hero/:heroId",
+            "params": [
+              {
+                "name": "battletag",
+                "value": "",
+                "type": "path",
+                "description": "The BattleTag for the account"
+              },
+              {
+                "name": "heroId",
+                "value": "",
+                "type": "path",
+                "description": "The hero ID"
+              }
+            ]
+          },
+          "docs": "Returns a single hero"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

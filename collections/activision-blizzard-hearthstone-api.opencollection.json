@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Activision Blizzard Battle.net Account Hearthstone API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://oauth.battle.net/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Hearthstone",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Activision Blizzard Get Hearthstone Cards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/hearthstone/cards",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Response locale"
+              },
+              {
+                "name": "set",
+                "value": "",
+                "type": "query",
+                "description": "Filter cards by set"
+              },
+              {
+                "name": "class",
+                "value": "",
+                "type": "query",
+                "description": "Filter cards by class"
+              },
+              {
+                "name": "manaCost",
+                "value": "",
+                "type": "query",
+                "description": "Filter by mana cost"
+              },
+              {
+                "name": "attack",
+                "value": "",
+                "type": "query",
+                "description": "Filter by attack"
+              },
+              {
+                "name": "health",
+                "value": "",
+                "type": "query",
+                "description": "Filter by health"
+              },
+              {
+                "name": "rarity",
+                "value": "",
+                "type": "query",
+                "description": "Filter by rarity"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by card type"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Cards per page"
+              }
+            ]
+          },
+          "docs": "Returns an up-to-date list of all cards matching the search criteria"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get Hearthstone Card",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/hearthstone/cards/:idOrSlug",
+            "params": [
+              {
+                "name": "idOrSlug",
+                "value": "",
+                "type": "path",
+                "description": "The card ID or slug"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Response locale"
+              }
+            ]
+          },
+          "docs": "Returns the card with an ID or slug that matches the one you specify"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get Hearthstone Deck",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/hearthstone/decks",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "A deck code"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Response locale"
+              }
+            ]
+          },
+          "docs": "Finds a deck by its deck code"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

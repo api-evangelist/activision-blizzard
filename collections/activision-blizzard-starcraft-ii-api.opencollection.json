@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Activision Blizzard Battle.net Account StarCraft II API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://oauth.battle.net/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "StarCraft II",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Activision Blizzard Get StarCraft II Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/sc2/profile/:regionId/:realmId/:profileId",
+            "params": [
+              {
+                "name": "regionId",
+                "value": "",
+                "type": "path",
+                "description": "The region for the profile"
+              },
+              {
+                "name": "realmId",
+                "value": "",
+                "type": "path",
+                "description": "The realm for the profile"
+              },
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path",
+                "description": "The profile ID"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Response locale"
+              }
+            ]
+          },
+          "docs": "Returns data about an individual SC2 profile"
+        },
+        {
+          "info": {
+            "name": "Activision Blizzard Get StarCraft II Grandmaster Leaderboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.blizzard.com/sc2/ladder/grandmaster/:regionId",
+            "params": [
+              {
+                "name": "regionId",
+                "value": "",
+                "type": "path",
+                "description": "The region for the ladder"
+              }
+            ]
+          },
+          "docs": "Returns the grandmaster leaderboard for the current season"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

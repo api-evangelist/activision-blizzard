@@ -1,0 +1,1305 @@
+{
+  "item": [
+    {
+      "id": "93151a43-0430-4746-8891-8f52df85efcb",
+      "name": "World of Warcraft",
+      "description": {
+        "content": "World of Warcraft game data and profile APIs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "209a54f1-bfdf-4683-8932-daac1e2258de",
+          "name": "Activision Blizzard Get WoW Profile Summary",
+          "request": {
+            "name": "Activision Blizzard Get WoW Profile Summary",
+            "description": {
+              "content": "Returns a profile summary for an account, including character list",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profile",
+                "user",
+                "wow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>",
+                  "description": "(Required) Namespace for the data"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "Response locale"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "abaa3c50-67cc-4d2d-b520-7cb36c51cd00",
+              "name": "WoW account profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile",
+                    "user",
+                    "wow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "profile-us"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 12345678,\n  \"wow_accounts\": [\n    {\n      \"id\": 1,\n      \"characters\": [\n        {\n          \"character\": {},\n          \"protected_character\": {},\n          \"name\": \"Thrall\",\n          \"id\": 123456,\n          \"realm\": {\n            \"id\": 1,\n            \"name\": \"Area 52\",\n            \"slug\": \"area-52\",\n            \"region\": {},\n            \"category\": \"United States\",\n            \"locale\": \"en_US\",\n            \"timezone\": \"America/New_York\",\n            \"type\": {},\n            \"is_tournament\": true\n          },\n          \"playable_class\": {},\n          \"playable_race\": {},\n          \"gender\": {},\n          \"faction\": {},\n          \"level\": 70\n        },\n        {\n          \"character\": {},\n          \"protected_character\": {},\n          \"name\": \"Thrall\",\n          \"id\": 123456,\n          \"realm\": {\n            \"id\": 1,\n            \"name\": \"Area 52\",\n            \"slug\": \"area-52\",\n            \"region\": {},\n            \"category\": \"United States\",\n            \"locale\": \"en_US\",\n            \"timezone\": \"America/New_York\",\n            \"type\": {},\n            \"is_tournament\": false\n          },\n          \"playable_class\": {},\n          \"playable_race\": {},\n          \"gender\": {},\n          \"faction\": {},\n          \"level\": 70\n        }\n      ]\n    },\n    {\n      \"id\": 1,\n      \"characters\": [\n        {\n          \"character\": {},\n          \"protected_character\": {},\n          \"name\": \"Thrall\",\n          \"id\": 123456,\n          \"realm\": {\n            \"id\": 1,\n            \"name\": \"Area 52\",\n            \"slug\": \"area-52\",\n            \"region\": {},\n            \"category\": \"United States\",\n            \"locale\": \"en_US\",\n            \"timezone\": \"America/New_York\",\n            \"type\": {},\n            \"is_tournament\": true\n          },\n          \"playable_class\": {},\n          \"playable_race\": {},\n          \"gender\": {},\n          \"faction\": {},\n          \"level\": 70\n        },\n        {\n          \"character\": {},\n          \"protected_character\": {},\n          \"name\": \"Thrall\",\n          \"id\": 123456,\n          \"realm\": {\n            \"id\": 1,\n            \"name\": \"Area 52\",\n            \"slug\": \"area-52\",\n            \"region\": {},\n            \"category\": \"United States\",\n            \"locale\": \"en_US\",\n            \"timezone\": \"America/New_York\",\n            \"type\": {},\n            \"is_tournament\": true\n          },\n          \"playable_class\": {},\n          \"playable_race\": {},\n          \"gender\": {},\n          \"faction\": {},\n          \"level\": 70\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f14e3282-fa40-4828-bc45-13c3f18afe81",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile",
+                    "user",
+                    "wow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "profile-us"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "df8f092e-4d2b-4b22-a1c8-288012931e27",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile",
+                    "user",
+                    "wow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "profile-us"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f7a6580-9a26-416a-9942-5e935a7aa985",
+          "name": "Activision Blizzard Get WoW Character Profile",
+          "request": {
+            "name": "Activision Blizzard Get WoW Character Profile",
+            "description": {
+              "content": "Returns a summary of a character's profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profile",
+                "wow",
+                "character",
+                ":realmSlug",
+                ":characterName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>",
+                  "description": "(Required) The namespace for the data"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "Response locale"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realmSlug",
+                  "description": "(Required) The realm slug"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "characterName",
+                  "description": "(Required) The lowercase character name"
+                },
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bfc5cc63-eb73-4734-915b-307451a53ba4",
+              "name": "Character profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile",
+                    "wow",
+                    "character",
+                    ":realmSlug",
+                    ":characterName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realmSlug",
+                      "description": "(Required) The realm slug"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "characterName",
+                      "description": "(Required) The lowercase character name"
+                    },
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 123456,\n  \"name\": \"Thrall\",\n  \"gender\": {},\n  \"faction\": {},\n  \"race\": {},\n  \"character_class\": {},\n  \"active_spec\": {},\n  \"realm\": {\n    \"id\": 1,\n    \"name\": \"Area 52\",\n    \"slug\": \"area-52\",\n    \"region\": {},\n    \"category\": \"United States\",\n    \"locale\": \"en_US\",\n    \"timezone\": \"America/New_York\",\n    \"type\": {},\n    \"is_tournament\": false\n  },\n  \"guild\": {\n    \"id\": 789012,\n    \"name\": \"The Exodar\",\n    \"faction\": {},\n    \"realm\": {\n      \"id\": 1,\n      \"name\": \"Area 52\",\n      \"slug\": \"area-52\",\n      \"region\": {},\n      \"category\": \"United States\",\n      \"locale\": \"en_US\",\n      \"timezone\": \"America/New_York\",\n      \"type\": {},\n      \"is_tournament\": false\n    },\n    \"member_count\": 150,\n    \"achievement_points\": 5000\n  },\n  \"level\": 70,\n  \"experience\": 1857,\n  \"achievement_points\": 15000,\n  \"last_login_timestamp\": 1718153645993\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7835be9d-7405-4741-90d5-5b416b551415",
+              "name": "Character not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile",
+                    "wow",
+                    "character",
+                    ":realmSlug",
+                    ":characterName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realmSlug",
+                      "description": "(Required) The realm slug"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "characterName",
+                      "description": "(Required) The lowercase character name"
+                    },
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11c6dcd3-237d-4914-8e18-28db5185f3f7",
+          "name": "Activision Blizzard Get WoW Character Achievements",
+          "request": {
+            "name": "Activision Blizzard Get WoW Character Achievements",
+            "description": {
+              "content": "Returns a summary of the achievements a character has completed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profile",
+                "wow",
+                "character",
+                ":realmSlug",
+                ":characterName",
+                "achievements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>",
+                  "description": "(Required) The namespace for the data"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realmSlug",
+                  "description": "(Required) The realm slug"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "characterName",
+                  "description": "(Required) The character name"
+                },
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46b6b555-6324-4c9f-8cea-571ca8c98b4e",
+              "name": "Character achievements",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile",
+                    "wow",
+                    "character",
+                    ":realmSlug",
+                    ":characterName",
+                    "achievements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realmSlug",
+                      "description": "(Required) The realm slug"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "characterName",
+                      "description": "(Required) The character name"
+                    },
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_quantity\": 2500,\n  \"total_points\": 15000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02f64c26-bd9d-4bc1-bd06-141428abc5cb",
+          "name": "Activision Blizzard Get WoW Character Equipment",
+          "request": {
+            "name": "Activision Blizzard Get WoW Character Equipment",
+            "description": {
+              "content": "Returns a summary of the items equipped by a character",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profile",
+                "wow",
+                "character",
+                ":realmSlug",
+                ":characterName",
+                "equipment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>",
+                  "description": "(Required) The namespace for the data"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realmSlug",
+                  "description": "(Required) The realm slug"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "characterName",
+                  "description": "(Required) The character name"
+                },
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a9762b2-4434-4bd3-b0d3-54a6ba396d69",
+              "name": "Character equipment",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile",
+                    "wow",
+                    "character",
+                    ":realmSlug",
+                    ":characterName",
+                    "equipment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realmSlug",
+                      "description": "(Required) The realm slug"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "characterName",
+                      "description": "(Required) The character name"
+                    },
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95bdf772-fc96-4cdb-967c-6b212d327a89",
+          "name": "Activision Blizzard Get WoW Realms Index",
+          "request": {
+            "name": "Activision Blizzard Get WoW Realms Index",
+            "description": {
+              "content": "Returns an index of realms",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "wow",
+                "realm",
+                "index"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>",
+                  "description": "(Required) The namespace for the data"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "Response locale"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4e20c9c-17c6-4a56-9bc4-18f25b5416fe",
+              "name": "Realms index",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "wow",
+                    "realm",
+                    "index"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"realms\": [\n    {\n      \"id\": 1,\n      \"name\": \"Area 52\",\n      \"slug\": \"area-52\",\n      \"region\": {},\n      \"category\": \"United States\",\n      \"locale\": \"en_US\",\n      \"timezone\": \"America/New_York\",\n      \"type\": {},\n      \"is_tournament\": false\n    },\n    {\n      \"id\": 1,\n      \"name\": \"Area 52\",\n      \"slug\": \"area-52\",\n      \"region\": {},\n      \"category\": \"United States\",\n      \"locale\": \"en_US\",\n      \"timezone\": \"America/New_York\",\n      \"type\": {},\n      \"is_tournament\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf0b91a5-638c-4f86-933e-0882874df9db",
+          "name": "Activision Blizzard Get WoW Realm",
+          "request": {
+            "name": "Activision Blizzard Get WoW Realm",
+            "description": {
+              "content": "Returns the specified realm",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "wow",
+                "realm",
+                ":realmSlug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>",
+                  "description": "(Required) The namespace for the data"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realmSlug",
+                  "description": "(Required) The realm slug"
+                },
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c9b882b-67cf-4003-98dc-90d881338ac1",
+              "name": "Realm details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "wow",
+                    "realm",
+                    ":realmSlug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realmSlug",
+                      "description": "(Required) The realm slug"
+                    },
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"name\": \"Area 52\",\n  \"slug\": \"area-52\",\n  \"region\": {},\n  \"category\": \"United States\",\n  \"locale\": \"en_US\",\n  \"timezone\": \"America/New_York\",\n  \"type\": {},\n  \"is_tournament\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c03f3267-cc6e-457b-955d-2c60b73e1d9f",
+          "name": "Activision Blizzard Get WoW Guild",
+          "request": {
+            "name": "Activision Blizzard Get WoW Guild",
+            "description": {
+              "content": "Returns a single guild by its name and realm",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "wow",
+                "guild",
+                ":realmSlug",
+                ":nameSlug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>",
+                  "description": "(Required) The namespace for the data"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realmSlug",
+                  "description": "(Required) The realm slug"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "nameSlug",
+                  "description": "(Required) The guild name slug"
+                },
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54298ad2-d671-4349-89c5-ef91884ac273",
+              "name": "Guild details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "wow",
+                    "guild",
+                    ":realmSlug",
+                    ":nameSlug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realmSlug",
+                      "description": "(Required) The realm slug"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "nameSlug",
+                      "description": "(Required) The guild name slug"
+                    },
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 789012,\n  \"name\": \"The Exodar\",\n  \"faction\": {},\n  \"realm\": {\n    \"id\": 1,\n    \"name\": \"Area 52\",\n    \"slug\": \"area-52\",\n    \"region\": {},\n    \"category\": \"United States\",\n    \"locale\": \"en_US\",\n    \"timezone\": \"America/New_York\",\n    \"type\": {},\n    \"is_tournament\": true\n  },\n  \"member_count\": 150,\n  \"achievement_points\": 5000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f3b4007-2fec-48b3-a821-5096ffc73284",
+          "name": "Activision Blizzard Get WoW Item",
+          "request": {
+            "name": "Activision Blizzard Get WoW Item",
+            "description": {
+              "content": "Returns an item by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "wow",
+                "item",
+                ":itemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>",
+                  "description": "(Required) The namespace for the data"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "itemId",
+                  "description": "(Required) The item ID"
+                },
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38eebb3f-e8d8-4527-8927-5125910d28bb",
+              "name": "Item details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "wow",
+                    "item",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "itemId",
+                      "description": "(Required) The item ID"
+                    },
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 19019,\n  \"name\": \"Thunderfury, Blessed Blade of the Windseeker\",\n  \"quality\": {},\n  \"level\": 80,\n  \"item_class\": {},\n  \"item_subclass\": {},\n  \"inventory_type\": {},\n  \"purchase_price\": 8376,\n  \"sell_price\": 4474\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "API region (This can only be one of us,eu,kr,tw)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://{{region}}.api.blizzard.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "wow.profile sc2.profile openid"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.battle.net/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a678d0ba-b215-48d0-9641-93ae98e47aa3",
+    "name": "Activision Blizzard Battle.net Account World of Warcraft API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Battle.net Game Data and Profile APIs from Activision Blizzard providing access to data from World of Warcraft, Diablo III, Hearthstone, StarCraft II, Overwatch, and account profile information. Requires OAuth2 client credentials.\n\nContact Support:\n Name: Blizzard Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}

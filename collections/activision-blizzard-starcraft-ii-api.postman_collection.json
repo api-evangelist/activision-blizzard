@@ -1,0 +1,324 @@
+{
+  "item": [
+    {
+      "id": "d36849d3-99cb-4739-921c-ad28dfd57e45",
+      "name": "StarCraft II",
+      "description": {
+        "content": "StarCraft II game data and profile APIs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dde4ba09-d11b-4e52-a467-4bf6e6c11b73",
+          "name": "Activision Blizzard Get StarCraft II Profile",
+          "request": {
+            "name": "Activision Blizzard Get StarCraft II Profile",
+            "description": {
+              "content": "Returns data about an individual SC2 profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sc2",
+                "profile",
+                ":regionId",
+                ":realmId",
+                ":profileId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "Response locale"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "regionId",
+                  "description": "(Required) The region for the profile"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "realmId",
+                  "description": "(Required) The realm for the profile"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "profileId",
+                  "description": "(Required) The profile ID"
+                },
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82703fd8-ba48-479c-94df-8d0d098f50a1",
+              "name": "SC2 profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sc2",
+                    "profile",
+                    ":regionId",
+                    ":realmId",
+                    ":profileId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionId",
+                      "description": "(Required) The region for the profile"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "realmId",
+                      "description": "(Required) The realm for the profile"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "profileId",
+                      "description": "(Required) The profile ID"
+                    },
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {},\n  \"snapshot\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81f587ea-d480-4c2a-b31a-a20658b69753",
+          "name": "Activision Blizzard Get StarCraft II Grandmaster Leaderboard",
+          "request": {
+            "name": "Activision Blizzard Get StarCraft II Grandmaster Leaderboard",
+            "description": {
+              "content": "Returns the grandmaster leaderboard for the current season",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sc2",
+                "ladder",
+                "grandmaster",
+                ":regionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "regionId",
+                  "description": "(Required) The region for the ladder"
+                },
+                {
+                  "description": "API region (This can only be one of us,eu,kr,tw)",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09e59132-6924-4a61-9f9b-c9555a3c64ed",
+              "name": "Grandmaster leaderboard",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sc2",
+                    "ladder",
+                    "grandmaster",
+                    ":regionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionId",
+                      "description": "(Required) The region for the ladder"
+                    },
+                    {
+                      "description": "API region (This can only be one of us,eu,kr,tw)",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "API region (This can only be one of us,eu,kr,tw)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://{{region}}.api.blizzard.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "wow.profile sc2.profile openid"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.battle.net/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "82e6e5c6-ef47-4553-aa45-5ca382e2eb5a",
+    "name": "Activision Blizzard Battle.net Account StarCraft II API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Battle.net Game Data and Profile APIs from Activision Blizzard providing access to data from World of Warcraft, Diablo III, Hearthstone, StarCraft II, Overwatch, and account profile information. Requires OAuth2 client credentials.\n\nContact Support:\n Name: Blizzard Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}
