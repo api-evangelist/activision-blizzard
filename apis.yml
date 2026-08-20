@@ -103,6 +103,8 @@ apis:
   name: activision-blizzard World of Warcraft API
   description: World of Warcraft game data and profile APIs
   tags:
+  - World Of Warcraft
+  tags_raw:
   - World of Warcraft
   properties:
   - type: OpenAPI
@@ -181,6 +183,8 @@ features:
     and profile access.
   tags:
   - Authentication
+  tags_raw:
+  - Authentication
   - OAuth2
 - name: Regional API Endpoints
   description: Battle.net APIs are available across US, EU, KR, TW, and CN regions.
@@ -192,6 +196,9 @@ useCases:
   description: Build community tools, addons, leaderboards, and companion apps powered
     by live game data.
   tags:
+  - Community
+  - Developers
+  tags_raw:
   - Community
   - Developer
 - name: Game Analytics
@@ -235,11 +242,17 @@ solutions:
   description: Free API access via developer.battle.net for community and non-commercial
     game data use.
   tags:
+  - Developers
+  - Free Tier
+  tags_raw:
   - Developer
   - Free Tier
 - name: OAuth2 Profile Access
   description: Authorized user profile access using OAuth2 authorization code flow
     for personalized data.
   tags:
+  - Authentication
+  - Profile
+  tags_raw:
   - OAuth2
   - Profile
