@@ -1,4 +1,5 @@
 aid: activision-blizzard
+name: "Activision Blizzard"
 specificationVersion: '0.23'
 accessModel:
   pricing: freemium
