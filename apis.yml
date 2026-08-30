@@ -116,7 +116,7 @@ apis:
   name: activision-blizzard World of Warcraft API
   description: World of Warcraft game data and profile APIs
   tags:
-  - World Of Warcraft
+  - World of Warcraft
   tags_raw:
   - World of Warcraft
   properties:
