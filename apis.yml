@@ -1,5 +1,6 @@
 aid: activision-blizzard
 name: "Activision Blizzard"
+x-parent: microsoft-xbox
 deliveryModel:
   model: saas
   open_source: false
@@ -29,7 +30,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/activision-blizzard.png
 tags:
 - Fortune 1000
-url: https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/apis.yml
+url: https://www.activision-blizzard.com
 modified: '2026-05-19'
 apis:
 - aid: activision-blizzard:activision-blizzard-account-api
