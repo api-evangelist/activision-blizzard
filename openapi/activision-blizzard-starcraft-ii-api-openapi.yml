@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Activision Blizzard Battle.net Account StarCraft II API
+  title: Activision Blizzard Battle.net StarCraft II API
   version: 1.0.0
   description: Battle.net Game Data and Profile APIs from Activision Blizzard providing access to data from World of Warcraft, Diablo III, Hearthstone, StarCraft II, Overwatch, and account profile information. Requires OAuth2 client credentials.
   contact:

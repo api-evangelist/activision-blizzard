@@ -1,7 +1,9 @@
 ---
 title: Mobile Game Developer King Acquires Artificial Intelligence ...
 url: https://investor.activision.com/news-releases/news-release-details/mobile-game-developer-king-acquires-artificial-intelligence
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Activision Blizzard" press release artificial intelligence'
 position: 2
 source: serpapi-google

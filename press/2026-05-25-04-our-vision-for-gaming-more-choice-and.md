@@ -1,7 +1,9 @@
 ---
 title: 'Our vision for gaming: More choice and ...'
 url: https://news.microsoft.com/activision-blizzard-acquisition
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Activision Blizzard" press release artificial intelligence'
 position: 4
 source: serpapi-google

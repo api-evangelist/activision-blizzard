@@ -1,7 +1,9 @@
 ---
 title: Microsoft and Activision Blizzard - UR Scholarship Repository
 url: https://scholarship.richmond.edu/cgi/viewcontent.cgi?article=1022&context=robins-case-network
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Activision Blizzard" press release artificial intelligence'
 position: 5
 source: serpapi-google

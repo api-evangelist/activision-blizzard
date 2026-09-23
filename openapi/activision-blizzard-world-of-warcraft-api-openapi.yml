@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Activision Blizzard Battle.net Account World of Warcraft API
+  title: Activision Blizzard Battle.net World of Warcraft API
   version: 1.0.0
   description: Battle.net Game Data and Profile APIs from Activision Blizzard providing access to data from World of Warcraft, Diablo III, Hearthstone, StarCraft II, Overwatch, and account profile information. Requires OAuth2 client credentials.
   contact:
@@ -304,43 +304,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    WoWRealm:
-      type: object
-      description: A World of Warcraft realm
-      properties:
-        id:
-          type: integer
-          description: Realm ID
-          example: 1
-        name:
-          type: string
-          description: Realm name
-          example: Area 52
-        slug:
-          type: string
-          description: Realm slug
-          example: area-52
-        region:
-          type: object
-          description: Region reference
-        category:
-          type: string
-          description: Realm category
-          example: United States
-        locale:
-          type: string
-          description: Realm locale
-          example: en_US
-        timezone:
-          type: string
-          description: Realm timezone
-          example: America/New_York
-        type:
-          type: object
-          description: Realm type (Normal, RP, etc.)
-        is_tournament:
-          type: boolean
-          description: Whether this is a tournament realm
     WoWCharacter:
       type: object
       description: Full World of Warcraft character profile
@@ -387,6 +350,154 @@ components:
           type: integer
           description: Unix timestamp of last login
           example: 1718153645993
+    WoWAccount:
+      type: object
+      description: A World of Warcraft account
+      properties:
+        id:
+          type: integer
+          description: Account ID
+          example: 1
+        characters:
+          type: array
+          items:
+            $ref: '#/components/schemas/WoWCharacterSummary'
+          description: List of characters on this account
+    WoWRealmsIndex:
+      type: object
+      description: Index of WoW realms
+      properties:
+        realms:
+          type: array
+          items:
+            $ref: '#/components/schemas/WoWRealm'
+          description: List of realms
+    WoWProfileSummary:
+      type: object
+      description: World of Warcraft account profile summary
+      properties:
+        id:
+          type: integer
+          description: Account ID
+          example: 12345678
+        wow_accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/WoWAccount'
+          description: WoW accounts linked to the Battle.net account
+    WoWCharacterAchievements:
+      type: object
+      description: Character achievements summary
+      properties:
+        total_quantity:
+          type: integer
+          description: Total achievements completed
+          example: 2500
+        total_points:
+          type: integer
+          description: Total achievement points
+          example: 15000
+        achievements:
+          type: array
+          items:
+            type: object
+          description: List of completed achievements
+    WoWGuild:
+      type: object
+      description: A World of Warcraft guild
+      properties:
+        id:
+          type: integer
+          description: Guild ID
+          example: 789012
+        name:
+          type: string
+          description: Guild name
+          example: The Exodar
+        faction:
+          type: object
+          description: Guild faction
+        realm:
+          $ref: '#/components/schemas/WoWRealm'
+        member_count:
+          type: integer
+          description: Number of guild members
+          example: 150
+        achievement_points:
+          type: integer
+          description: Guild achievement points
+          example: 5000
+    WoWItem:
+      type: object
+      description: A World of Warcraft item
+      properties:
+        id:
+          type: integer
+          description: Item ID
+          example: 19019
+        name:
+          type: string
+          description: Item name
+          example: Thunderfury, Blessed Blade of the Windseeker
+        quality:
+          type: object
+          description: Item quality (Common, Rare, Epic, etc.)
+        level:
+          type: integer
+          description: Item level
+          example: 80
+        item_class:
+          type: object
+          description: Item class
+        item_subclass:
+          type: object
+          description: Item subclass
+        inventory_type:
+          type: object
+          description: Inventory type
+        purchase_price:
+          type: integer
+          description: Purchase price in copper
+        sell_price:
+          type: integer
+          description: Sell price in copper
+    WoWRealm:
+      type: object
+      description: A World of Warcraft realm
+      properties:
+        id:
+          type: integer
+          description: Realm ID
+          example: 1
+        name:
+          type: string
+          description: Realm name
+          example: Area 52
+        slug:
+          type: string
+          description: Realm slug
+          example: area-52
+        region:
+          type: object
+          description: Region reference
+        category:
+          type: string
+          description: Realm category
+          example: United States
+        locale:
+          type: string
+          description: Realm locale
+          example: en_US
+        timezone:
+          type: string
+          description: Realm timezone
+          example: America/New_York
+        type:
+          type: object
+          description: Realm type (Normal, RP, etc.)
+        is_tournament:
+          type: boolean
+          description: Whether this is a tournament realm
     WoWCharacterSummary:
       type: object
       description: Summary of a WoW character
@@ -423,117 +534,6 @@ components:
           type: integer
           description: Character level
           example: 70
-    WoWCharacterAchievements:
-      type: object
-      description: Character achievements summary
-      properties:
-        total_quantity:
-          type: integer
-          description: Total achievements completed
-          example: 2500
-        total_points:
-          type: integer
-          description: Total achievement points
-          example: 15000
-        achievements:
-          type: array
-          items:
-            type: object
-          description: List of completed achievements
-    WoWItem:
-      type: object
-      description: A World of Warcraft item
-      properties:
-        id:
-          type: integer
-          description: Item ID
-          example: 19019
-        name:
-          type: string
-          description: Item name
-          example: Thunderfury, Blessed Blade of the Windseeker
-        quality:
-          type: object
-          description: Item quality (Common, Rare, Epic, etc.)
-        level:
-          type: integer
-          description: Item level
-          example: 80
-        item_class:
-          type: object
-          description: Item class
-        item_subclass:
-          type: object
-          description: Item subclass
-        inventory_type:
-          type: object
-          description: Inventory type
-        purchase_price:
-          type: integer
-          description: Purchase price in copper
-        sell_price:
-          type: integer
-          description: Sell price in copper
-    WoWRealmsIndex:
-      type: object
-      description: Index of WoW realms
-      properties:
-        realms:
-          type: array
-          items:
-            $ref: '#/components/schemas/WoWRealm'
-          description: List of realms
-    WoWAccount:
-      type: object
-      description: A World of Warcraft account
-      properties:
-        id:
-          type: integer
-          description: Account ID
-          example: 1
-        characters:
-          type: array
-          items:
-            $ref: '#/components/schemas/WoWCharacterSummary'
-          description: List of characters on this account
-    WoWGuild:
-      type: object
-      description: A World of Warcraft guild
-      properties:
-        id:
-          type: integer
-          description: Guild ID
-          example: 789012
-        name:
-          type: string
-          description: Guild name
-          example: The Exodar
-        faction:
-          type: object
-          description: Guild faction
-        realm:
-          $ref: '#/components/schemas/WoWRealm'
-        member_count:
-          type: integer
-          description: Number of guild members
-          example: 150
-        achievement_points:
-          type: integer
-          description: Guild achievement points
-          example: 5000
-    WoWProfileSummary:
-      type: object
-      description: World of Warcraft account profile summary
-      properties:
-        id:
-          type: integer
-          description: Account ID
-          example: 12345678
-        wow_accounts:
-          type: array
-          items:
-            $ref: '#/components/schemas/WoWAccount'
-          description: WoW accounts linked to the Battle.net account
   securitySchemes:
     OAuth2ClientCredentials:
       type: oauth2

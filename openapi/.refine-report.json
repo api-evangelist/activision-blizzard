@@ -1,11 +1,7 @@
 {
   "provider": "activision-blizzard",
   "sources": [
-    "activision-blizzard-account-api-openapi.yml",
-    "activision-blizzard-diablo-iii-api-openapi.yml",
-    "activision-blizzard-hearthstone-api-openapi.yml",
-    "activision-blizzard-starcraft-ii-api-openapi.yml",
-    "activision-blizzard-world-of-warcraft-api-openapi.yml"
+    "_original/activision-blizzard-battle-net.json"
   ],
   "outputs": [
     "activision-blizzard-account-api-openapi.yml",
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "activision-blizzard-battle-net.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "activision-blizzard-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "activision-blizzard-diablo-iii-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "activision-blizzard-hearthstone-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "activision-blizzard-starcraft-ii-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "activision-blizzard-world-of-warcraft-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
