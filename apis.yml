@@ -30,7 +30,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/activision-blizzard.png
 tags:
 - Fortune 1000
-url: https://www.activision-blizzard.com
+url: https://www.activisionblizzard.com/
 modified: '2026-05-19'
 apis:
 - aid: activision-blizzard:activision-blizzard-account-api
@@ -51,8 +51,6 @@ apis:
     url: json-structure/
   - type: Examples
     url: examples/
-  - type: GraphQL
-    url: graphql/activision-blizzard-graphql.md
 - aid: activision-blizzard:activision-blizzard-diablo-iii-api
   name: activision-blizzard Diablo III API
   description: Diablo III game data and profile APIs
@@ -71,8 +69,6 @@ apis:
     url: json-structure/
   - type: Examples
     url: examples/
-  - type: GraphQL
-    url: graphql/activision-blizzard-graphql.md
 - aid: activision-blizzard:activision-blizzard-hearthstone-api
   name: activision-blizzard Hearthstone API
   description: Hearthstone game data APIs
@@ -91,8 +87,6 @@ apis:
     url: json-structure/
   - type: Examples
     url: examples/
-  - type: GraphQL
-    url: graphql/activision-blizzard-graphql.md
 - aid: activision-blizzard:activision-blizzard-starcraft-ii-api
   name: activision-blizzard StarCraft II API
   description: StarCraft II game data and profile APIs
@@ -111,8 +105,6 @@ apis:
     url: json-structure/
   - type: Examples
     url: examples/
-  - type: GraphQL
-    url: graphql/activision-blizzard-graphql.md
 - aid: activision-blizzard:activision-blizzard-world-of-warcraft-api
   name: activision-blizzard World of Warcraft API
   description: World of Warcraft game data and profile APIs
@@ -133,8 +125,6 @@ apis:
     url: json-structure/
   - type: Examples
     url: examples/
-  - type: GraphQL
-    url: graphql/activision-blizzard-graphql.md
 common:
 - type: AgenticAccess
   url: agentic-access/activision-blizzard-agentic-access.yml
@@ -147,7 +137,7 @@ common:
 - type: LinkedIn
   url: https://www.linkedin.com/company/activision-blizzard
 - type: Website
-  url: https://www.activision-blizzard.com
+  url: https://www.activisionblizzard.com/
 - type: Portal
   url: https://develop.battle.net/
 - type: Documentation
@@ -270,3 +260,7 @@ solutions:
   tags_raw:
   - OAuth2
   - Profile
+x-status: acquired
+x-acquired-by: microsoft
+x-relationship: acquisition
+x-acquired: 2023
