@@ -230,6 +230,27 @@ components:
           type: string
           format: uri
           description: Cropped card image URL
+    HearthstoneCardsResponse:
+      type: object
+      description: Paginated Hearthstone cards response
+      properties:
+        cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/HearthstoneCard'
+          description: List of cards
+        cardCount:
+          type: integer
+          description: Total card count
+          example: 2847
+        pageCount:
+          type: integer
+          description: Total page count
+          example: 143
+        page:
+          type: integer
+          description: Current page
+          example: 1
     HearthstoneDeck:
       type: object
       description: A Hearthstone deck
@@ -261,27 +282,6 @@ components:
           type: integer
           description: Number of cards in the deck
           example: 30
-    HearthstoneCardsResponse:
-      type: object
-      description: Paginated Hearthstone cards response
-      properties:
-        cards:
-          type: array
-          items:
-            $ref: '#/components/schemas/HearthstoneCard'
-          description: List of cards
-        cardCount:
-          type: integer
-          description: Total card count
-          example: 2847
-        pageCount:
-          type: integer
-          description: Total page count
-          example: 143
-        page:
-          type: integer
-          description: Current page
-          example: 1
   securitySchemes:
     OAuth2ClientCredentials:
       type: oauth2
