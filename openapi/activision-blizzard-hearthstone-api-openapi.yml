@@ -155,6 +155,58 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    HearthstoneDeck:
+      type: object
+      description: A Hearthstone deck
+      properties:
+        deckCode:
+          type: string
+          description: The deck code
+          example: AAECAQcG0LQDubQD3rUD57UDibYDvbYDDI...
+        version:
+          type: integer
+          description: Deck format version
+          example: 1
+        format:
+          type: object
+          description: Deck format
+        hero:
+          $ref: '#/components/schemas/HearthstoneCard'
+        heroPower:
+          $ref: '#/components/schemas/HearthstoneCard'
+        class:
+          type: object
+          description: Deck class
+        cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/HearthstoneCard'
+          description: Cards in the deck
+        cardCount:
+          type: integer
+          description: Number of cards in the deck
+          example: 30
+    HearthstoneCardsResponse:
+      type: object
+      description: Paginated Hearthstone cards response
+      properties:
+        cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/HearthstoneCard'
+          description: List of cards
+        cardCount:
+          type: integer
+          description: Total card count
+          example: 2847
+        pageCount:
+          type: integer
+          description: Total page count
+          example: 143
+        page:
+          type: integer
+          description: Current page
+          example: 1
     HearthstoneCard:
       type: object
       description: A Hearthstone card
@@ -230,58 +282,6 @@ components:
           type: string
           format: uri
           description: Cropped card image URL
-    HearthstoneCardsResponse:
-      type: object
-      description: Paginated Hearthstone cards response
-      properties:
-        cards:
-          type: array
-          items:
-            $ref: '#/components/schemas/HearthstoneCard'
-          description: List of cards
-        cardCount:
-          type: integer
-          description: Total card count
-          example: 2847
-        pageCount:
-          type: integer
-          description: Total page count
-          example: 143
-        page:
-          type: integer
-          description: Current page
-          example: 1
-    HearthstoneDeck:
-      type: object
-      description: A Hearthstone deck
-      properties:
-        deckCode:
-          type: string
-          description: The deck code
-          example: AAECAQcG0LQDubQD3rUD57UDibYDvbYDDI...
-        version:
-          type: integer
-          description: Deck format version
-          example: 1
-        format:
-          type: object
-          description: Deck format
-        hero:
-          $ref: '#/components/schemas/HearthstoneCard'
-        heroPower:
-          $ref: '#/components/schemas/HearthstoneCard'
-        class:
-          type: object
-          description: Deck class
-        cards:
-          type: array
-          items:
-            $ref: '#/components/schemas/HearthstoneCard'
-          description: Cards in the deck
-        cardCount:
-          type: integer
-          description: Number of cards in the deck
-          example: 30
   securitySchemes:
     OAuth2ClientCredentials:
       type: oauth2

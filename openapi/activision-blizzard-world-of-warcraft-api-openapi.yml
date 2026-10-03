@@ -304,6 +304,19 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    WoWProfileSummary:
+      type: object
+      description: World of Warcraft account profile summary
+      properties:
+        id:
+          type: integer
+          description: Account ID
+          example: 12345678
+        wow_accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/WoWAccount'
+          description: WoW accounts linked to the Battle.net account
     WoWCharacterSummary:
       type: object
       description: Summary of a WoW character
@@ -340,32 +353,56 @@ components:
           type: integer
           description: Character level
           example: 70
-    WoWRealmsIndex:
+    WoWAccount:
       type: object
-      description: Index of WoW realms
+      description: A World of Warcraft account
       properties:
-        realms:
+        id:
+          type: integer
+          description: Account ID
+          example: 1
+        characters:
           type: array
           items:
-            $ref: '#/components/schemas/WoWRealm'
-          description: List of realms
-    WoWCharacterAchievements:
+            $ref: '#/components/schemas/WoWCharacterSummary'
+          description: List of characters on this account
+    WoWRealm:
       type: object
-      description: Character achievements summary
+      description: A World of Warcraft realm
       properties:
-        total_quantity:
+        id:
           type: integer
-          description: Total achievements completed
-          example: 2500
-        total_points:
-          type: integer
-          description: Total achievement points
-          example: 15000
-        achievements:
-          type: array
-          items:
-            type: object
-          description: List of completed achievements
+          description: Realm ID
+          example: 1
+        name:
+          type: string
+          description: Realm name
+          example: Area 52
+        slug:
+          type: string
+          description: Realm slug
+          example: area-52
+        region:
+          type: object
+          description: Region reference
+        category:
+          type: string
+          description: Realm category
+          example: United States
+        locale:
+          type: string
+          description: Realm locale
+          example: en_US
+        timezone:
+          type: string
+          description: Realm timezone
+          example: America/New_York
+        type:
+          type: object
+          description: Realm type (Normal, RP, etc.)
+        is_tournament:
+          type: boolean
+          description: Whether this is a tournament realm
     WoWCharacter:
       type: object
       description: Full World of Warcraft character profile
@@ -412,43 +449,15 @@ components:
           type: integer
           description: Unix timestamp of last login
           example: 1718153645993
-    WoWRealm:
+    WoWRealmsIndex:
       type: object
-      description: A World of Warcraft realm
+      description: Index of WoW realms
       properties:
-        id:
-          type: integer
-          description: Realm ID
-          example: 1
-        name:
-          type: string
-          description: Realm name
-          example: Area 52
-        slug:
-          type: string
-          description: Realm slug
-          example: area-52
-        region:
-          type: object
-          description: Region reference
-        category:
-          type: string
-          description: Realm category
-          example: United States
-        locale:
-          type: string
-          description: Realm locale
-          example: en_US
-        timezone:
-          type: string
-          description: Realm timezone
-          example: America/New_York
-        type:
-          type: object
-          description: Realm type (Normal, RP, etc.)
-        is_tournament:
-          type: boolean
-          description: Whether this is a tournament realm
+        realms:
+          type: array
+          items:
+            $ref: '#/components/schemas/WoWRealm'
+          description: List of realms
     WoWItem:
       type: object
       description: A World of Warcraft item
@@ -508,32 +517,23 @@ components:
           type: integer
           description: Guild achievement points
           example: 5000
-    WoWAccount:
+    WoWCharacterAchievements:
       type: object
-      description: A World of Warcraft account
+      description: Character achievements summary
       properties:
-        id:
+        total_quantity:
           type: integer
-          description: Account ID
-          example: 1
-        characters:
+          description: Total achievements completed
+          example: 2500
+        total_points:
+          type: integer
+          description: Total achievement points
+          example: 15000
+        achievements:
           type: array
           items:
-            $ref: '#/components/schemas/WoWCharacterSummary'
-          description: List of characters on this account
-    WoWProfileSummary:
-      type: object
-      description: World of Warcraft account profile summary
-      properties:
-        id:
-          type: integer
-          description: Account ID
-          example: 12345678
-        wow_accounts:
-          type: array
-          items:
-            $ref: '#/components/schemas/WoWAccount'
-          description: WoW accounts linked to the Battle.net account
+            type: object
+          description: List of completed achievements
   securitySchemes:
     OAuth2ClientCredentials:
       type: oauth2
