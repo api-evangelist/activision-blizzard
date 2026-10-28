@@ -1,4 +1,4 @@
-# activision-blizzard (activision-blizzard)
+# Activision Blizzard
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,50 +64,189 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
+> **Acquired or rebranded.** This company was acquired, merged or renamed. Its API, if it still exists, is offered under another name. This profile is kept as a historical record and is not maintained or rated.
+
 Activision Blizzard is a global video game developer and publisher producing franchises including Call of Duty, World of Warcraft, Diablo, Overwatch, and Candy Crush across console, PC, and mobile platforms.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/activision-blizzard/refs/heads/main/apis.yml)
+**Areas:** Fortune 1000 · Video Games · Gaming · Entertainment · Game Publisher
 
-## Timestamps
+## Activision Blizzard on APIs.io (historical record)
 
-- **Modified:** 2026-05-19
+Everything profiled for Activision Blizzard is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/activision-blizzard/](https://apis.io/providers/activision-blizzard/)** — or go straight to one of the APIs or properties below.
 
-## APIs
+### APIs (5)
 
-### Battle.net API
+- [activision-blizzard Account API](https://apis.io/apis/activision-blizzard/activision-blizzard-account-api/) — Battle.net account and user profile APIs
+- [activision-blizzard Diablo III API](https://apis.io/apis/activision-blizzard/activision-blizzard-diablo-iii-api/) — Diablo III game data and profile APIs
+- [activision-blizzard Hearthstone API](https://apis.io/apis/activision-blizzard/activision-blizzard-hearthstone-api/) — Hearthstone game data APIs
+- [activision-blizzard StarCraft II API](https://apis.io/apis/activision-blizzard/activision-blizzard-starcraft-ii-api/) — StarCraft II game data and profile APIs
+- [activision-blizzard World of Warcraft API](https://apis.io/apis/activision-blizzard/activision-blizzard-world-of-warcraft-api/) — World of Warcraft game data and profile APIs
 
-Game data and profile APIs for World of Warcraft, Diablo III, Hearthstone, StarCraft II, and Battle.net account information. Requires OAuth2 authentication via develop.battle.net.
+### Published properties
 
-#### Tags
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Gaming
-- World Of Warcraft
-- Hearthstone
-- Diablo
-- Starcraft
-- Battle.net
+#### GraphQL (1)
 
-#### Properties
+GraphQL schemas.
 
-- [Human U R L](https://develop.battle.net/)
-- [Base U R L](https://us.api.blizzard.com)
-- [OpenAPI](openapi/activision-blizzard-battle-net.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/activision-blizzard-battle-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/activision-blizzard-battle-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/)
-- [Examples](examples/)
+- [Moved to /providers/activision-blizzard/](https://apis.io/graphqls/activision-blizzard/activision-blizzard-graphql/)
 
-## Common Properties
+#### Agentic access (1)
 
-- [LinkedIn](https://www.linkedin.com/company/activision-blizzard)
-- [Website](https://www.activision-blizzard.com)
-- [Portal](https://develop.battle.net/)
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Activision Blizzard Agentic Access](https://apis.io/agentic-access/activision-blizzard/activision-blizzard-agentic-access/)
+
+#### JSON Schema (17)
+
+The data models the API reads and writes.
+
+- [BattleNetProfile](https://apis.io/schemas/activision-blizzard/activision-blizzard-battle-net-profile/)
+- [D3CareerProfile](https://apis.io/schemas/activision-blizzard/activision-blizzard-d3-career-profile/)
+- [D3Hero](https://apis.io/schemas/activision-blizzard/activision-blizzard-d3-hero/)
+- [D3HeroSummary](https://apis.io/schemas/activision-blizzard/activision-blizzard-d3-hero-summary/)
+- [HearthstoneCard](https://apis.io/schemas/activision-blizzard/activision-blizzard-hearthstone-card/)
+- [HearthstoneCardsResponse](https://apis.io/schemas/activision-blizzard/activision-blizzard-hearthstone-cards-response/)
+- [HearthstoneDeck](https://apis.io/schemas/activision-blizzard/activision-blizzard-hearthstone-deck/)
+- [SC2Profile](https://apis.io/schemas/activision-blizzard/activision-blizzard-sc2-profile/)
+- [WoWAccount](https://apis.io/schemas/activision-blizzard/activision-blizzard-wo-w-account/)
+- [WoWCharacter](https://apis.io/schemas/activision-blizzard/activision-blizzard-wo-w-character/)
+- [WoWCharacterAchievements](https://apis.io/schemas/activision-blizzard/activision-blizzard-wo-w-character-achievements/)
+- [WoWCharacterSummary](https://apis.io/schemas/activision-blizzard/activision-blizzard-wo-w-character-summary/)
+- [WoWGuild](https://apis.io/schemas/activision-blizzard/activision-blizzard-wo-w-guild/)
+- [WoWItem](https://apis.io/schemas/activision-blizzard/activision-blizzard-wo-w-item/)
+- [WoWProfileSummary](https://apis.io/schemas/activision-blizzard/activision-blizzard-wo-w-profile-summary/)
+- [WoWRealm](https://apis.io/schemas/activision-blizzard/activision-blizzard-wo-w-realm/)
+- [WoWRealmsIndex](https://apis.io/schemas/activision-blizzard/activision-blizzard-wo-w-realms-index/)
+
+#### JSON Structure (17)
+
+Data models expressed in JSON Structure.
+
+- [Activision Blizzard Battle Net Profile Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-battle-net-profile-structure/)
+- [Activision Blizzard D3 Career Profile Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-d3-career-profile-structure/)
+- [Activision Blizzard D3 Hero Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-d3-hero-structure/)
+- [Activision Blizzard D3 Hero Summary Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-d3-hero-summary-structure/)
+- [Activision Blizzard Hearthstone Card Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-hearthstone-card-structure/)
+- [Activision Blizzard Hearthstone Cards Response Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-hearthstone-cards-response-structure/)
+- [Activision Blizzard Hearthstone Deck Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-hearthstone-deck-structure/)
+- [Activision Blizzard Sc2 Profile Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-sc2-profile-structure/)
+- [Activision Blizzard Wo W Account Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-wo-w-account-structure/)
+- [Activision Blizzard Wo W Character Achievements Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-wo-w-character-achievements-structure/)
+- [Activision Blizzard Wo W Character Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-wo-w-character-structure/)
+- [Activision Blizzard Wo W Character Summary Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-wo-w-character-summary-structure/)
+- [Activision Blizzard Wo W Guild Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-wo-w-guild-structure/)
+- [Activision Blizzard Wo W Item Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-wo-w-item-structure/)
+- [Activision Blizzard Wo W Profile Summary Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-wo-w-profile-summary-structure/)
+- [Activision Blizzard Wo W Realm Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-wo-w-realm-structure/)
+- [Activision Blizzard Wo W Realms Index Structure](https://apis.io/json-structure/activision-blizzard/activision-blizzard-wo-w-realms-index-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Activision Blizzard Context](https://apis.io/jsonld/activision-blizzard/activision-blizzard-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Activision Blizzard Vocabulary](https://apis.io/vocabularies/activision-blizzard/activision-blizzard-vocabulary/)
+
+#### Examples (17)
+
+Example requests and responses.
+
+- [Activision Blizzard Battle Net Profile Example](https://apis.io/examples/activision-blizzard/activision-blizzard-battle-net-profile-example/)
+- [Activision Blizzard D3 Career Profile Example](https://apis.io/examples/activision-blizzard/activision-blizzard-d3-career-profile-example/)
+- [Activision Blizzard D3 Hero Example](https://apis.io/examples/activision-blizzard/activision-blizzard-d3-hero-example/)
+- [Activision Blizzard D3 Hero Summary Example](https://apis.io/examples/activision-blizzard/activision-blizzard-d3-hero-summary-example/)
+- [Activision Blizzard Hearthstone Card Example](https://apis.io/examples/activision-blizzard/activision-blizzard-hearthstone-card-example/)
+- [Activision Blizzard Hearthstone Cards Response Example](https://apis.io/examples/activision-blizzard/activision-blizzard-hearthstone-cards-response-example/)
+- [Activision Blizzard Hearthstone Deck Example](https://apis.io/examples/activision-blizzard/activision-blizzard-hearthstone-deck-example/)
+- [Activision Blizzard Sc2 Profile Example](https://apis.io/examples/activision-blizzard/activision-blizzard-sc2-profile-example/)
+- [Activision Blizzard Wo W Account Example](https://apis.io/examples/activision-blizzard/activision-blizzard-wo-w-account-example/)
+- [Activision Blizzard Wo W Character Achievements Example](https://apis.io/examples/activision-blizzard/activision-blizzard-wo-w-character-achievements-example/)
+- [Activision Blizzard Wo W Character Example](https://apis.io/examples/activision-blizzard/activision-blizzard-wo-w-character-example/)
+- [Activision Blizzard Wo W Character Summary Example](https://apis.io/examples/activision-blizzard/activision-blizzard-wo-w-character-summary-example/)
+- [Activision Blizzard Wo W Guild Example](https://apis.io/examples/activision-blizzard/activision-blizzard-wo-w-guild-example/)
+- [Activision Blizzard Wo W Item Example](https://apis.io/examples/activision-blizzard/activision-blizzard-wo-w-item-example/)
+- [Activision Blizzard Wo W Profile Summary Example](https://apis.io/examples/activision-blizzard/activision-blizzard-wo-w-profile-summary-example/)
+- [Activision Blizzard Wo W Realm Example](https://apis.io/examples/activision-blizzard/activision-blizzard-wo-w-realm-example/)
+- [Activision Blizzard Wo W Realms Index Example](https://apis.io/examples/activision-blizzard/activision-blizzard-wo-w-realms-index-example/)
+
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [Activision Blizzard Battle.net Account API](https://apis.io/collections/activision-blizzard/open-activision-blizzard-account-api/)
+- [Activision Blizzard Battle.net API](https://apis.io/collections/activision-blizzard/open-activision-blizzard-battle-net/)
+- [Activision Blizzard Battle.net Account Diablo III API](https://apis.io/collections/activision-blizzard/open-activision-blizzard-diablo-iii-api/)
+- [Activision Blizzard Battle.net Account Hearthstone API](https://apis.io/collections/activision-blizzard/open-activision-blizzard-hearthstone-api/)
+- [Activision Blizzard Battle.net Account StarCraft II API](https://apis.io/collections/activision-blizzard/open-activision-blizzard-starcraft-ii-api/)
+- [Activision Blizzard Battle.net Account World of Warcraft API](https://apis.io/collections/activision-blizzard/open-activision-blizzard-world-of-warcraft-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Activision Blizzard — jsonschema rules](https://apis.io/rules/activision-blizzard/activision-blizzard-jsonschema-spectral-rules/)
+- [Activision Blizzard API Rules](https://apis.io/rules/activision-blizzard/activision-blizzard-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Activision Blizzard Authentication](https://apis.io/security/activision-blizzard/activision-blizzard-authentication/)
+- [Activision Blizzard Domain Security](https://apis.io/security/activision-blizzard/activision-blizzard-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Activision Blizzard Scopes](https://apis.io/scopes/activision-blizzard/activision-blizzard-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Activision Blizzard Plans Pricing](https://apis.io/plans/activision-blizzard/activision-blizzard-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Activision Blizzard Rate Limits](https://apis.io/rate-limits/activision-blizzard/activision-blizzard-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Activision Blizzard Finops](https://apis.io/finops/activision-blizzard/activision-blizzard-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.activisionblizzard.com/)
 - [Documentation](https://develop.battle.net/documentation)
-- [Getting Started](https://develop.battle.net/documentation/guides/getting-started)
-- [Authentication](https://develop.battle.net/documentation/guides/using-oauth)
+- [Getting started](https://develop.battle.net/documentation/guides/getting-started)
 - [Pricing](https://develop.battle.net/documentation/guides/getting-started)
-- [GitHub Organization](https://github.com/Blizzard)
-- [Spectral Rules](rules/activision-blizzard-spectral-rules.yml)
-- [Vocabulary](vocabulary/activision-blizzard-vocabulary.yaml)
-- [JSON-LD](json-ld/activision-blizzard-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+- [GitHub](https://github.com/Blizzard)
+
+## API Evangelist rating
+
+**Not rated** — this company is recorded as acquired or rebranded, so no score is published. If it is in fact operating, say so on this repository and it will be re-profiled.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Activision Blizzard: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/activision-blizzard/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
