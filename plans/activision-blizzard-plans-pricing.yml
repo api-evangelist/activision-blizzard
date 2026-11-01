@@ -1,0 +1,97 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Activision Blizzard
+providerId: activision-blizzard
+created: '2026-05-04'
+# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
+# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
+method: generated
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - Gaming
+  - World Of Warcraft
+  - Hearthstone
+  - Diablo
+  - Starcraft
+  - Battle.net
+description: Activision Blizzard exposes the Battle.net API for game data (World of Warcraft, Diablo
+  III, Hearthstone, StarCraft II) and account profiles. The API is free for non-commercial use under the
+  Battle.net API Terms of Use; there is no published self-service paid plan tier — commercial licensing
+  is negotiated directly with Blizzard. Activision Blizzard is now part of Microsoft Gaming.
+sources:
+  - https://develop.battle.net/
+  - https://community.developer.battle.net/
+notes: No public per-API price points. Battle.net API access is free of charge under the developer terms;
+  commercial use requires direct agreement with Blizzard. Reconciled flag is false because there is no
+  published price list to map.
+plans:
+  - id: activision-blizzard-battle-net-developer
+    name: Battle.net Developer (Free, Non-commercial)
+    type: freemium
+    description: Free Battle.net API access for personal / non-commercial / community projects, gated
+      by an OAuth2 client registered at develop.battle.net.
+    entries:
+      - label: API access
+        name: battle_net_dev
+        type: quota
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Game data (WoW, Diablo III, Hearthstone, StarCraft II)
+      - name: Account profile data
+      - name: OAuth2 (Battle.net) login
+  - id: activision-blizzard-battle-net-commercial
+    name: Battle.net Commercial Use
+    type: enterprise
+    description: Commercial use of Battle.net API data requires direct agreement with Blizzard. Pricing
+      and terms are not publicly listed.
+    entries:
+      - label: Commercial agreement
+        name: battle_net_commercial
+        type: subscription
+        metric: contract
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: contact Blizzard
+        userMultiplied: false
+    elements:
+      - name: Commercial-use licence
+      - name: Negotiated rate limits
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - free
+  - subscription
+  units:
+  - negotiated
+  - request
+  plans:
+  - name: Battle.net Developer (Free, Non-commercial)
+    access: freemium
+    model: free
+    model_how: derived
+    units:
+    - request
+    periods:
+    - per-use
+  - name: Battle.net Commercial Use
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - year

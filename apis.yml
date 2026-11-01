@@ -1,0 +1,279 @@
+aid: activision-blizzard
+name: "Activision Blizzard"
+x-parent: microsoft-xbox
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
+specificationVersion: '0.23'
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/activision-blizzard.png
+tags:
+- Fortune 1000
+- Video Games
+- Gaming
+- Entertainment
+- Game Publisher
+url: https://www.activisionblizzard.com/
+modified: '2026-05-19'
+apis:
+- aid: activision-blizzard:activision-blizzard-account-api
+  name: activision-blizzard Account API
+  description: Battle.net account and user profile APIs
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-account-api-openapi.yml
+  - type: HumanURL
+    url: https://develop.battle.net/
+  - type: BaseURL
+    url: https://us.api.blizzard.com
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+- aid: activision-blizzard:activision-blizzard-diablo-iii-api
+  name: activision-blizzard Diablo III API
+  description: Diablo III game data and profile APIs
+  tags:
+  - Diablo III
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-diablo-iii-api-openapi.yml
+  - type: HumanURL
+    url: https://develop.battle.net/
+  - type: BaseURL
+    url: https://us.api.blizzard.com
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+- aid: activision-blizzard:activision-blizzard-hearthstone-api
+  name: activision-blizzard Hearthstone API
+  description: Hearthstone game data APIs
+  tags:
+  - Hearthstone
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-hearthstone-api-openapi.yml
+  - type: HumanURL
+    url: https://develop.battle.net/
+  - type: BaseURL
+    url: https://us.api.blizzard.com
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+- aid: activision-blizzard:activision-blizzard-starcraft-ii-api
+  name: activision-blizzard StarCraft II API
+  description: StarCraft II game data and profile APIs
+  tags:
+  - StarCraft II
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-starcraft-ii-api-openapi.yml
+  - type: HumanURL
+    url: https://develop.battle.net/
+  - type: BaseURL
+    url: https://us.api.blizzard.com
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+- aid: activision-blizzard:activision-blizzard-world-of-warcraft-api
+  name: activision-blizzard World of Warcraft API
+  description: World of Warcraft game data and profile APIs
+  tags:
+  - World Of Warcraft
+  tags_raw:
+  - World of Warcraft
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-world-of-warcraft-api-openapi.yml
+  - type: HumanURL
+    url: https://develop.battle.net/
+  - type: BaseURL
+    url: https://us.api.blizzard.com
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+common:
+- type: Plans
+  url: plans/activision-blizzard-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/activision-blizzard-rate-limits.yml
+- type: FinOps
+  url: finops/activision-blizzard-finops.yml
+- type: AgenticAccess
+  url: agentic-access/activision-blizzard-agentic-access.yml
+- type: DomainSecurity
+  url: security/activision-blizzard-domain-security.yml
+- type: Authentication
+  url: authentication/activision-blizzard-authentication.yml
+- type: OAuthScopes
+  url: scopes/activision-blizzard-scopes.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/activision-blizzard
+- type: Website
+  url: https://www.activisionblizzard.com/
+- type: Portal
+  url: https://develop.battle.net/
+- type: Documentation
+  url: https://develop.battle.net/documentation
+- type: GettingStarted
+  url: https://develop.battle.net/documentation/guides/getting-started
+- type: Authentication
+  url: https://develop.battle.net/documentation/guides/using-oauth
+- type: Pricing
+  url: https://develop.battle.net/documentation/guides/getting-started
+- type: GitHubOrganization
+  url: https://github.com/Blizzard
+- type: SpectralRules
+  url: rules/activision-blizzard-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/activision-blizzard-vocabulary.yaml
+- type: JSONLD
+  url: json-ld/activision-blizzard-context.jsonld
+description: Activision Blizzard is a global video game developer and publisher producing
+  franchises including Call of Duty, World of Warcraft, Diablo, Overwatch, and Candy
+  Crush across console, PC, and mobile platforms.
+features:
+- name: World Of Warcraft Game Data
+  description: Access WoW character profiles, realm listings, guild data, and item
+    information via the Battle.net API.
+  tags:
+  - World Of Warcraft
+  - Game Data
+- name: Diablo III Profiles
+  description: Retrieve Diablo III career profiles and hero data for Battle.net accounts.
+  tags:
+  - Diablo
+  - Game Data
+- name: Hearthstone Cards
+  description: Search and retrieve Hearthstone collectible card data including class,
+    set, and mana cost filters.
+  tags:
+  - Hearthstone
+  - Game Data
+- name: StarCraft II Profiles
+  description: Access StarCraft II player profiles and ladder data.
+  tags:
+  - Starcraft
+  - Game Data
+- name: Battle.net OAuth2
+  description: OAuth2 client credentials and authorization code flows for game data
+    and profile access.
+  tags:
+  - Authentication
+  - OAuth
+  tags_raw:
+  - Authentication
+  - OAuth2
+- name: Regional API Endpoints
+  description: Battle.net APIs are available across US, EU, KR, TW, and CN regions.
+  tags:
+  - Regions
+  - Infrastructure
+useCases:
+- name: Community App Development
+  description: Build community tools, addons, leaderboards, and companion apps powered
+    by live game data.
+  tags:
+  - Community
+  - Developers
+  tags_raw:
+  - Community
+  - Developer
+- name: Game Analytics
+  description: Analyze game statistics, player performance, and progression data across
+    Blizzard franchises.
+  tags:
+  - Analytics
+  - Gaming
+- name: Fan Websites
+  description: Power fan websites and wikis with live character profiles, item databases,
+    and realm status.
+  tags:
+  - Fan Sites
+  - Gaming
+- name: Discord Bots
+  description: Build Discord bots that surface WoW character lookups, Hearthstone
+    card searches, and Diablo profiles.
+  tags:
+  - Discord
+  - Bots
+integrations:
+- name: WoW Community Tools
+  description: Integrate with World of Warcraft addon ecosystems and community platforms
+    like Wowhead and Curseforge.
+  tags:
+  - World Of Warcraft
+  - Community
+- name: Twitch
+  description: Surface game data in Twitch stream overlays and channel bot integrations.
+  tags:
+  - Twitch
+  - Streaming
+- name: Discord
+  description: Enable Discord server bots to query Blizzard game data for guild and
+    community members.
+  tags:
+  - Discord
+  - Community
+solutions:
+- name: Game Data API Access
+  description: Free API access via developer.battle.net for community and non-commercial
+    game data use.
+  tags:
+  - Developers
+  - Free Tier
+  tags_raw:
+  - Developer
+  - Free Tier
+- name: OAuth2 Profile Access
+  description: Authorized user profile access using OAuth2 authorization code flow
+    for personalized data.
+  tags:
+  - OAuth
+  - Profiles
+  - Authentication
+  tags_raw:
+  - OAuth2
+  - Profile
+  - Authentication
+x-status: acquired
+x-acquired-by: microsoft
+x-relationship: acquisition
+x-acquired: 2023
