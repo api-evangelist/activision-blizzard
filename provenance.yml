@@ -6,7 +6,7 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   authentication/activision-blizzard-authentication.yml:
-    method: derived
+    method: searched
     evidence: declared in the artifact
   collections/activision-blizzard-account-api.opencollection.json:
     method: derived
@@ -44,6 +44,12 @@ artifacts:
   collections/activision-blizzard-world-of-warcraft-api.postman_collection.json:
     method: derived
     evidence: openapi/activision-blizzard-world-of-warcraft-api
+  conformance/activision-blizzard-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/activision-blizzard-conventions.yml:
+    method: searched
+    evidence: declared in the artifact
   examples/activision-blizzard-battle-net-profile-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -101,6 +107,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/activision-blizzard-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -284,27 +293,264 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  mcp/activision-blizzard-mcp.yml:
+    method: derived
+    evidence: declared in the artifact
   openapi/_original/activision-blizzard-battle-net.json:
     method: harvested
     evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
       to the provider's source is unverified
+  openapi/activision-blizzard-account-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/activision-blizzard-account-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/activision-blizzard-account-profile-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-achievement-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-auction-house-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-azerite-essence-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-card-backs-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-cards-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-achievements-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-appearance-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-collections-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-encounters-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-house-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-hunter-pets-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-media-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-mythic-keystone-profile-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-professions-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-profile-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-pvp-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-quests-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-reputations-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-soulbinds-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-specializations-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-statistics-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-character-titles-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-connected-realm-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-covenant-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-creature-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-d3-act-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-d3-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-d3-artisan-and-recipe-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-d3-character-class-and-skill-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-d3-follower-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-d3-item-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-d3-item-type-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-d3-profile-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-decks-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/activision-blizzard-diablo-iii-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/activision-blizzard-guild-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-guild-crest-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/activision-blizzard-hearthstone-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/activision-blizzard-heirloom-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-housing-decor-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-item-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-item-appearance-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-journal-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-ladder-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-legacy-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-media-search-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-metadata-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-modified-crafting-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-mount-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-mythic-keystone-affix-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-mythic-keystone-dungeon-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-mythic-keystone-leaderboard-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-mythic-raid-leaderboard-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-neighborhood-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-pet-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-playable-class-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-playable-race-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-playable-specialization-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-power-type-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-profession-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-profile-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-pvp-season-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-pvp-tier-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-quest-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-realm-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-region-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-reputations-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-spell-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/activision-blizzard-starcraft-ii-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/activision-blizzard-starcraft-ii-league-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-talent-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-tech-talent-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-title-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-token-validation-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-toy-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/activision-blizzard-user-authentication-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/activision-blizzard-world-of-warcraft-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/activision-blizzard-wow-token-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  packages/activision-blizzard-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  patterns/activision-blizzard-patterns.yml:
+    method: derived
+    evidence: declared in the artifact
   plans/activision-blizzard-plans-pricing.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   press/2026-05-25-01-microsoft-to-acquire-activision-blizzard-to-bring-the-joy-and.md:
     method: unknown
@@ -322,16 +568,19 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   rate-limits/activision-blizzard-rate-limits.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   rules/activision-blizzard-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/activision-blizzard-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/activision-blizzard-spectral-rules.yml:
     method: generated
     evidence: declared in the artifact
   scopes/activision-blizzard-scopes.yml:
-    method: derived
+    method: searched
     evidence: declared in the artifact
   search/2026-05-25-01-activision-blizzard-is-using-generative-ai-to-hawk-games.md:
     method: unknown
@@ -351,9 +600,30 @@ artifacts:
   security/activision-blizzard-domain-security.yml:
     method: unknown
     evidence: no authorship recorded
+  skills/_index.yml:
+    method: generated
+    evidence: declared in the artifact
+  skills/activision-blizzard-hearthstone-card-lookup.md:
+    method: generated
+    evidence: declared in the artifact
+  skills/activision-blizzard-wow-realm-status.md:
+    method: generated
+    evidence: declared in the artifact
   sla/activision-blizzard-sla.yml:
     method: generated
     evidence: declared in the artifact
+  vendors/activision-blizzard-vendors.yml:
+    method: unknown
+    evidence: no authorship recorded
   vocabulary/activision-blizzard-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/activision-blizzard-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/activision-blizzard-oauth-openid-configuration.json:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/activision-blizzard-well-known.yml:
     method: unknown
     evidence: no authorship recorded

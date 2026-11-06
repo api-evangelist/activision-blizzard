@@ -1,5 +1,5 @@
 aid: activision-blizzard
-name: "Activision Blizzard"
+name: Activision Blizzard
 x-parent: microsoft-xbox
 deliveryModel:
   model: saas
@@ -15,21 +15,23 @@ deliveryModel:
   method: derived
 specificationVersion: '0.23'
 accessModel:
-  pricing: freemium
+  pricing: paid
   onboarding: self-serve
   trial: false
-  try_now: true
+  try_now: false
   public: false
   gated: none
   gated_source:
   - onboarding
-  label: Freemium · Self-serve signup
-  confidence: medium
+  label: Paid · Self-serve signup
+  confidence: high
   source:
-  - plans
+  - finops
   - authentication
+  - scopes
+  - rate-limits
   - security
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/activision-blizzard.png
 tags:
@@ -39,101 +41,39 @@ tags:
 - Entertainment
 - Game Publisher
 url: https://www.activisionblizzard.com/
-modified: '2026-05-19'
-apis:
-- aid: activision-blizzard:activision-blizzard-account-api
-  name: activision-blizzard Account API
-  description: Battle.net account and user profile APIs
-  tags:
-  - Account
-  properties:
-  - type: OpenAPI
-    url: openapi/activision-blizzard-account-api-openapi.yml
-  - type: HumanURL
-    url: https://develop.battle.net/
-  - type: BaseURL
-    url: https://us.api.blizzard.com
-  - type: JSONSchema
-    url: json-schema/
-  - type: JSONStructure
-    url: json-structure/
-  - type: Examples
-    url: examples/
-- aid: activision-blizzard:activision-blizzard-diablo-iii-api
-  name: activision-blizzard Diablo III API
-  description: Diablo III game data and profile APIs
-  tags:
-  - Diablo III
-  properties:
-  - type: OpenAPI
-    url: openapi/activision-blizzard-diablo-iii-api-openapi.yml
-  - type: HumanURL
-    url: https://develop.battle.net/
-  - type: BaseURL
-    url: https://us.api.blizzard.com
-  - type: JSONSchema
-    url: json-schema/
-  - type: JSONStructure
-    url: json-structure/
-  - type: Examples
-    url: examples/
-- aid: activision-blizzard:activision-blizzard-hearthstone-api
-  name: activision-blizzard Hearthstone API
-  description: Hearthstone game data APIs
-  tags:
-  - Hearthstone
-  properties:
-  - type: OpenAPI
-    url: openapi/activision-blizzard-hearthstone-api-openapi.yml
-  - type: HumanURL
-    url: https://develop.battle.net/
-  - type: BaseURL
-    url: https://us.api.blizzard.com
-  - type: JSONSchema
-    url: json-schema/
-  - type: JSONStructure
-    url: json-structure/
-  - type: Examples
-    url: examples/
-- aid: activision-blizzard:activision-blizzard-starcraft-ii-api
-  name: activision-blizzard StarCraft II API
-  description: StarCraft II game data and profile APIs
-  tags:
-  - StarCraft II
-  properties:
-  - type: OpenAPI
-    url: openapi/activision-blizzard-starcraft-ii-api-openapi.yml
-  - type: HumanURL
-    url: https://develop.battle.net/
-  - type: BaseURL
-    url: https://us.api.blizzard.com
-  - type: JSONSchema
-    url: json-schema/
-  - type: JSONStructure
-    url: json-structure/
-  - type: Examples
-    url: examples/
-- aid: activision-blizzard:activision-blizzard-world-of-warcraft-api
-  name: activision-blizzard World of Warcraft API
-  description: World of Warcraft game data and profile APIs
-  tags:
-  - World Of Warcraft
-  tags_raw:
-  - World of Warcraft
-  properties:
-  - type: OpenAPI
-    url: openapi/activision-blizzard-world-of-warcraft-api-openapi.yml
-  - type: HumanURL
-    url: https://develop.battle.net/
-  - type: BaseURL
-    url: https://us.api.blizzard.com
-  - type: JSONSchema
-    url: json-schema/
-  - type: JSONStructure
-    url: json-structure/
-  - type: Examples
-    url: examples/
+modified: '2026-11-04'
+description: Activision Blizzard is a global video game developer and publisher producing franchises including Call of Duty, World of Warcraft, Diablo, Overwatch, and Candy Crush across console, PC, and
+  mobile platforms. Through the Battle.net Community Developer Portal it publishes free OAuth 2.0-secured game data, community and profile APIs for World of Warcraft (retail and Classic), Diablo III, Hearthstone
+  and StarCraft II. Part of Microsoft Gaming since 2023.
+created: '2026-05-04'
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
 common:
+- type: WellKnown
+  url: well-known/activision-blizzard-well-known.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Spectral
+  url: rules/activision-blizzard-spectral-rules.yml
+- type: Spectral
+  url: rules/activision-blizzard-rules.yml
+- type: Spectral
+  url: rules/activision-blizzard-jsonschema-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/activision-blizzard-vocabulary.yml
+- type: Conventions
+  url: conventions/activision-blizzard-conventions.yml
+- type: Conformance
+  url: conformance/activision-blizzard-conformance.yml
+- type: Hosts
+  url: hosts/activision-blizzard-hosts.yml
+- type: Vendors
+  url: vendors/activision-blizzard-vendors.yml
+- type: SDKs
+  url: packages/activision-blizzard-packages.yml
+- type: Packages
+  url: packages/activision-blizzard-packages.yml
 - type: Plans
   url: plans/activision-blizzard-plans-pricing.yml
 - type: RateLimits
@@ -153,15 +93,13 @@ common:
 - type: Website
   url: https://www.activisionblizzard.com/
 - type: Portal
-  url: https://develop.battle.net/
+  url: https://community.developer.battle.net/
 - type: Documentation
-  url: https://develop.battle.net/documentation
+  url: https://community.developer.battle.net/documentation
 - type: GettingStarted
-  url: https://develop.battle.net/documentation/guides/getting-started
+  url: https://community.developer.battle.net/documentation/guides/getting-started
 - type: Authentication
-  url: https://develop.battle.net/documentation/guides/using-oauth
-- type: Pricing
-  url: https://develop.battle.net/documentation/guides/getting-started
+  url: https://community.developer.battle.net/documentation/guides/using-oauth
 - type: GitHubOrganization
   url: https://github.com/Blizzard
 - type: SpectralRules
@@ -170,13 +108,917 @@ common:
   url: vocabulary/activision-blizzard-vocabulary.yaml
 - type: JSONLD
   url: json-ld/activision-blizzard-context.jsonld
-description: Activision Blizzard is a global video game developer and publisher producing
-  franchises including Call of Duty, World of Warcraft, Diablo, Overwatch, and Candy
-  Crush across console, PC, and mobile platforms.
+- type: Support
+  url: https://us.forums.blizzard.com/en/blizzard/c/api-discussion/18
+- type: APIReference
+  url: https://community.developer.battle.net/documentation
+- type: PrivacyPolicy
+  url: https://www.activisionblizzard.com/legal/privacy-policy
+apis:
+- aid: activision-blizzard:activision-blizzard-account-api
+  name: Battle.net Battle.net OAuth API
+  description: Battle.net account and user profile APIs
+  tags:
+  - Account
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/activision-blizzard.png
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-account-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+- aid: activision-blizzard:activision-blizzard-diablo-iii-api
+  name: Battle.net Diablo III API
+  description: Diablo III game data and profile APIs
+  tags:
+  - Diablo III
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/activision-blizzard.png
+  humanURL: https://community.developer.battle.net/documentation/diablo-3
+  baseURL: https://us.api.blizzard.com
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-diablo-iii-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+- aid: activision-blizzard:activision-blizzard-hearthstone-api
+  name: Battle.net Hearthstone API
+  description: Hearthstone game data APIs
+  tags:
+  - Hearthstone
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/activision-blizzard.png
+  humanURL: https://community.developer.battle.net/documentation/hearthstone
+  baseURL: https://us.api.blizzard.com
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-hearthstone-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+- aid: activision-blizzard:activision-blizzard-starcraft-ii-api
+  name: Battle.net StarCraft II API
+  description: StarCraft II game data and profile APIs
+  tags:
+  - StarCraft II
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/activision-blizzard.png
+  humanURL: https://community.developer.battle.net/documentation/starcraft-2
+  baseURL: https://us.api.blizzard.com
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-starcraft-ii-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+- aid: activision-blizzard:activision-blizzard-world-of-warcraft-api
+  name: Battle.net World of Warcraft API
+  description: World of Warcraft game data and profile APIs
+  tags:
+  - World Of Warcraft
+  tags_raw:
+  - World of Warcraft
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/activision-blizzard.png
+  humanURL: https://community.developer.battle.net/documentation/world-of-warcraft
+  baseURL: https://us.api.blizzard.com
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-world-of-warcraft-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: Examples
+    url: examples/
+- aid: activision-blizzard:activision-blizzard-account-api-api
+  name: Activision Blizzard Account API
+  description: The Account API API from Activision Blizzard — 1 operation(s) for account api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - Account API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-account-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-account-profile-api-api
+  name: Activision Blizzard Account Profile API
+  description: >-
+    The Account Profile API API from Activision Blizzard — 8 operation(s) for account profile api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Account Profile API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-account-profile-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-achievement-api-api
+  name: Activision Blizzard Achievement API
+  description: The Achievement API API from Activision Blizzard — 5 operation(s) for achievement api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Achievement API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-achievement-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-auction-house-api-api
+  name: Activision Blizzard Auction House API
+  description: >-
+    The Auction House API API from Activision Blizzard — 4 operation(s) for auction house api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Auction House API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-auction-house-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-azerite-essence-api-api
+  name: Activision Blizzard Azerite Essence API
+  description: >-
+    The Azerite Essence API API from Activision Blizzard — 4 operation(s) for azerite essence api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Azerite Essence API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-azerite-essence-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-card-backs-api
+  name: Activision Blizzard Card Backs API
+  description: The Card Backs API from Activision Blizzard — 2 operation(s) for card backs.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - Card Backs
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-card-backs-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-cards-api
+  name: Activision Blizzard Cards API
+  description: The Cards API from Activision Blizzard — 1 operation(s) for cards.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - Cards
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-cards-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-achievements-api-api
+  name: Activision Blizzard Character Achievements API
+  description: >-
+    The Character Achievements API API from Activision Blizzard — 1 operation(s) for character achievements
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Achievements API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-achievements-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-appearance-api-api
+  name: Activision Blizzard Character Appearance API
+  description: >-
+    The Character Appearance API API from Activision Blizzard — 1 operation(s) for character appearance
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Appearance API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-appearance-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-collections-api-api
+  name: Activision Blizzard Character Collections API
+  description: >-
+    The Character Collections API API from Activision Blizzard — 7 operation(s) for character collections
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Collections API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-collections-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-encounters-api-api
+  name: Activision Blizzard Character Encounters API
+  description: >-
+    The Character Encounters API API from Activision Blizzard — 3 operation(s) for character encounters
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Encounters API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-encounters-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-house-api-api
+  name: Activision Blizzard Character House API
+  description: >-
+    The Character House API API from Activision Blizzard — 1 operation(s) for character house api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character House API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-house-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-hunter-pets-api-api
+  name: Activision Blizzard Character Hunter Pets API
+  description: >-
+    The Character Hunter Pets API API from Activision Blizzard — 1 operation(s) for character hunter pets
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Hunter Pets API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-hunter-pets-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-media-api-api
+  name: Activision Blizzard Character Media API
+  description: >-
+    The Character Media API API from Activision Blizzard — 1 operation(s) for character media api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Media API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-media-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-mythic-keystone-profile-api-api
+  name: Activision Blizzard Character Mythic Keystone Profile API
+  description: >-
+    The Character Mythic Keystone Profile API API from Activision Blizzard — 2 operation(s) for character
+    mythic keystone profile api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Mythic Keystone Profile API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-mythic-keystone-profile-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-professions-api-api
+  name: Activision Blizzard Character Professions API
+  description: >-
+    The Character Professions API API from Activision Blizzard — 1 operation(s) for character professions
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Professions API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-professions-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-profile-api-api
+  name: Activision Blizzard Character Profile API
+  description: >-
+    The Character Profile API API from Activision Blizzard — 1 operation(s) for character profile api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Profile API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-profile-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-pvp-api-api
+  name: Activision Blizzard Character PvP API
+  description: >-
+    The Character PvP API API from Activision Blizzard — 2 operation(s) for character pvp api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character PvP API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-pvp-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-quests-api-api
+  name: Activision Blizzard Character Quests API
+  description: >-
+    The Character Quests API API from Activision Blizzard — 2 operation(s) for character quests api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Quests API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-quests-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-reputations-api-api
+  name: Activision Blizzard Character Reputations API
+  description: >-
+    The Character Reputations API API from Activision Blizzard — 1 operation(s) for character reputations
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Reputations API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-reputations-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-soulbinds-api-api
+  name: Activision Blizzard Character Soulbinds API
+  description: >-
+    The Character Soulbinds API API from Activision Blizzard — 1 operation(s) for character soulbinds
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Soulbinds API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-soulbinds-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-specializations-api-api
+  name: Activision Blizzard Character Specializations API
+  description: >-
+    The Character Specializations API API from Activision Blizzard — 1 operation(s) for character specializations
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Specializations API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-specializations-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-statistics-api-api
+  name: Activision Blizzard Character Statistics API
+  description: >-
+    The Character Statistics API API from Activision Blizzard — 1 operation(s) for character statistics
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Statistics API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-statistics-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-character-titles-api-api
+  name: Activision Blizzard Character Titles API
+  description: >-
+    The Character Titles API API from Activision Blizzard — 1 operation(s) for character titles api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Character Titles API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-character-titles-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-connected-realm-api-api
+  name: Activision Blizzard Connected Realm API
+  description: >-
+    The Connected Realm API API from Activision Blizzard — 3 operation(s) for connected realm api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Connected Realm API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-connected-realm-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-covenant-api-api
+  name: Activision Blizzard Covenant API
+  description: The Covenant API API from Activision Blizzard — 7 operation(s) for covenant api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Covenant API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-covenant-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-creature-api-api
+  name: Activision Blizzard Creature API
+  description: The Creature API API from Activision Blizzard — 8 operation(s) for creature api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Creature API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-creature-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-d3-act-api-api
+  name: Activision Blizzard D3 Act API
+  description: The D3 Act API API from Activision Blizzard — 2 operation(s) for d3 act api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - D3 Act API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-d3-act-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-d3-api
+  name: Activision Blizzard D3 API
+  description: The D3 API from Activision Blizzard — 6 operation(s) for d3.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - D3
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-d3-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-d3-artisan-and-recipe-api-api
+  name: Activision Blizzard D3 Artisan and Recipe API
+  description: >-
+    The D3 Artisan and Recipe API API from Activision Blizzard — 2 operation(s) for d3 artisan and recipe
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - D3 Artisan and Recipe API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-d3-artisan-and-recipe-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-d3-character-class-and-skill-api-api
+  name: Activision Blizzard D3 Character Class and Skill API
+  description: >-
+    The D3 Character Class and Skill API API from Activision Blizzard — 2 operation(s) for d3 character
+    class and skill api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - D3 Character Class and Skill API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-d3-character-class-and-skill-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-d3-follower-api-api
+  name: Activision Blizzard D3 Follower API
+  description: The D3 Follower API API from Activision Blizzard — 1 operation(s) for d3 follower api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - D3 Follower API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-d3-follower-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-d3-item-api-api
+  name: Activision Blizzard D3 Item API
+  description: The D3 Item API API from Activision Blizzard — 1 operation(s) for d3 item api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - D3 Item API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-d3-item-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-d3-item-type-api-api
+  name: Activision Blizzard D3 Item Type API
+  description: The D3 Item Type API API from Activision Blizzard — 2 operation(s) for d3 item type api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - D3 Item Type API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-d3-item-type-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-d3-profile-api-api
+  name: Activision Blizzard D3 Profile API
+  description: The D3 Profile API API from Activision Blizzard — 4 operation(s) for d3 profile api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - D3 Profile API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-d3-profile-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-decks-api
+  name: Activision Blizzard Decks API
+  description: The Decks API from Activision Blizzard — 1 operation(s) for decks.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - Decks
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-decks-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-guild-api-api
+  name: Activision Blizzard Guild API
+  description: The Guild API API from Activision Blizzard — 3 operation(s) for guild api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Guild API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-guild-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-guild-crest-api-api
+  name: Activision Blizzard Guild Crest API
+  description: The Guild Crest API API from Activision Blizzard — 3 operation(s) for guild crest api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Guild Crest API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-guild-crest-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-heirloom-api-api
+  name: Activision Blizzard Heirloom API
+  description: The Heirloom API API from Activision Blizzard — 2 operation(s) for heirloom api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Heirloom API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-heirloom-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-housing-decor-api-api
+  name: Activision Blizzard Housing Decor API
+  description: >-
+    The Housing Decor API API from Activision Blizzard — 12 operation(s) for housing decor api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Housing Decor API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-housing-decor-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-item-api-api
+  name: Activision Blizzard Item API
+  description: The Item API API from Activision Blizzard — 7 operation(s) for item api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Item API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-item-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-item-appearance-api-api
+  name: Activision Blizzard Item Appearance API
+  description: >-
+    The Item Appearance API API from Activision Blizzard — 6 operation(s) for item appearance api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Item Appearance API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-item-appearance-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-journal-api-api
+  name: Activision Blizzard Journal API
+  description: The Journal API API from Activision Blizzard — 8 operation(s) for journal api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Journal API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-journal-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-ladder-api-api
+  name: Activision Blizzard Ladder API
+  description: The Ladder API API from Activision Blizzard — 2 operation(s) for ladder api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - Ladder API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-ladder-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-legacy-api-api
+  name: Activision Blizzard Legacy API
+  description: The Legacy API API from Activision Blizzard — 6 operation(s) for legacy api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - Legacy API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-legacy-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-media-search-api-api
+  name: Activision Blizzard Media Search API
+  description: The Media Search API API from Activision Blizzard — 1 operation(s) for media search api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Media Search API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-media-search-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-metadata-api
+  name: Activision Blizzard Metadata API
+  description: The Metadata API from Activision Blizzard — 2 operation(s) for metadata.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-metadata-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-modified-crafting-api-api
+  name: Activision Blizzard Modified Crafting API
+  description: >-
+    The Modified Crafting API API from Activision Blizzard — 5 operation(s) for modified crafting api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Modified Crafting API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-modified-crafting-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-mount-api-api
+  name: Activision Blizzard Mount API
+  description: The Mount API API from Activision Blizzard — 3 operation(s) for mount api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Mount API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-mount-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-mythic-keystone-affix-api-api
+  name: Activision Blizzard Mythic Keystone Affix API
+  description: >-
+    The Mythic Keystone Affix API API from Activision Blizzard — 3 operation(s) for mythic keystone affix
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Mythic Keystone Affix API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-mythic-keystone-affix-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-mythic-keystone-dungeon-api-api
+  name: Activision Blizzard Mythic Keystone Dungeon API
+  description: >-
+    The Mythic Keystone Dungeon API API from Activision Blizzard — 7 operation(s) for mythic keystone
+    dungeon api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Mythic Keystone Dungeon API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-mythic-keystone-dungeon-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-mythic-keystone-leaderboard-api-api
+  name: Activision Blizzard Mythic Keystone Leaderboard API
+  description: >-
+    The Mythic Keystone Leaderboard API API from Activision Blizzard — 2 operation(s) for mythic keystone
+    leaderboard api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Mythic Keystone Leaderboard API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-mythic-keystone-leaderboard-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-mythic-raid-leaderboard-api-api
+  name: Activision Blizzard Mythic Raid Leaderboard API
+  description: >-
+    The Mythic Raid Leaderboard API API from Activision Blizzard — 1 operation(s) for mythic raid leaderboard
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Mythic Raid Leaderboard API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-mythic-raid-leaderboard-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-neighborhood-api-api
+  name: Activision Blizzard Neighborhood API
+  description: The Neighborhood API API from Activision Blizzard — 3 operation(s) for neighborhood api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Neighborhood API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-neighborhood-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-pet-api-api
+  name: Activision Blizzard Pet API
+  description: The Pet API API from Activision Blizzard — 6 operation(s) for pet api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Pet API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-pet-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-playable-class-api-api
+  name: Activision Blizzard Playable Class API
+  description: >-
+    The Playable Class API API from Activision Blizzard — 4 operation(s) for playable class api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Playable Class API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-playable-class-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-playable-race-api-api
+  name: Activision Blizzard Playable Race API
+  description: >-
+    The Playable Race API API from Activision Blizzard — 2 operation(s) for playable race api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Playable Race API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-playable-race-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-playable-specialization-api-api
+  name: Activision Blizzard Playable Specialization API
+  description: >-
+    The Playable Specialization API API from Activision Blizzard — 3 operation(s) for playable specialization
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Playable Specialization API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-playable-specialization-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-power-type-api-api
+  name: Activision Blizzard Power Type API
+  description: The Power Type API API from Activision Blizzard — 2 operation(s) for power type api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Power Type API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-power-type-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-profession-api-api
+  name: Activision Blizzard Profession API
+  description: The Profession API API from Activision Blizzard — 6 operation(s) for profession api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Profession API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-profession-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-profile-api-api
+  name: Activision Blizzard Profile API
+  description: The Profile API API from Activision Blizzard — 5 operation(s) for profile api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - Profile API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-profile-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-pvp-season-api-api
+  name: Activision Blizzard PvP Season API
+  description: The PvP Season API API from Activision Blizzard — 11 operation(s) for pvp season api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - PvP Season API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-pvp-season-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-pvp-tier-api-api
+  name: Activision Blizzard PvP Tier API
+  description: The PvP Tier API API from Activision Blizzard — 3 operation(s) for pvp tier api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - PvP Tier API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-pvp-tier-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-quest-api-api
+  name: Activision Blizzard Quest API
+  description: The Quest API API from Activision Blizzard — 8 operation(s) for quest api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Quest API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-quest-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-realm-api-api
+  name: Activision Blizzard Realm API
+  description: The Realm API API from Activision Blizzard — 1 operation(s) for realm api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Realm API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-realm-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-region-api-api
+  name: Activision Blizzard Region API
+  description: The Region API API from Activision Blizzard — 2 operation(s) for region api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Region API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-region-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-reputations-api-api
+  name: Activision Blizzard Reputations API
+  description: The Reputations API API from Activision Blizzard — 4 operation(s) for reputations api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Reputations API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-reputations-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-spell-api-api
+  name: Activision Blizzard Spell API
+  description: The Spell API API from Activision Blizzard — 3 operation(s) for spell api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Spell API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-spell-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-starcraft-ii-league-api-api
+  name: Activision Blizzard StarCraft II League API
+  description: >-
+    The StarCraft II League API API from Activision Blizzard — 1 operation(s) for starcraft ii league
+    api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - StarCraft II League API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-starcraft-ii-league-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-talent-api-api
+  name: Activision Blizzard Talent API
+  description: The Talent API API from Activision Blizzard — 7 operation(s) for talent api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Talent API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-talent-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-tech-talent-api-api
+  name: Activision Blizzard Tech Talent API
+  description: The Tech Talent API API from Activision Blizzard — 5 operation(s) for tech talent api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Tech Talent API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-tech-talent-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-title-api-api
+  name: Activision Blizzard Title API
+  description: The Title API API from Activision Blizzard — 2 operation(s) for title api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Title API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-title-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-token-validation-api
+  name: Activision Blizzard Token Validation API
+  description: The Token Validation API from Activision Blizzard — 1 operation(s) for token validation.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - Token Validation
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-token-validation-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-toy-api-api
+  name: Activision Blizzard Toy API
+  description: The Toy API API from Activision Blizzard — 2 operation(s) for toy api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - Toy API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-toy-api-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-user-authentication-api
+  name: Activision Blizzard User Authentication API
+  description: >-
+    The User Authentication API from Activision Blizzard — 3 operation(s) for user authentication.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://oauth.battle.net
+  tags:
+  - User Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-user-authentication-api-openapi.yml
+- aid: activision-blizzard:activision-blizzard-wow-token-api-api
+  name: Activision Blizzard WoW Token API
+  description: The WoW Token API API from Activision Blizzard — 1 operation(s) for wow token api.
+  humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
+  baseURL: https://gateway.battlenet.com.cn
+  tags:
+  - WoW Token API
+  properties:
+  - type: OpenAPI
+    url: openapi/activision-blizzard-wow-token-api-api-openapi.yml
 features:
 - name: World Of Warcraft Game Data
-  description: Access WoW character profiles, realm listings, guild data, and item
-    information via the Battle.net API.
+  description: Access WoW character profiles, realm listings, guild data, and item information via the Battle.net API.
   tags:
   - World Of Warcraft
   - Game Data
@@ -186,8 +1028,7 @@ features:
   - Diablo
   - Game Data
 - name: Hearthstone Cards
-  description: Search and retrieve Hearthstone collectible card data including class,
-    set, and mana cost filters.
+  description: Search and retrieve Hearthstone collectible card data including class, set, and mana cost filters.
   tags:
   - Hearthstone
   - Game Data
@@ -197,8 +1038,7 @@ features:
   - Starcraft
   - Game Data
 - name: Battle.net OAuth2
-  description: OAuth2 client credentials and authorization code flows for game data
-    and profile access.
+  description: OAuth2 client credentials and authorization code flows for game data and profile access.
   tags:
   - Authentication
   - OAuth
@@ -212,8 +1052,7 @@ features:
   - Infrastructure
 useCases:
 - name: Community App Development
-  description: Build community tools, addons, leaderboards, and companion apps powered
-    by live game data.
+  description: Build community tools, addons, leaderboards, and companion apps powered by live game data.
   tags:
   - Community
   - Developers
@@ -221,27 +1060,23 @@ useCases:
   - Community
   - Developer
 - name: Game Analytics
-  description: Analyze game statistics, player performance, and progression data across
-    Blizzard franchises.
+  description: Analyze game statistics, player performance, and progression data across Blizzard franchises.
   tags:
   - Analytics
   - Gaming
 - name: Fan Websites
-  description: Power fan websites and wikis with live character profiles, item databases,
-    and realm status.
+  description: Power fan websites and wikis with live character profiles, item databases, and realm status.
   tags:
   - Fan Sites
   - Gaming
 - name: Discord Bots
-  description: Build Discord bots that surface WoW character lookups, Hearthstone
-    card searches, and Diablo profiles.
+  description: Build Discord bots that surface WoW character lookups, Hearthstone card searches, and Diablo profiles.
   tags:
   - Discord
   - Bots
 integrations:
 - name: WoW Community Tools
-  description: Integrate with World of Warcraft addon ecosystems and community platforms
-    like Wowhead and Curseforge.
+  description: Integrate with World of Warcraft addon ecosystems and community platforms like Wowhead and Curseforge.
   tags:
   - World Of Warcraft
   - Community
@@ -251,15 +1086,13 @@ integrations:
   - Twitch
   - Streaming
 - name: Discord
-  description: Enable Discord server bots to query Blizzard game data for guild and
-    community members.
+  description: Enable Discord server bots to query Blizzard game data for guild and community members.
   tags:
   - Discord
   - Community
 solutions:
 - name: Game Data API Access
-  description: Free API access via developer.battle.net for community and non-commercial
-    game data use.
+  description: Free API access via developer.battle.net for community and non-commercial game data use.
   tags:
   - Developers
   - Free Tier
@@ -267,8 +1100,7 @@ solutions:
   - Developer
   - Free Tier
 - name: OAuth2 Profile Access
-  description: Authorized user profile access using OAuth2 authorization code flow
-    for personalized data.
+  description: Authorized user profile access using OAuth2 authorization code flow for personalized data.
   tags:
   - OAuth
   - Profiles
@@ -281,3 +1113,8 @@ x-status: acquired
 x-acquired-by: microsoft
 x-relationship: acquisition
 x-acquired: 2023
+x-enrichment:
+  date: '2026-11-04'
+  status: enriched
+  artifacts_added: 9
+  pass: local-v6
