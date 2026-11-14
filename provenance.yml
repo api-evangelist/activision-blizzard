@@ -8,6 +8,12 @@ artifacts:
   authentication/activision-blizzard-authentication.yml:
     method: searched
     evidence: declared in the artifact
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
   collections/activision-blizzard-account-api.opencollection.json:
     method: derived
     evidence: openapi/activision-blizzard-account-api
@@ -49,6 +55,12 @@ artifacts:
     evidence: declared in the artifact
   conventions/activision-blizzard-conventions.yml:
     method: searched
+    evidence: declared in the artifact
+  data-model/activision-blizzard-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  errors/activision-blizzard-problem-types.yml:
+    method: derived
     evidence: declared in the artifact
   examples/activision-blizzard-battle-net-profile-example.json:
     method: unknown
@@ -105,6 +117,36 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   front-door-ai/2026-09-17.yml:
+    method: unknown
+    evidence: no authorship recorded
+  grpc/activision-blizzard-s2client-common.proto:
+    method: unknown
+    evidence: no authorship recorded
+  grpc/activision-blizzard-s2client-data.proto:
+    method: unknown
+    evidence: no authorship recorded
+  grpc/activision-blizzard-s2client-debug.proto:
+    method: unknown
+    evidence: no authorship recorded
+  grpc/activision-blizzard-s2client-error.proto:
+    method: unknown
+    evidence: no authorship recorded
+  grpc/activision-blizzard-s2client-query.proto:
+    method: unknown
+    evidence: no authorship recorded
+  grpc/activision-blizzard-s2client-raw.proto:
+    method: unknown
+    evidence: no authorship recorded
+  grpc/activision-blizzard-s2client-sc2api.proto:
+    method: unknown
+    evidence: no authorship recorded
+  grpc/activision-blizzard-s2client-score.proto:
+    method: unknown
+    evidence: no authorship recorded
+  grpc/activision-blizzard-s2client-spatial.proto:
+    method: unknown
+    evidence: no authorship recorded
+  grpc/activision-blizzard-s2client-ui.proto:
     method: unknown
     evidence: no authorship recorded
   hosts/activision-blizzard-hosts.yml:
@@ -224,7 +266,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -291,6 +333,9 @@ artifacts:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-11-02T082323.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   mcp/activision-blizzard-mcp.yml:
@@ -567,6 +612,9 @@ artifacts:
   press/2026-05-25-05-microsoft-and-activision-blizzard-ur-scholarship-repository.md:
     method: unknown
     evidence: no authorship recorded
+  privacy/activision-blizzard-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/activision-blizzard-rate-limits.yml:
     method: searched
     evidence: declared in the artifact

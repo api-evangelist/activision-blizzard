@@ -31,7 +31,7 @@ accessModel:
   - scopes
   - rate-limits
   - security
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/activision-blizzard.png
 tags:
@@ -50,6 +50,28 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 common:
+- type: DataModel
+  url: data-model/activision-blizzard-data-model.yml
+- type: ErrorCatalog
+  url: errors/activision-blizzard-problem-types.yml
+- type: Protobuf
+  url: grpc/activision-blizzard-s2client-ui.proto
+- type: Protobuf
+  url: grpc/activision-blizzard-s2client-spatial.proto
+- type: Protobuf
+  url: grpc/activision-blizzard-s2client-score.proto
+- type: Protobuf
+  url: grpc/activision-blizzard-s2client-raw.proto
+- type: Protobuf
+  url: grpc/activision-blizzard-s2client-query.proto
+- type: Protobuf
+  url: grpc/activision-blizzard-s2client-error.proto
+- type: Protobuf
+  url: grpc/activision-blizzard-s2client-debug.proto
+- type: Protobuf
+  url: grpc/activision-blizzard-s2client-data.proto
+- type: Protobuf
+  url: grpc/activision-blizzard-s2client-common.proto
 - type: WellKnown
   url: well-known/activision-blizzard-well-known.yml
 - type: AgentSkill
@@ -114,7 +136,22 @@ common:
   url: https://community.developer.battle.net/documentation
 - type: PrivacyPolicy
   url: https://www.activisionblizzard.com/legal/privacy-policy
+- type: DataProcessing
+  url: privacy/activision-blizzard-privacy-policy.yml
 apis:
+- aid: activision-blizzard:starcraft-ii-client-protocol
+  name: StarCraft II Client Protocol (s2client-proto)
+  description: Protocol Buffers definition of the StarCraft II API used by bots and AI agents to control the StarCraft II game client, published by Blizzard in the Blizzard/s2client-proto GitHub repository. Requests and responses are exchanged with a locally running game client.
+  humanURL: https://github.com/Blizzard/s2client-proto
+  tags:
+  - StarCraft II
+  - Protocol Buffers
+  - Game AI
+  properties:
+  - type: Protobuf
+    url: grpc/activision-blizzard-s2client-sc2api.proto
+  - type: SourceCode
+    url: https://github.com/Blizzard/s2client-proto
 - aid: activision-blizzard:activision-blizzard-account-api
   name: Battle.net Battle.net OAuth API
   description: Battle.net account and user profile APIs
@@ -1114,7 +1151,7 @@ x-acquired-by: microsoft
 x-relationship: acquisition
 x-acquired: 2023
 x-enrichment:
-  date: '2026-11-04'
+  date: '2026-11-12'
   status: enriched
-  artifacts_added: 9
+  artifacts_added: 12
   pass: local-v6
