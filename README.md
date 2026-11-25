@@ -66,7 +66,7 @@
 
 > **Acquired or rebranded.** This company was acquired, merged or renamed. Its API, if it still exists, is offered under another name. This profile is kept as a historical record and is not maintained or rated.
 
-Activision Blizzard is a global video game developer and publisher producing franchises including Call of Duty, World of Warcraft, Diablo, Overwatch, and Candy Crush across console, PC, and mobile platforms.
+Activision Blizzard is a global video game developer and publisher producing franchises including Call of Duty, World of Warcraft, Diablo, Overwatch, and Candy Crush across console, PC, and mobile platforms. Through the Battle.net Community Developer Portal it publishes free OAuth 2.0-secured game data, community and profile APIs for World of Warcraft (retail and Classic), Diablo III, Hearthstone and StarCraft II. Part of Microsoft Gaming since 2023.
 
 **Areas:** Fortune 1000 · Video Games · Gaming · Entertainment · Game Publisher
 
@@ -74,13 +74,90 @@ Activision Blizzard is a global video game developer and publisher producing fra
 
 Everything profiled for Activision Blizzard is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/activision-blizzard/](https://apis.io/providers/activision-blizzard/)** — or go straight to one of the APIs or properties below.
 
-### APIs (5)
+### APIs (82)
 
-- [activision-blizzard Account API](https://apis.io/apis/activision-blizzard/activision-blizzard-account-api/) — Battle.net account and user profile APIs
-- [activision-blizzard Diablo III API](https://apis.io/apis/activision-blizzard/activision-blizzard-diablo-iii-api/) — Diablo III game data and profile APIs
-- [activision-blizzard Hearthstone API](https://apis.io/apis/activision-blizzard/activision-blizzard-hearthstone-api/) — Hearthstone game data APIs
-- [activision-blizzard StarCraft II API](https://apis.io/apis/activision-blizzard/activision-blizzard-starcraft-ii-api/) — StarCraft II game data and profile APIs
-- [activision-blizzard World of Warcraft API](https://apis.io/apis/activision-blizzard/activision-blizzard-world-of-warcraft-api/) — World of Warcraft game data and profile APIs
+- [StarCraft II Client Protocol (s2client-proto)](https://apis.io/apis/activision-blizzard/starcraft-ii-client-protocol/) — Protocol Buffers definition of the StarCraft II API used by bots and AI agents to control the StarCraft II game client, published by Blizzard in the…
+- [Battle.net Battle.net OAuth API](https://apis.io/apis/activision-blizzard/activision-blizzard-account-api/) — Battle.net account and user profile APIs
+- [Battle.net Diablo III API](https://apis.io/apis/activision-blizzard/activision-blizzard-diablo-iii-api/) — Diablo III game data and profile APIs
+- [Battle.net Hearthstone API](https://apis.io/apis/activision-blizzard/activision-blizzard-hearthstone-api/) — Hearthstone game data APIs
+- [Battle.net StarCraft II API](https://apis.io/apis/activision-blizzard/activision-blizzard-starcraft-ii-api/) — StarCraft II game data and profile APIs
+- [Battle.net World of Warcraft API](https://apis.io/apis/activision-blizzard/activision-blizzard-world-of-warcraft-api/) — World of Warcraft game data and profile APIs
+- [Activision Blizzard Account API](https://apis.io/apis/activision-blizzard/activision-blizzard-account-api-api/) — The Account API API from Activision Blizzard — 1 operation(s) for account api.
+- [Activision Blizzard Account Profile API](https://apis.io/apis/activision-blizzard/activision-blizzard-account-profile-api-api/) — The Account Profile API API from Activision Blizzard — 8 operation(s) for account profile api.
+- [Activision Blizzard Achievement API](https://apis.io/apis/activision-blizzard/activision-blizzard-achievement-api-api/) — The Achievement API API from Activision Blizzard — 5 operation(s) for achievement api.
+- [Activision Blizzard Auction House API](https://apis.io/apis/activision-blizzard/activision-blizzard-auction-house-api-api/) — The Auction House API API from Activision Blizzard — 4 operation(s) for auction house api.
+- [Activision Blizzard Azerite Essence API](https://apis.io/apis/activision-blizzard/activision-blizzard-azerite-essence-api-api/) — The Azerite Essence API API from Activision Blizzard — 4 operation(s) for azerite essence api.
+- [Activision Blizzard Card Backs API](https://apis.io/apis/activision-blizzard/activision-blizzard-card-backs-api/) — The Card Backs API from Activision Blizzard — 2 operation(s) for card backs.
+- [Activision Blizzard Cards API](https://apis.io/apis/activision-blizzard/activision-blizzard-cards-api/) — The Cards API from Activision Blizzard — 1 operation(s) for cards.
+- [Activision Blizzard Character Achievements API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-achievements-api-api/) — The Character Achievements API API from Activision Blizzard — 1 operation(s) for character achievements api.
+- [Activision Blizzard Character Appearance API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-appearance-api-api/) — The Character Appearance API API from Activision Blizzard — 1 operation(s) for character appearance api.
+- [Activision Blizzard Character Collections API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-collections-api-api/) — The Character Collections API API from Activision Blizzard — 7 operation(s) for character collections api.
+- [Activision Blizzard Character Encounters API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-encounters-api-api/) — The Character Encounters API API from Activision Blizzard — 3 operation(s) for character encounters api.
+- [Activision Blizzard Character House API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-house-api-api/) — The Character House API API from Activision Blizzard — 1 operation(s) for character house api.
+- [Activision Blizzard Character Hunter Pets API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-hunter-pets-api-api/) — The Character Hunter Pets API API from Activision Blizzard — 1 operation(s) for character hunter pets api.
+- [Activision Blizzard Character Media API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-media-api-api/) — The Character Media API API from Activision Blizzard — 1 operation(s) for character media api.
+- [Activision Blizzard Character Mythic Keystone Profile API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-mythic-keystone-profile-api-api/) — The Character Mythic Keystone Profile API API from Activision Blizzard — 2 operation(s) for character mythic keystone profile api.
+- [Activision Blizzard Character Professions API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-professions-api-api/) — The Character Professions API API from Activision Blizzard — 1 operation(s) for character professions api.
+- [Activision Blizzard Character Profile API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-profile-api-api/) — The Character Profile API API from Activision Blizzard — 1 operation(s) for character profile api.
+- [Activision Blizzard Character PvP API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-pvp-api-api/) — The Character PvP API API from Activision Blizzard — 2 operation(s) for character pvp api.
+- [Activision Blizzard Character Quests API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-quests-api-api/) — The Character Quests API API from Activision Blizzard — 2 operation(s) for character quests api.
+- [Activision Blizzard Character Reputations API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-reputations-api-api/) — The Character Reputations API API from Activision Blizzard — 1 operation(s) for character reputations api.
+- [Activision Blizzard Character Soulbinds API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-soulbinds-api-api/) — The Character Soulbinds API API from Activision Blizzard — 1 operation(s) for character soulbinds api.
+- [Activision Blizzard Character Specializations API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-specializations-api-api/) — The Character Specializations API API from Activision Blizzard — 1 operation(s) for character specializations api.
+- [Activision Blizzard Character Statistics API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-statistics-api-api/) — The Character Statistics API API from Activision Blizzard — 1 operation(s) for character statistics api.
+- [Activision Blizzard Character Titles API](https://apis.io/apis/activision-blizzard/activision-blizzard-character-titles-api-api/) — The Character Titles API API from Activision Blizzard — 1 operation(s) for character titles api.
+- [Activision Blizzard Connected Realm API](https://apis.io/apis/activision-blizzard/activision-blizzard-connected-realm-api-api/) — The Connected Realm API API from Activision Blizzard — 3 operation(s) for connected realm api.
+- [Activision Blizzard Covenant API](https://apis.io/apis/activision-blizzard/activision-blizzard-covenant-api-api/) — The Covenant API API from Activision Blizzard — 7 operation(s) for covenant api.
+- [Activision Blizzard Creature API](https://apis.io/apis/activision-blizzard/activision-blizzard-creature-api-api/) — The Creature API API from Activision Blizzard — 8 operation(s) for creature api.
+- [Activision Blizzard D3 Act API](https://apis.io/apis/activision-blizzard/activision-blizzard-d3-act-api-api/) — The D3 Act API API from Activision Blizzard — 2 operation(s) for d3 act api.
+- [Activision Blizzard D3 API](https://apis.io/apis/activision-blizzard/activision-blizzard-d3-api/) — The D3 API from Activision Blizzard — 6 operation(s) for d3.
+- [Activision Blizzard D3 Artisan and Recipe API](https://apis.io/apis/activision-blizzard/activision-blizzard-d3-artisan-and-recipe-api-api/) — The D3 Artisan and Recipe API API from Activision Blizzard — 2 operation(s) for d3 artisan and recipe api.
+- [Activision Blizzard D3 Character Class and Skill API](https://apis.io/apis/activision-blizzard/activision-blizzard-d3-character-class-and-skill-api-api/) — The D3 Character Class and Skill API API from Activision Blizzard — 2 operation(s) for d3 character class and skill api.
+- [Activision Blizzard D3 Follower API](https://apis.io/apis/activision-blizzard/activision-blizzard-d3-follower-api-api/) — The D3 Follower API API from Activision Blizzard — 1 operation(s) for d3 follower api.
+- [Activision Blizzard D3 Item API](https://apis.io/apis/activision-blizzard/activision-blizzard-d3-item-api-api/) — The D3 Item API API from Activision Blizzard — 1 operation(s) for d3 item api.
+- [Activision Blizzard D3 Item Type API](https://apis.io/apis/activision-blizzard/activision-blizzard-d3-item-type-api-api/) — The D3 Item Type API API from Activision Blizzard — 2 operation(s) for d3 item type api.
+- [Activision Blizzard D3 Profile API](https://apis.io/apis/activision-blizzard/activision-blizzard-d3-profile-api-api/) — The D3 Profile API API from Activision Blizzard — 4 operation(s) for d3 profile api.
+- [Activision Blizzard Decks API](https://apis.io/apis/activision-blizzard/activision-blizzard-decks-api/) — The Decks API from Activision Blizzard — 1 operation(s) for decks.
+- [Activision Blizzard Guild API](https://apis.io/apis/activision-blizzard/activision-blizzard-guild-api-api/) — The Guild API API from Activision Blizzard — 3 operation(s) for guild api.
+- [Activision Blizzard Guild Crest API](https://apis.io/apis/activision-blizzard/activision-blizzard-guild-crest-api-api/) — The Guild Crest API API from Activision Blizzard — 3 operation(s) for guild crest api.
+- [Activision Blizzard Heirloom API](https://apis.io/apis/activision-blizzard/activision-blizzard-heirloom-api-api/) — The Heirloom API API from Activision Blizzard — 2 operation(s) for heirloom api.
+- [Activision Blizzard Housing Decor API](https://apis.io/apis/activision-blizzard/activision-blizzard-housing-decor-api-api/) — The Housing Decor API API from Activision Blizzard — 12 operation(s) for housing decor api.
+- [Activision Blizzard Item API](https://apis.io/apis/activision-blizzard/activision-blizzard-item-api-api/) — The Item API API from Activision Blizzard — 7 operation(s) for item api.
+- [Activision Blizzard Item Appearance API](https://apis.io/apis/activision-blizzard/activision-blizzard-item-appearance-api-api/) — The Item Appearance API API from Activision Blizzard — 6 operation(s) for item appearance api.
+- [Activision Blizzard Journal API](https://apis.io/apis/activision-blizzard/activision-blizzard-journal-api-api/) — The Journal API API from Activision Blizzard — 8 operation(s) for journal api.
+- [Activision Blizzard Ladder API](https://apis.io/apis/activision-blizzard/activision-blizzard-ladder-api-api/) — The Ladder API API from Activision Blizzard — 2 operation(s) for ladder api.
+- [Activision Blizzard Legacy API](https://apis.io/apis/activision-blizzard/activision-blizzard-legacy-api-api/) — The Legacy API API from Activision Blizzard — 6 operation(s) for legacy api.
+- [Activision Blizzard Media Search API](https://apis.io/apis/activision-blizzard/activision-blizzard-media-search-api-api/) — The Media Search API API from Activision Blizzard — 1 operation(s) for media search api.
+- [Activision Blizzard Metadata API](https://apis.io/apis/activision-blizzard/activision-blizzard-metadata-api/) — The Metadata API from Activision Blizzard — 2 operation(s) for metadata.
+- [Activision Blizzard Modified Crafting API](https://apis.io/apis/activision-blizzard/activision-blizzard-modified-crafting-api-api/) — The Modified Crafting API API from Activision Blizzard — 5 operation(s) for modified crafting api.
+- [Activision Blizzard Mount API](https://apis.io/apis/activision-blizzard/activision-blizzard-mount-api-api/) — The Mount API API from Activision Blizzard — 3 operation(s) for mount api.
+- [Activision Blizzard Mythic Keystone Affix API](https://apis.io/apis/activision-blizzard/activision-blizzard-mythic-keystone-affix-api-api/) — The Mythic Keystone Affix API API from Activision Blizzard — 3 operation(s) for mythic keystone affix api.
+- [Activision Blizzard Mythic Keystone Dungeon API](https://apis.io/apis/activision-blizzard/activision-blizzard-mythic-keystone-dungeon-api-api/) — The Mythic Keystone Dungeon API API from Activision Blizzard — 7 operation(s) for mythic keystone dungeon api.
+- [Activision Blizzard Mythic Keystone Leaderboard API](https://apis.io/apis/activision-blizzard/activision-blizzard-mythic-keystone-leaderboard-api-api/) — The Mythic Keystone Leaderboard API API from Activision Blizzard — 2 operation(s) for mythic keystone leaderboard api.
+- [Activision Blizzard Mythic Raid Leaderboard API](https://apis.io/apis/activision-blizzard/activision-blizzard-mythic-raid-leaderboard-api-api/) — The Mythic Raid Leaderboard API API from Activision Blizzard — 1 operation(s) for mythic raid leaderboard api.
+- [Activision Blizzard Neighborhood API](https://apis.io/apis/activision-blizzard/activision-blizzard-neighborhood-api-api/) — The Neighborhood API API from Activision Blizzard — 3 operation(s) for neighborhood api.
+- [Activision Blizzard Pet API](https://apis.io/apis/activision-blizzard/activision-blizzard-pet-api-api/) — The Pet API API from Activision Blizzard — 6 operation(s) for pet api.
+- [Activision Blizzard Playable Class API](https://apis.io/apis/activision-blizzard/activision-blizzard-playable-class-api-api/) — The Playable Class API API from Activision Blizzard — 4 operation(s) for playable class api.
+- [Activision Blizzard Playable Race API](https://apis.io/apis/activision-blizzard/activision-blizzard-playable-race-api-api/) — The Playable Race API API from Activision Blizzard — 2 operation(s) for playable race api.
+- [Activision Blizzard Playable Specialization API](https://apis.io/apis/activision-blizzard/activision-blizzard-playable-specialization-api-api/) — The Playable Specialization API API from Activision Blizzard — 3 operation(s) for playable specialization api.
+- [Activision Blizzard Power Type API](https://apis.io/apis/activision-blizzard/activision-blizzard-power-type-api-api/) — The Power Type API API from Activision Blizzard — 2 operation(s) for power type api.
+- [Activision Blizzard Profession API](https://apis.io/apis/activision-blizzard/activision-blizzard-profession-api-api/) — The Profession API API from Activision Blizzard — 6 operation(s) for profession api.
+- [Activision Blizzard Profile API](https://apis.io/apis/activision-blizzard/activision-blizzard-profile-api-api/) — The Profile API API from Activision Blizzard — 5 operation(s) for profile api.
+- [Activision Blizzard PvP Season API](https://apis.io/apis/activision-blizzard/activision-blizzard-pvp-season-api-api/) — The PvP Season API API from Activision Blizzard — 11 operation(s) for pvp season api.
+- [Activision Blizzard PvP Tier API](https://apis.io/apis/activision-blizzard/activision-blizzard-pvp-tier-api-api/) — The PvP Tier API API from Activision Blizzard — 3 operation(s) for pvp tier api.
+- [Activision Blizzard Quest API](https://apis.io/apis/activision-blizzard/activision-blizzard-quest-api-api/) — The Quest API API from Activision Blizzard — 8 operation(s) for quest api.
+- [Activision Blizzard Realm API](https://apis.io/apis/activision-blizzard/activision-blizzard-realm-api-api/) — The Realm API API from Activision Blizzard — 1 operation(s) for realm api.
+- [Activision Blizzard Region API](https://apis.io/apis/activision-blizzard/activision-blizzard-region-api-api/) — The Region API API from Activision Blizzard — 2 operation(s) for region api.
+- [Activision Blizzard Reputations API](https://apis.io/apis/activision-blizzard/activision-blizzard-reputations-api-api/) — The Reputations API API from Activision Blizzard — 4 operation(s) for reputations api.
+- [Activision Blizzard Spell API](https://apis.io/apis/activision-blizzard/activision-blizzard-spell-api-api/) — The Spell API API from Activision Blizzard — 3 operation(s) for spell api.
+- [Activision Blizzard StarCraft II League API](https://apis.io/apis/activision-blizzard/activision-blizzard-starcraft-ii-league-api-api/) — The StarCraft II League API API from Activision Blizzard — 1 operation(s) for starcraft ii league api.
+- [Activision Blizzard Talent API](https://apis.io/apis/activision-blizzard/activision-blizzard-talent-api-api/) — The Talent API API from Activision Blizzard — 7 operation(s) for talent api.
+- [Activision Blizzard Tech Talent API](https://apis.io/apis/activision-blizzard/activision-blizzard-tech-talent-api-api/) — The Tech Talent API API from Activision Blizzard — 5 operation(s) for tech talent api.
+- [Activision Blizzard Title API](https://apis.io/apis/activision-blizzard/activision-blizzard-title-api-api/) — The Title API API from Activision Blizzard — 2 operation(s) for title api.
+- [Activision Blizzard Token Validation API](https://apis.io/apis/activision-blizzard/activision-blizzard-token-validation-api/) — The Token Validation API from Activision Blizzard — 1 operation(s) for token validation.
+- [Activision Blizzard Toy API](https://apis.io/apis/activision-blizzard/activision-blizzard-toy-api-api/) — The Toy API API from Activision Blizzard — 2 operation(s) for toy api.
+- [Activision Blizzard User Authentication API](https://apis.io/apis/activision-blizzard/activision-blizzard-user-authentication-api/) — The User Authentication API from Activision Blizzard — 3 operation(s) for user authentication.
+- [Activision Blizzard WoW Token API](https://apis.io/apis/activision-blizzard/activision-blizzard-wow-token-api-api/) — The WoW Token API API from Activision Blizzard — 1 operation(s) for wow token api.
 
 ### Published properties
 
@@ -91,6 +168,12 @@ Each property below is a page on APIs.io carrying the machine-readable artifact 
 GraphQL schemas.
 
 - [Moved to /providers/activision-blizzard/](https://apis.io/graphqls/activision-blizzard/activision-blizzard-graphql/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [activision-blizzard-mcp.yml](https://apis.io/servers/activision-blizzard/activision-blizzard-mcp-yml/)
 
 #### Agentic access (1)
 
@@ -187,11 +270,12 @@ Postman and Open Collection request collections.
 - [Activision Blizzard Battle.net Account StarCraft II API](https://apis.io/collections/activision-blizzard/open-activision-blizzard-starcraft-ii-api/)
 - [Activision Blizzard Battle.net Account World of Warcraft API](https://apis.io/collections/activision-blizzard/open-activision-blizzard-world-of-warcraft-api/)
 
-#### Governance rules (2)
+#### Governance rules (3)
 
 Spectral rulesets for the provider's contracts.
 
 - [Activision Blizzard — jsonschema rules](https://apis.io/rules/activision-blizzard/activision-blizzard-jsonschema-spectral-rules/)
+- [Activision Blizzard API Rules](https://apis.io/rules/activision-blizzard/activision-blizzard-rules/)
 - [Activision Blizzard API Rules](https://apis.io/rules/activision-blizzard/activision-blizzard-spectral-rules/)
 
 #### Security (2)
@@ -230,9 +314,11 @@ What the API costs to run, by operation.
 Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.activisionblizzard.com/)
-- [Documentation](https://develop.battle.net/documentation)
-- [Getting started](https://develop.battle.net/documentation/guides/getting-started)
-- [Pricing](https://develop.battle.net/documentation/guides/getting-started)
+- [Documentation](https://community.developer.battle.net/documentation)
+- [Getting started](https://community.developer.battle.net/documentation/guides/getting-started)
+- [API reference](https://community.developer.battle.net/documentation)
+- [Support](https://us.forums.blizzard.com/en/blizzard/c/api-discussion/18)
+- [Privacy policy](https://www.activisionblizzard.com/legal/privacy-policy)
 - [GitHub](https://github.com/Blizzard)
 
 ## API Evangelist rating
